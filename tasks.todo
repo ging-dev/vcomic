@@ -1,0 +1,53 @@
+Chức năng
+ ✔ Đăng ký @done (19-10-15 20:27)
+ ✔ Đăng nhập @done (19-10-15 20:27)
+ ✔ Quên mật khẩu (gửi về mail) @done (19-10-16 15:26)
+ ☐ Sửa hồ sơ
+ ☐ Ảnh đại diện - bìa
+ ☐ Đổi password
+ ☐ Theo dõi tác giả, ...
+ ☐ Đăng status
+ ☐ Tạo biểu mẫu trả lời
+ ☐ Cuộc hội thoại
+ ☐ Chat room
+ ☐ Tags seo
+ ☐ Lưu truyện
+ ☐ Truyện đã đọc
+ ☐ Đánh dấu truyện
+ ☐ Nạp tiền (đổi gold -> xu)
+ ☐ Đề cử truyện (VIP)
+ ☐ Xếp hạng truyện được đề cử
+ ☐ Donate cho tác giả
+ ☐ Hệ thống cấp bậc
+ ☐ Bình luận truyện
+ ☐ Xem log hoạt động
+ ✔ Avatar theo tên @done (19-10-15 20:27)
+ ☐ Chúc mừng sinh nhật tác giả
+ ☐ Thích bài viết
+ ☐ Kết bạn
+ ☐ Gợi ý truyện
+
+Tác giả
+ ☐ Tạo tin (24h)
+ ☐ Tạo series
+ ☐ Tạo truyện
+ ☐ Sử dụng lại thumbnail đã up
+ ☐ Hashtag trong truyện
+ ☐ Truyện đang viết
+ ☐ Truyện đã xong
+
+Admin
+ ☐ Giftcode
+ ☐ Quản lí banner
+ ☐ Quản lí quảng cáo
+ ☐ Xóa bình luận truyện, ...
+ ☐ Thêm sửa xóa truyện
+ ☐ Xem log mọi thứ
+
+Hệ thống
+ ✔ Notify alert css @done (19-10-16 16:55)
+ ☐ Pace js
+ ☐ Push notification <https://gist.github.com/prime31/5675017> <https://viblo.asia/p/push-notification-in-android-XL6lAYkDlek>
+ ☐ Datatable
+ ☐ Lazyload image
+ ☐ API history

@@ -1,0 +1,52 @@
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+    # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+    # Data interchange
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+    # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+    # HTML components (HTCs)
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+    # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+    # JavaScript
+    ExpiresByType text/javascript                       "access plus 1 year"
+
+    # Manifest files
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+    # Web feeds
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+	ErrorDocument 404 /themes/errors/404.html
+	ErrorDocument 403 /themes/errors/404.html
+	ErrorDocument 401 /themes/errors/404.html
+	ErrorDocument 500 /themes/errors/404.html
+
+    RewriteCond %{REQUEST_METHOD} ^TRACE
+    RewriteCond %{HTTP:range} !(^bytes=[^,]+(,[^,]+){0,4}$|^$)
+    RewriteRule .* - [F]
+
+    RewriteCond %{REQUEST_URI} !^/(assets|uploads)/
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule .* index.php [L,QSA]
+
+</IfModule>
