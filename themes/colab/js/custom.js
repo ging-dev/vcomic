@@ -54,36 +54,53 @@ $(document).ready(function() {
         var n = $("#username").val(),
             a = $("#password").val();
         $.ajax({
-            url: "/login/",
+            url: "/login",
             method: "POST",
             data: {
                 username: n,
                 password: a
             },
             success: function(e) {
-                $("#errorLogin").html(e), "Đăng nhập thành công. Chờ chuyển hướng!!!" === e && setTimeout("location.reload();", 500)
+                $("#errorLogin").html(e), "Đăng nhập thành công. Chờ chuyển hướng!!!" === e && setTimeout("location.reload();", 1000)
             },
             dataType: "text"
         })
     }), $("#register").on("click", function(e) {
         e.preventDefault();
-        var n = $("#usernameRegister").val(),
-            a = $("#passwordRegister").val(),
+        var n = $("#usernameReg").val(),
+            a = $("#passwordReg").val(),
             t = $("#fullname").val(),
             o = $("#email").val();
         $.ajax({
-            url: "/register/",
+            url: "/register",
             method: "POST",
             data: {
-                usernameRegister: n,
-                passwordRegister: a,
+                usernameReg: n,
+                passwordReg: a,
                 fullname: t,
                 email: o
             },
             success: function(e) {
-                $("#errorRegister").html(e), "Đăng ký thành công. Chờ chuyển hướng!!!" === e && setTimeout("location.reload();", 500)
+                $("#errorRegister").html(e), "Đăng ký thành công. Chờ chuyển hướng!!!" === e && setTimeout("location.reload();", 1000);
             },
             dataType: "text"
+        }),
+        $("#recover").on("click", function(e) {
+            e.preventDefault();
+            var n = $("#usernameRecover").val(),
+                a = $("#emailRecover").val()
+            $.ajax({
+                url: "/users/recover",
+                method: "POST",
+                data: {
+                    usernameRecover: n,
+                    emailRecover: a
+                },
+                success: function(e) {
+                    $("#errorRecover").html(e), "Link cấp lại đã được gửi tới email của bạn" === e && setTimeout("location.reload();", 1000)
+                },
+                dataType: "text"
+            })
         })
     })
 });

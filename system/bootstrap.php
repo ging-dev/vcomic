@@ -14,7 +14,7 @@ require_once('routes.php');
 
 define('SITE_URL', 'http://vcomic.net');
 define('ROOT', dirname(dirname(__FILE__)));
-define('THEME', 'bootstrap');
+define('THEME', 'colab');
 define('VERSION', '0.0.1');
 define('ENV', 'development');
 
@@ -27,6 +27,7 @@ if (ENV === 'development') {
 session_name('vComic');
 session_start();
 
+require_model('home');
 require_model('user');
 
 $user_id = 0;

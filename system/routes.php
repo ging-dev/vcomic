@@ -11,6 +11,7 @@ $routes = [
 	'/' => 'home/home.php',
 	'/login' => 'users/login.php',
 	'/register' => 'users/register.php',
+	'/logout' => 'users/logout.php',
 	'/search' => 'search.php',
 
 	// users
