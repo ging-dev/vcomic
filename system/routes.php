@@ -8,6 +8,9 @@
  */
 
 $routes = [
+	//ajax
+	'/ajax/send_status' => 'ajax/status.php',
+	
 	'/' => 'home/home.php',
 	'/login' => 'users/login.php',
 	'/register' => 'users/register.php',

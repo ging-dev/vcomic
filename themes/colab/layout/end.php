@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" id="login" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Đăng nhập</button>
+                        <button id="login" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Đăng nhập</button>
                     </div>
                     <div class="form-group text-center small-text">
                         <span>hoặc đăng nhập bằng mạng xã hội</span>
@@ -119,7 +119,7 @@
                         <input type="email" id="email" name="email" class="form-control bg-light rounded-0" placeholder="Email"/>
                     </div>
                     <div class="form-group mt-4">
-                        <button type="submit" id="register" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Đăng kí</button>
+                        <button id="register" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Đăng kí</button>
                     </div>
                     <div class="form-group text-center small-text">
                         <span>hoặc đăng nhập bằng mạng xã hội</span>
@@ -158,7 +158,7 @@
                         <input type="email" id="emailRecover" name="emailRecover" class="form-control bg-light rounded-0" placeholder="Email" />
                     </div>
                     <div class="form-group">
-                        <button type="submit" id="recover" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Gửi Yêu Cầu</button>
+                        <button id="recover" class="btn btn-custom rounded-0 btn-block text-uppercase py-2 shadow-sm">Gửi Yêu Cầu</button>
                     </div>
                 </div>
             </div>

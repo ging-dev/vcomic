@@ -49,8 +49,7 @@ $(document).ready(function() {
         })
     }), $(".background-chooser").change(function() {
         $(".background-custom").removeClass("medium"), $(".background-custom").removeClass("white"), $(".background-custom").removeClass("dark"), $(".background-custom").addClass($(".background-chooser").val())
-    }), $("#login").on("click", function(e) {
-        e.preventDefault();
+    }),$("#login").on("click", function(e) {
         var n = $("#username").val(),
             a = $("#password").val();
         $.ajax({
@@ -66,7 +65,6 @@ $(document).ready(function() {
             dataType: "text"
         })
     }), $("#register").on("click", function(e) {
-        e.preventDefault();
         var n = $("#usernameReg").val(),
             a = $("#passwordReg").val(),
             t = $("#fullname").val(),
@@ -86,7 +84,6 @@ $(document).ready(function() {
             dataType: "text"
         }),
         $("#recover").on("click", function(e) {
-            e.preventDefault();
             var n = $("#usernameRecover").val(),
                 a = $("#emailRecover").val()
             $.ajax({
@@ -102,5 +99,23 @@ $(document).ready(function() {
                 dataType: "text"
             })
         })
+        // $("#send_status").on("click", function(e) {
+        //     var n = $("#msg").val(),
+        //         a = $("#private").val()
+        //         console.log(n)
+        //         console.log(a)
+        //     $.ajax({
+        //         url: "/ajax/send_status",
+        //         method: "POST",
+        //         data: {
+        //             msg: n,
+        //             private: a
+        //         },
+        //         success: function(e) {
+        //             $("#errorStatus").html(e), "Đã gửi lên status" === e && setTimeout("location.reload();", 1000)
+        //         },
+        //         dataType: "text"
+        //     })
+        // })
     })
 });
