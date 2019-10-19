@@ -124,7 +124,7 @@ function get_page($total, $return = 0)
     return ' LIMIT ' . $per_page . ' OFFSET ' . (($page - 1) * $per_page);
 }
 
-function display_pager($total)
+function pagination($link, $total)
 {
     global $per_page;
     if ($total <= $per_page) {
@@ -134,13 +134,13 @@ function display_pager($total)
     $current_page = get_page($total, 1);
     $return = '';
     if ($current_page > 1) {
-        $return .= '<li class="previous"><a href="?page=' . ($current_page - 1) . '">Trang trước</a></li>';
+        $return .= '<li class="previous"><a href="' . $link . '/page/' . ($current_page - 1) . '">Trang trước</a></li>';
     } else {
         $return .= '<li class="previous disabled"><a href="#">Trang trước</a></li>';
     }
 
     if ($current_page < $max_page) {
-        $return .= '<li class="next"><a href="?page=' . ($current_page + 1) . '">Trang sau</a></li>';
+        $return .= '<li class="next"><a href="' . $link . '/page/' . ($current_page + 1) . '">Trang sau</a></li>';
     } else {
         $return .= '<li class="next disabled"><a href="#">Trang sau</a></li>';
     }

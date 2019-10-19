@@ -7,11 +7,6 @@
  * @version     0.0.1
  */
 
-function count_follower($user_id)
-{
-    return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_RELATIONSHIPS . '` WHERE `user_id` = ' . $user_id . ' AND `type` = 1');
-}
-
 function check_info($col, $val)
 {
     return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `' . $col . '` = "' . $val . '" LIMIT 1');
@@ -58,6 +53,19 @@ function update_recover_code($recover_code, $recover_time, $user_id)
 function update_password($password, $user_id)
 {
     return vco_execute('UPDATE `' . VCO_USERS . '` SET `recover_code` = "", `password` = "' . $password . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
+}
+
+function update_fullname($fullname, $user_id)
+{
+    return vco_execute('UPDATE `' . VCO_USERS . '` SET `fullname` = "' . $fullname . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
+}
+
+function update_avatar($avatar, $user_id) {
+    return vco_execute('UPDATE `' . VCO_USERS . '` SET `avatar` = "' . $avatar . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
+}
+
+function update_cover($cover, $user_id) {
+    return vco_execute('UPDATE `' . VCO_USERS . '` SET `cover` = "' . $cover . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
 }
 
 function login_at($time, $user_id)

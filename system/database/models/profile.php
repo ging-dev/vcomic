@@ -14,3 +14,17 @@ function get_profile($user_id)
         ON `' . VCO_USERS . '`.`id` = ' . VCO_PROFILE_USERS . '.`user_id`
         WHERE ' . VCO_PROFILE_USERS . '.`user_id` = ' . $user_id);
 }
+
+function update_profile($facebook, $about, $user_id)
+{
+	return vco_execute('UPDATE `' . VCO_PROFILE_USERS . '` 
+		SET `facebook` = "' . $facebook . '", `about` = "' . $about . '" 
+		WHERE `user_id` = ' . $user_id . ' LIMIT 1');
+}
+
+function insert_profile($facebook, $about, $user_id)
+{
+	return vco_execute('INSERT INTO `' . VCO_PROFILE_USERS . '`
+		(user_id, about, facebook) VALUES (' . $user_id . ', "' . $about . '", "' . $facebook . '")
+		WHERE `user_id` = ' . $user_id . ' LIMIT 1');
+}

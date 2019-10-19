@@ -19,6 +19,15 @@ $routes = [
 
 	// users
 	'/profile' => 'users/profile.php',
+	'/profile/page/(.*)' => 'users/profile.php?page=$1',
+	'/profile/avatar' => 'users/avatar.php',
+	'/profile/cover' => 'users/cover.php',
+	'/profile/settings' => 'users/settings.php',
+	'/profile/password' => 'users/change_password.php',
 	'/users/recover' => 'users/recover.php',
 	'/users/recover/set/(.*)/(.*)' => 'users/recover.php?act=set&username=$1&recover_code=$2',
+	'/(.*)/page/(.*)' => 'users/index.php?username=$1&page=$2',
+	'/(.*)/follow' => 'users/index.php?username=$1&act=follow',
+	'/(.*)/unfollow' => 'users/index.php?username=$1&act=unfollow',
+	'/(.*)' => 'users/index.php?username=$1',
 ];

@@ -17,6 +17,16 @@ function get_status($user_id, $total)
 	return vco_fetchAll('SELECT * FROM `' . VCO_USER_STATUS . '` WHERE `user_id` = ' . $user_id . ' ORDER BY `id` DESC' . get_page($total));
 }
 
+function count_status_public($user_id)
+{
+	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_USER_STATUS . '` WHERE `user_id` = ' . $user_id . ' AND `private` = 0');
+}
+
+function get_status_public($user_id, $total)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_USER_STATUS . '` WHERE `user_id` = ' . $user_id . ' AND `private` = 0 ORDER BY `id` DESC' . get_page($total));
+}
+
 function insert_status($user_id, $msg, $private, $created_at)
 {
 	return vco_execute('INSERT INTO `' . VCO_USER_STATUS . '` (user_id, msg, private, created_at) 

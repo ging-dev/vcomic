@@ -2,7 +2,7 @@
     <div class="container-fluid profile-cover pt-2" style="background-image:url('<?= get_cover($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>');">
         <div class="container fill">
             <div class="cover-change">
-                <a href="/user/profile/cover">
+                <a href="/profile/cover">
                     <div class="button-change">
                         <i class="fal fa-camera-alt fa-lg"></i> <span class="desc-text">Thay đổi ảnh bìa</span>
                     </div>
@@ -10,7 +10,7 @@
             </div>
             <div class="profile-avatar">
                 <img src="<?= get_avatar($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>" class="image" />
-                <a href="/user/profile/avatar">
+                <a href="/profile/avatar">
                     <div class="change">
                         <i class="fal fa-camera-alt"></i>
                     </div>
@@ -42,16 +42,16 @@
     </div>
 </section>
 
-<section class="">
-    <div class="custom-navs" role="tablist" id="myTab">
-        <a class="item active" href="/user/profile/">
+<section>
+    <div class="custom-navs">
+        <a class="item active" href="/profile">
             Thông tin
         </a>
-        <a class="item" href="/user/settings">
+        <a class="item" href="/users/settings">
             Cài đặt
         </a>
 <?php if ($user['role'] > 1): ?>
-        <a class="item" href="/works/">
+        <a class="item" href="/works">
             Quản Lý Truyện
         </a>
 <?php endif ?>
@@ -120,6 +120,7 @@
                     </div>
                 </div>
     <?php endforeach ?>
+            <?= pagination('/profile', $count_status) ?>
 <?php else: ?>
                 Bạn chưa có bài viết nào!!!
 <?php endif ?>
