@@ -25,6 +25,5 @@ function update_profile($facebook, $about, $user_id)
 function insert_profile($facebook, $about, $user_id)
 {
 	return vco_execute('INSERT INTO `' . VCO_PROFILE_USERS . '`
-		(user_id, about, facebook) VALUES (' . $user_id . ', "' . $about . '", "' . $facebook . '")
-		WHERE `user_id` = ' . $user_id . ' LIMIT 1');
+		(user_id, about, facebook) VALUES (' . $user_id . ', "' . $about . '", "' . $facebook . '")');
 }

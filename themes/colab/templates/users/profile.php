@@ -47,7 +47,7 @@
         <a class="item active" href="/profile">
             Thông tin
         </a>
-        <a class="item" href="/users/settings">
+        <a class="item" href="/profile/settings">
             Cài đặt
         </a>
 <?php if ($user['role'] > 1): ?>
