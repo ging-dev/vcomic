@@ -16,6 +16,10 @@ $routes = [
 	'/register' => 'users/register.php',
 	'/logout' => 'users/logout.php',
 	'/search' => 'search.php',
+	'/chat' => 'chat/chat.php',
+	'/chat/clear' => 'chat/chat.php?act=clear',
+	'/chat/del/(.*)' => 'chat/chat.php?act=del&id=$1',
+	'/chat/page/(.*)' => 'chat/chat.php?page=$1',
 
 	// users
 	'/profile' => 'users/profile.php',

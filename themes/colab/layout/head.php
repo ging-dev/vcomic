@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/<?= THEME ?>/css/custom.css?ver=<?= VERSION ?>" />
 </head>
 <body>
-    <!-- <section class="loading">
+    <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -28,14 +28,14 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
                 <a href="/" class="text-white">vComic.</a>
             </div>
             <div class="custom-nav-search">
-                <form action="/search.php" method="GET">
+                <form method="GET">
                     <input type="text" class="nav-search-input" name="search" id="search" placeholder="Nhập từ khóa tìm kiếm" />
                 </form>
             </div>
@@ -49,7 +49,7 @@
                         <i class="fal fa-comment-alt-lines"></i> Chat
                     </a>
                     <a class="item" href="/profile">
-                        <img src="/uploads/avatar/<?= $user['avatar'] ?>" class="avatar-sm"> <?= $user['fullname'] ?>
+                        <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>"> <?= $user['fullname'] ?>
                     </a>
                     <a class="item" href="/logout"><i class="fal fa-door-open"></i></a>
     <?php else: ?>

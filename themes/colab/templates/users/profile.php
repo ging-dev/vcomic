@@ -9,7 +9,7 @@
                 </a>
             </div>
             <div class="profile-avatar">
-                <img src="<?= get_avatar($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>" class="image" />
+                <img class="lazy image" data-original="<?= get_avatar($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>" />
                 <a href="/profile/avatar">
                     <div class="change">
                         <i class="fal fa-camera-alt"></i>
@@ -103,7 +103,7 @@
 <?php if ($count_status): ?>
     <?php foreach ($data_status as $data): ?>
                 <div class="p-3 rounded border media mb-3 shadow-sm">
-                    <img src="<?= get_avatar($user_id) ?>" class="avatar" />
+                    <img class="lazy avatar" data-original="<?= get_avatar($user_id) ?>" />
                     <div class="media-body pl-3">
                         <div class="top-line">
                             <div class="name">
@@ -127,5 +127,4 @@
             </div>
         </div>
     </div>
-
 </section>

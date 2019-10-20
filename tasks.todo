@@ -5,9 +5,9 @@ Chức năng
  ✔ Sửa hồ sơ @done (19-10-19 18:19)
  ✔ Ảnh đại diện - bìa @done (19-10-19 18:41)
  ✔ Đổi password @done (19-10-19 18:58)
- ☐ Theo dõi tác giả, ...
+ ✔ Theo dõi tác giả, ... @done (19-10-19 22:49)
  ✔ Đăng status @done (19-10-18 21:51)
- ☐ Chat room
+ ✔ Chat room @done (19-10-20 16:54)
  ☐ Tags seo
  ☐ Truyện đã đọc
  ☐ Đánh dấu truyện
@@ -16,11 +16,9 @@ Chức năng
  ☐ Xếp hạng truyện được đề cử
  ☐ Donate cho tác giả
  ☐ Bình luận truyện
- ☐ Xem log hoạt động
  ✔ Avatar theo tên @done (19-10-15 20:27)
  ☐ Chúc mừng sinh nhật tác giả
  ☐ Thích bài viết
- ☐ Kết bạn
  ☐ Gợi ý truyện
  ✔ Đăng status @done (19-10-18 19:33)
 
@@ -37,12 +35,11 @@ Admin
  ☐ Quản lí quảng cáo
  ☐ Xóa bình luận truyện, ...
  ☐ Thêm sửa xóa truyện
- ☐ Xem log mọi thứ
 
 Hệ thống
  ✔ Notify alert css @done (19-10-16 16:55)
  ✔ Pace js @done (19-10-18 16:20)
  ☐ Push notification <https://gist.github.com/prime31/5675017> <https://viblo.asia/p/push-notification-in-android-XL6lAYkDlek>
  ☐ Datatable
- ☐ Lazyload image
+ ✔ Lazyload image @done (19-10-20 17:16)
  ☐ API history

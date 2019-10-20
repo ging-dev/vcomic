@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2019 lúc 05:47 PM
+-- Thời gian đã tạo: Th10 20, 2019 lúc 12:26 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.3.9
 
@@ -240,7 +240,18 @@ CREATE TABLE `tags` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `story_id` int(11) NOT NULL
+  `tag_story_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tag_story`
+--
+
+CREATE TABLE `tag_story` (
+  `story_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -273,9 +284,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `fullname`, `gender`, `gold`, `coin`, `birthday`, `cover`, `avatar`, `recover_code`, `recover_time`, `login_at`, `created_at`) VALUES
-(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 2, '•๖ۣۜTɦàηɦ ๖ۣۜNɦâη⁀ᶦᵈᵒᶫ', '', 0, 0, 0, 'tnit2510.jpg', 'tnit2510.jpg', '', 0, 1571496090, 1571394447),
-(2, 'doanh111', 'tnit25101@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 0, 'Dương Thị Doanh', '', 0, 0, 0, '', 'tnit25101.jpg', '', 0, 1571498779, 1571394654),
-(3, 'vivi2000', 'vivi2000@gmail.com', '3bdd106b41ec9ac3bbb85ba29681037e', 0, 'Vũ Thị Ngọc Vi', '', 0, 0, 0, '', 'vivi2000.jpg', '', 0, 1571499907, 1571395016),
+(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 2, '•๖ۣۜTɦàηɦ ๖ۣۜNɦâη⁀ᶦᵈᵒᶫ', '', 0, 0, 0, 'tnit2510.jpg', 'tnit2510.jpg', '', 0, 1571563894, 1571394447),
+(2, 'doanh111', 'tnit25101@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 0, 'Dương Thị Doanh', '', 0, 0, 0, '', 'tnit25101.jpg', '', 0, 1571563968, 1571394654),
+(3, 'vivi2000', 'vivi2000@gmail.com', '3bdd106b41ec9ac3bbb85ba29681037e', 0, 'Vũ Thị Ngọc Vi', '', 0, 0, 0, '', 'vivi2000.jpg', '', 0, 1571563783, 1571395016),
 (4, 'test01', 'test@test.vn', 'e8ad3782d98d9658e8d833d9c72cbd22', 0, 'Tớ Là Test', '', 0, 0, 0, '', 'test01.jpg', '', 0, 0, 1571499956);
 
 -- --------------------------------------------------------
@@ -403,8 +414,14 @@ ALTER TABLE `stories`
 -- Chỉ mục cho bảng `tags`
 --
 ALTER TABLE `tags`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_tag_story` (`story_id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `tag_story`
+--
+ALTER TABLE `tag_story`
+  ADD KEY `FK_tag_story` (`story_id`),
+  ADD KEY `FK_tag_tag` (`tag_id`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -445,7 +462,7 @@ ALTER TABLE `chapters`
 -- AUTO_INCREMENT cho bảng `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -568,10 +585,11 @@ ALTER TABLE `stories`
   ADD CONSTRAINT `FK_story_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Các ràng buộc cho bảng `tags`
+-- Các ràng buộc cho bảng `tag_story`
 --
-ALTER TABLE `tags`
-  ADD CONSTRAINT `FK_tag_story` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `tag_story`
+  ADD CONSTRAINT `FK_tag_story` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_tag_tag` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Các ràng buộc cho bảng `user_status`

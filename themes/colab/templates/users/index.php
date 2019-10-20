@@ -14,7 +14,7 @@
             </div>
 <?php endif ?>
             <div class="profile-avatar">
-                <img src="<?= get_avatar($data['id']) ?>" class="image" />
+                <img class="lazy image" data-original="<?= get_avatar($data['id']) ?>" />
             </div>
             <div class="name"><?= $data['fullname'] ?></div>
             <p align="center" style="font-size: 20px; color: #fff">@<?= $data['username'] ?></p>
@@ -75,7 +75,7 @@
     foreach ($data_status as $data_stt):
 ?>
                 <div class="p-3 rounded border media mb-3 shadow-sm">
-                    <img src="<?= get_avatar($data['id']) ?>" class="avatar" />
+                    <img class="lazy avatar" data-original="<?= get_avatar($data['id']) ?>" />
                     <div class="media-body pl-3">
                         <div class="top-line">
                             <div class="name">

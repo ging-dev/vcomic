@@ -1,3 +1,5 @@
+$("img.lazy").lazyload({effect : "fadeIn"});
+
 function previewFile() {
     var e = document.querySelector("img"),
         n = document.querySelector("input[type=file]").files[0],

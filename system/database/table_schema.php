@@ -21,5 +21,6 @@ define('VCO_RELATIONSHIPS', 'relationships');
 define('VCO_SERIES', 'series');
 define('VCO_STORIES', 'stories');
 define('VCO_TAGS', 'tags');
+define('VCO_TAG_STORY', 'tag_story');
 define('VCO_USERS', 'users');
 define('VCO_USER_STATUS', 'user_status');

@@ -173,6 +173,7 @@
 	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
 </body>
