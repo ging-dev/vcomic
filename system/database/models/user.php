@@ -32,6 +32,11 @@ function get_cover($user_id) {
     }
 }
 
+function get_info_id($user_id)
+{
+    return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `id` = "' . $user_id . '" LIMIT 1');
+}
+
 function get_info($username)
 {
 	return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `username` = "' . $username . '" LIMIT 1');

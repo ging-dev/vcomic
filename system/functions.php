@@ -105,7 +105,7 @@ function str_slug($str){
 	return $str;
 }
 
-$per_page = 10;
+$per_page = 20;
 
 function get_page($total, $return = 0)
 {

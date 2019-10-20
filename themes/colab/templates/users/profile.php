@@ -69,7 +69,9 @@
                         <?= isset($data_profile['about']) ? $data_profile['about'] : '(trống)' ?>
                     </div>
                     <div class="item">
-                        <i class="fab fa-facebook" style="color:var(--facebook-color)"></i> <?= isset($data_profile['facebook']) ? $data_profile['facebook'] : '(trống)' ?>
+                        <a href="<?= $data_profile['facebook'] ?>" target="_blank">
+                            <i class="fab fa-facebook"></i> <?= isset($data_profile['facebook']) ? $data_profile['facebook'] : '(trống)' ?>
+                        </a>
                     </div>
                 </div>
             </div>
