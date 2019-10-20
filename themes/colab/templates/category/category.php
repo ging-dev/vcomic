@@ -35,7 +35,7 @@
                 <div class="story-sm">
                     <img class="lazy md-story-cover float-left shadow-sm d-none d-md-block" data-original="/uploads/thumbnail/<?= $data_story['thumbnail'] ?>" />
                     <div class="content px-md-2 pt-md-2 pl-md-4 pb-md-2" style="overflow: hidden; height: max-content">
-                        <a href="/story/<?= $data_story['slug'] ?>/" class="title font-weight-bold" style="font-size:18px; line-height: 1.2">
+                        <a href="/story/<?= $data_story['slug'] ?>" class="title font-weight-bold" style="font-size:18px; line-height: 1.2">
                             <?= $data_story['title'] ?>
                         </a>
                         <div class="info mt-2 small-text">

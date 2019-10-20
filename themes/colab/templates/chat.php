@@ -23,10 +23,10 @@
                 <div class="media" title="<?= date('H:i | d-m-Y', $data['created_at']) ?>">
                     <div class="media-body mr-3">
                         <div class="chat-content">
-                        <?= ($user['role'] > 0) ? '<a href="/chat/del/' . $data['id'] . '"><i class="fal fa-trash-alt btn btn-custom"></i></a>' : '' ?>
                         <?= ($user_id != $data['user_id']) ? '<img class="lazy avatar-sm" data-original="' . get_avatar($data_user_chat['id']) . '" />
                             <a href="/' . $data_user_chat['username'] . '"><b>' . $data_user_chat['fullname'] . '</b></a>:' : '' ?>
                             <?= $data['msg'] ?>
+                            <?= ($user['role'] > 0) ? '<a href="/chat/del/' . $data['id'] . '"><i class="fal fa-trash-alt btn btn-custom ml-3"></i></a>' : '' ?>
                         </div>
                     </div>
                 </div>

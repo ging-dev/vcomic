@@ -18,8 +18,10 @@ $routes = [
 	'/chat/del/(.*)' => 'chat/chat.php?act=del&id=$1',
 	'/chat/page/(.*)' => 'chat/chat.php?page=$1',
 
-	'/category/(.*)/page/(.*)' =>'category/category.php?slug=$1&page=$2',
-	'/category/(.*)' =>'category/category.php?slug=$1',
+	'/category/(.*)/page/(.*)' => 'category/category.php?slug=$1&page=$2',
+	'/category/(.*)' => 'category/category.php?slug=$1',
+
+	'/story/(.*)' => 'story/story.php?slug=$1',
 
 	// users
 	'/profile' => 'users/profile.php',

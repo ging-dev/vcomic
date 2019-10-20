@@ -11,3 +11,8 @@ function get_category($slug)
 {
 	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `slug` = "' . $slug . '"');
 }
+
+function get_category_id($data_id)
+{
+	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `id` = ' . $data_id);
+}

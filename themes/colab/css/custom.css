@@ -347,7 +347,8 @@ footer .footer-title:before{
 }
 .md-story-cover{
     width:135px;
-    height:210.75px
+    height:210.75px;
+    border-radius: 7px;
 }
 .sm-story-cover{
     width:90px;

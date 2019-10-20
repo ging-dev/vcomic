@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/<?= THEME ?>/css/custom.css?ver=<?= VERSION ?>" />
 </head>
 <body>
-    <section class="loading">
+    <!-- <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
