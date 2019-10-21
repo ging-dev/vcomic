@@ -1,3 +1,4 @@
 /uploads/avatar/*.jpg
 /uploads/cover/*.jpg
-tasks.todo
+/uploads/thumbnail/*.jpg
+/tasks.todo

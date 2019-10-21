@@ -22,6 +22,14 @@ function get_stories_category($category_id, $total)
 	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` WHERE `category_id` = ' . $category_id . ' AND `is_published` = 1 ORDER BY `id` DESC' . get_page($total));
 }
 
+function get_stories_tag($tag_id, $total)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` 
+		INNER JOIN `' . VCO_TAG_STORY . '` 
+		ON `' . VCO_STORIES . '`.id = `' . VCO_TAG_STORY . '`.story_id 
+		WHERE `' . VCO_TAG_STORY . '`.tag_id = ' . $tag_id);
+}
+
 function get_stories($slug)
 {
 	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `slug` = "' . $slug . '" AND `is_published` = 1');

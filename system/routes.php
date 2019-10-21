@@ -21,6 +21,9 @@ $routes = [
 	'/category/(.*)/page/(.*)' => 'category/category.php?slug=$1&page=$2',
 	'/category/(.*)' => 'category/category.php?slug=$1',
 
+	'/tag/(.*)/page/(.*)' => 'tag/tag.php?slug=$1&page=$2',
+	'/tag/(.*)' => 'tag/tag.php?slug=$1',
+
 	'/story/(.*)/like' => 'story/story.php?slug=$1&act=like',
 	'/story/(.*)/unlike' => 'story/story.php?slug=$1&act=unlike',
 	'/story/(.*)/(.*)' => 'chapter/chapter.php?slug=$2',

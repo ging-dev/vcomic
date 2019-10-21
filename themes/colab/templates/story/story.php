@@ -41,14 +41,16 @@
 <?php else: ?>
                                                 <a href="#" style="min-width: 100px" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php endif ?>
-                                            <?php if (!get_story_like($user_id, $data['id'])): ?>
-                                                <a href="/story/<?= $data['slug'] ?>/like" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
-                                                    <i class="far fa-heart-circle"></i> Yêu Thích
-                                                </a>
-                                            <?php else: ?>
-                                                <a href="/story/<?= $data['slug'] ?>/unlike" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
-                                                    <i class="far fa-heart-broken"></i> Bỏ Thích
-                                                </a>
+                                            <?php if ($user_id): ?>
+                                                <?php if (!get_story_like($user_id, $data['id'])): ?>
+                                                    <a href="/story/<?= $data['slug'] ?>/like" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                        <i class="far fa-heart-circle"></i> Yêu Thích
+                                                    </a>
+                                                <?php else: ?>
+                                                    <a href="/story/<?= $data['slug'] ?>/unlike" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                        <i class="far fa-heart-broken"></i> Bỏ Thích
+                                                    </a>
+                                                <?php endif ?>
                                             <?php endif ?>
                                             </div>
 
@@ -151,7 +153,7 @@
                                     </div>
                                     <div class="story-tags mt-2 d-md-none d-lg-block">
 									<?php foreach(get_list_tag($story_recomment['id']) as $tag_recomment): ?>
-                                        <a href="/tag/<?= $tag_recomment['slug'] ?>/" class="item"><?= $tag_recomment['name'] ?></a>
+                                        <a href="/tag/<?= $tag_recomment['slug'] ?>" class="item"><?= $tag_recomment['name'] ?></a>
 									<?php endforeach ?>
                                     </div>
                                 </div>
