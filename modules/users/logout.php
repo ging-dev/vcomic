@@ -10,7 +10,7 @@
 require_once('system/bootstrap.php');
 
 if (!$user_id) {
-	redirect('/');
+	abort('404');
 }
 
 if ($user_id) {

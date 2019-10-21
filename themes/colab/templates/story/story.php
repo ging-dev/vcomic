@@ -37,11 +37,21 @@
                                         <div class="row px-3 p-md-0 justify-content-center justify-content-lg-start">
                                             <div class="col-auto pr-3 pr-md-0">
 <?php if ($data_chapter): ?>
-                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" style="min-width: 100px" class="btn btn-outline-custom btn-sm">Đọc</a>
+                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" style="min-width: 100px" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php else: ?>
-                                                <a href="#" style="min-width: 100px" class="btn btn-outline-custom btn-sm">Đọc</a>
+                                                <a href="#" style="min-width: 100px" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php endif ?>
+                                            <?php if (!get_story_like($user_id, $data['id'])): ?>
+                                                <a href="/story/<?= $data['slug'] ?>/like" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                    <i class="far fa-heart-circle"></i> Yêu Thích
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="/story/<?= $data['slug'] ?>/unlike" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                    <i class="far fa-heart-broken"></i> Bỏ Thích
+                                                </a>
+                                            <?php endif ?>
                                             </div>
+
                                             <!-- <div class="col-auto">
                                                 <div class="btn-group">
                                                     <span class="btn btn-custom">

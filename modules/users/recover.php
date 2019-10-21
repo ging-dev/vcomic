@@ -55,9 +55,9 @@ switch ($act) {
 		break;
 		
 	default:
-		$usernameRecover     = isset($_POST['usernameRecover']) ? _e(trim($_POST['usernameRecover'])) : '';
-		$emailRecover        = isset($_POST['emailRecover']) ? _e(trim($_POST['emailRecover'])) : '';
-        $recover_code = md5(rand(1000, 9999));
+		$usernameRecover = isset($_POST['usernameRecover']) ? _e(trim($_POST['usernameRecover'])) : '';
+		$emailRecover    = isset($_POST['emailRecover']) ? _e(trim($_POST['emailRecover'])) : '';
+        $recover_code    = md5(rand(1000, 9999));
 
         if (!$usernameRecover || !$emailRecover) {
         	show_alert('Không được bỏ trống thông tin', 'error');

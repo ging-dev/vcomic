@@ -10,7 +10,9 @@
 require_once('system/bootstrap.php');
 require_model('category');
 require_model('chapter');
+require_model('like');
 require_model('story');
+require_model('story_read');
 require_model('tag');
 
 $data = get_stories($slug);
@@ -21,8 +23,24 @@ if (!$data) {
 
 update_view($data['id']);
 
-if (!get_story_read($user_id, $data['id'])) {
-	insert_story_read($user_id, $data['id']);
+if ($user_id) {
+	if (!get_story_read($user_id, $data['id'])) {
+		insert_story_read($user_id, $data['id']);
+	}
+
+	switch ($act) {
+		case 'like':
+			insert_story_like($user_id, $data['id']);
+
+			redirect('/story/' . $slug);
+			break;
+		
+		case 'unlike':
+			del_story_like($user_id, $data['id']);
+
+			redirect('/story/' . $slug);
+			break;
+	}
 }
 
 $title = $data['title'];
