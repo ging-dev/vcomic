@@ -48,6 +48,9 @@
                     <a class="item" href="/chat">
                         <i class="fal fa-comment-alt-lines"></i> Chat
                     </a>
+                    <a class="item" href="/story/read">
+                        <i class="far fa-history"></i> Đã Đọc
+                    </a>
                     <a class="item" href="/profile">
                         <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>"> <?= $user['fullname'] ?>
                     </a>

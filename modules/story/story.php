@@ -24,7 +24,7 @@ if (!$data) {
 update_view($data['id']);
 
 if ($user_id) {
-	if (!get_story_read($user_id, $data['id'])) {
+	if (!check_story_read($user_id, $data['id'])) {
 		insert_story_read($user_id, $data['id']);
 	}
 

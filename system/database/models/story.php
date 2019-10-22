@@ -17,6 +17,16 @@ function count_stories_category($category_id)
 	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_STORIES . '` WHERE `category_id` = ' . $category_id . ' AND `is_published` = 1');
 }
 
+function get_stories_read($user_id, $total)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` 
+		INNER JOIN `' . VCO_STORIES_READ . '` 
+		ON `' . VCO_STORIES_READ . '`.story_id = `' . VCO_STORIES . '`.id
+		WHERE `' . VCO_STORIES_READ . '`.user_id = ' . $user_id . ' 
+		AND `is_published` = 1 
+		ORDER BY `id` DESC' . get_page($total));
+}
+
 function get_stories_category($category_id, $total)
 {
 	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` WHERE `category_id` = ' . $category_id . ' AND `is_published` = 1 ORDER BY `id` DESC' . get_page($total));
