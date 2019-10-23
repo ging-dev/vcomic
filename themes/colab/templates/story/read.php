@@ -19,19 +19,11 @@
                             </h5>
                         </div>
                     </div>
-                    <div class="col-md-4 px-0">
+                    <!-- <div class="col-md-4 px-0">
                         <div class="controller mt-1 text-center">
-                            <a class="btn btn-custom btn-sm d-inline-block" style="width: 49%; font-size: 15px" href="/work/<?= $story['slug'] ?>/">Quản lí chương</a>
-                            <div class="dropdown d-inline-block" style="width:49%">
-                                <a class="btn btn-outline-custom btn-sm w-100" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="settingT"><i class="fa fa-cog"></i> Cài đặt</a>
-                                <div class="dropdown-menu dropdown-menu-right p-1" style="font-size: 15px;" aria-labelledby="settingT">
-                                    <a href="#" class="dropdown-item">
-                                        <i class="fal fa-file-times"></i> ###
-                                    </a>
-                                </div>
-                            </div>
+                            <a class="btn btn-custom btn-sm d-inline-block" href="/work/<?= $story['slug'] ?>/">Quản lí chương</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

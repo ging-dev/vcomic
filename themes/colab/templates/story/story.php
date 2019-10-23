@@ -116,6 +116,44 @@
                 </div>
             </div>
             <div class="col-lg-12 mb-3">
+                <div class="row mx-2 mx-md-0">
+                    <div class="col-lg-6">
+                        <div class="free-title mb-0">
+                            <div class="content">
+                                Đề cử
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <img class="lazy story-sm my-4" data-original="/assets/images/nomination.png" alt="" />
+                        </div>
+                        <div class="d-flex justify-content-center">
+                        <?php if (!get_nomination($data['id'], $user_id)): ?>
+                            <?php if ($user['vip'] == 0): ?>
+                                <span style="min-width: 100px" class="btn btn-custom btn-sm">
+                                    <i class="fal fa-ticket-alt"></i> Bạn phải là VIP
+                                </span>
+                            <?php else: ?>
+                                <a href="/story/<?= $data['slug'] ?>/nomination" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                    <i class="fal fa-ticket-alt"></i> Đề cử <?= $count_nomination ?> lượt
+                                </a>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <span style="min-width: 100px" class="btn btn-custom btn-sm">
+                                <i class="fal fa-ticket-alt"></i> Bạn đã đề cử
+                            </span>
+                        <?php endif ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="free-title mb-0">
+                            <div class="content">
+                                Donate cho tác giả
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-3">
                 <div class="free-title mb-0">
                     <div class="content">
                         Các truyện liên quan

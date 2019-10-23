@@ -11,6 +11,7 @@ require_once('system/bootstrap.php');
 require_model('category');
 require_model('chapter');
 require_model('like');
+require_model('nomination');
 require_model('story');
 require_model('story_read');
 require_model('tag');
@@ -30,9 +31,12 @@ if ($user_id) {
 
 	switch ($act) {
 		case 'like':
-			insert_story_like($user_id, $data['id']);
-
-			redirect('/story/' . $slug);
+			if (!get_story_like($user_id, $data['id'])) {
+				insert_story_like($user_id, $data['id']);
+				redirect('/story/' . $slug);
+			} else {
+				redirect('/story/' . $slug);
+			}
 			break;
 		
 		case 'unlike':
@@ -40,10 +44,25 @@ if ($user_id) {
 
 			redirect('/story/' . $slug);
 			break;
+
+		case 'nomination':
+			if ($user['vip'] == 0) {
+				abort(404);
+			}
+			
+			if (!get_nomination($data['id'], $user_id)) {
+				insert_nomination($data['id'], $user_id);
+				redirect('/story/' . $slug);
+			} else {
+				redirect('/story/' . $slug);
+			}
+			break;
 	}
 }
 
 $title = $data['title'];
+
+$count_nomination = count_nomination($data['id']);
 $data_cate = get_category_id($data['category_id']);
 $data_chapter = get_chapter($data['id']);
 $data_same_stories = get_same_stories($data['category_id'], $data['id']);

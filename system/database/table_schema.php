@@ -20,7 +20,6 @@ define('VCO_PROFILE_USERS', 'profile_users');
 define('VCO_RELATIONSHIPS', 'relationships');
 define('VCO_SERIES', 'series');
 define('VCO_STORIES', 'stories');
-define('VCO_STORIES_BOOKMARK', 'stories_bookmark');
 define('VCO_STORIES_READ', 'stories_read');
 define('VCO_TAGS', 'tags');
 define('VCO_TAG_STORY', 'tag_story');
