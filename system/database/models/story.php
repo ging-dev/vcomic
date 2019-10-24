@@ -59,3 +59,10 @@ function update_view($story_id)
 {
 	return vco_execute('UPDATE `' . VCO_STORIES . '` SET `views` = `views` + 1 WHERE `id` = ' . $story_id . ' LIMIT 1');
 }
+
+function insert_story($title, $slug, $summary, $thumbnail, $author, $is_published, $user_id, $category_id, $created_at)
+{
+	return vco_execute('INSERT INTO `' . VCO_STORIES . '` 
+		(title, slug, summary, thumbnail, author, is_published, user_id, category_id, created_at) VALUES 
+		("' . $title . '", "' . $slug . '", "' . $summary . '", "' . $thumbnail . '", "' . $author . '", ' . $is_published . ', ' . $user_id . ', ' . $category_id . ', ' . $created_at . ')');
+}

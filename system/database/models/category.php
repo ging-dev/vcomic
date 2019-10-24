@@ -7,6 +7,11 @@
  * @version     0.0.1
  */
 
+function get_list_category()
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_CATEGORIES . '`');
+}
+
 function get_category($slug)
 {
 	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `slug` = "' . $slug . '"');

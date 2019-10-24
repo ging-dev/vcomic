@@ -27,5 +27,18 @@ function get_tag_id($data_id)
 
 function count_story_tags($tag_id)
 {
-	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_TAG_STORY . '` INNER JOIN `' . VCO_TAGS . '` ON `' . VCO_TAG_STORY . '`.tag_id = `' . VCO_TAGS . '`.id WHERE `' . VCO_TAG_STORY . '`.tag_id = ' . $tag_id);
+	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_TAG_STORY . '` 
+		INNER JOIN `' . VCO_TAGS . '` 
+		ON `' . VCO_TAG_STORY . '`.tag_id = `' . VCO_TAGS . '`.id 
+		WHERE `' . VCO_TAG_STORY . '`.tag_id = ' . $tag_id);
+}
+
+function insert_tag($name, $slug)
+{
+	return vco_execute('INSERT INTO `' . VCO_TAGS . '` (`id`, `name`, `slug`) VALUES (NULL, "' . $name . '", "' . $slug . '")');
+}
+
+function insert_tag_story($story_id, $tag_id)
+{
+	return vco_execute('INSERT INTO `' . VCO_TAG_STORY . '` (story_id, tag_id) VALUES (' . $story_id . ', ' . $tag_id . ')');
 }

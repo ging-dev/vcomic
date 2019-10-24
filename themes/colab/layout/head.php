@@ -52,7 +52,7 @@
                         <i class="far fa-history"></i> Đã Đọc
                     </a>
                     <a class="item" href="/profile">
-                        <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>"> <?= $user['fullname'] ?>
+                        <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>?t=<?= time() ?>"> <?= $user['fullname'] ?>
                     </a>
                     <a class="item" href="/logout"><i class="fal fa-door-open"></i></a>
     <?php else: ?>

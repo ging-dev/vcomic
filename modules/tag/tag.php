@@ -24,6 +24,8 @@ if (count_story_tags($data['id'])) {
 	$list_stories = get_stories_tag($data['id'], count_story_tags($data['id']));
 }
 
+var_dump($list_stories);
+
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/tag/tag.php');
 require_once('themes/' . THEME . '/layout/end.php');

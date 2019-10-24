@@ -32,7 +32,8 @@ $routes = [
 	'/story/(.*)/(.*)' => 'chapter/chapter.php?slug=$2',
 	'/story/(.*)' => 'story/story.php?slug=$1',
 
-	// users
+	'/works/story/new' => 'work/createStory.php',
+
 	'/profile' => 'users/profile.php',
 	'/profile/page/(.*)' => 'users/profile.php?page=$1',
 	'/profile/avatar' => 'users/avatar.php',

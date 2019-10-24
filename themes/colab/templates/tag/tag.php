@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="custom-list-group">
-<?php if (count_stories_category($data['id'])): ?>
+<?php if (count_story_tags($data['id'])): ?>
     <?php foreach ($list_stories as $data_story): ?>
             <div class="item">
                 <div class="story-sm">
