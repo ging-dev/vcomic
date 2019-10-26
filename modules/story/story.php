@@ -46,7 +46,11 @@ if ($user_id) {
 			break;
 
 		case 'nomination':
-			if ($user['vip'] == 0) {
+			if ($user['role'] < 3) {
+				abort(404);
+			}
+
+			if ($user_id == $data['user_id']) {
 				abort(404);
 			}
 			

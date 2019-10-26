@@ -24,7 +24,7 @@
                     <div class="media-body mr-3">
                         <div class="chat-content">
                         <?= ($user_id != $data['user_id']) ? '<img class="lazy avatar-sm" data-original="' . get_avatar($data_user_chat['id']) . '" />
-                            <a href="/' . $data_user_chat['username'] . '"><b>' . $data_user_chat['fullname'] . '</b></a>:' : '' ?>
+                            <a href="/' . $data_user_chat['username'] . '"><b>' . display_name($data_user_chat['role'], $data_user_chat['fullname']) . '</b></a>:' : '' ?>
                             <?= $data['msg'] ?>
                             <?= ($user['role'] > 0) ? '<a href="/chat/del/' . $data['id'] . '"><i class="fal fa-trash-alt btn btn-custom ml-3"></i></a>' : '' ?>
                         </div>

@@ -11,7 +11,7 @@ require_once('system/bootstrap.php');
 require_model('chapter');
 require_model('story');
 
-if (! $user_id || $user['role'] = 0) {
+if (! $user_id || $user['role'] != 4) {
     abort(404);
 }
 

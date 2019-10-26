@@ -40,7 +40,9 @@
                         </a>
                         <div class="info mt-2 small-text">
                             <div class="author">
-                                <a href="/<?= get_info_id($data_story['user_id'])['username'] ?>"><?= get_info_id($data_story['user_id'])['fullname'] ?></a>
+                                <a href="/<?= get_info_id($data_story['user_id'])['username'] ?>">
+                                    <?= display_name(get_info_id($data_story['user_id'])['role'], get_info_id($data_story['user_id'])['fullname']) ?>
+                                </a>
                             </div>
                             <div class="vote">
                                 <span class="star">

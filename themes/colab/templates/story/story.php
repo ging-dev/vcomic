@@ -14,8 +14,8 @@
                                     <div class="author mb-3">
                                         <span class="pr-4">Người Đăng:</span>
                                         <b>
-                                        	<a href="/profile/<?= get_info_id($data['user_id'])['username'] ?>">
-                                        		<?= get_info_id($data['user_id'])['fullname'] ?>
+                                        	<a href="/<?= get_info_id($data['user_id'])['username'] ?>">
+                                        		<?= display_name(get_info_id($data['user_id'])['role'], get_info_id($data['user_id'])['fullname']) ?>
                                         	</a>
                                         </b>
                                     </div>
@@ -37,7 +37,9 @@
                                         <div class="row px-3 p-md-0 justify-content-center justify-content-lg-start">
                                             <div class="col-auto pr-3 pr-md-0">
 <?php if ($data_chapter): ?>
-                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
+                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" class="btn btn-outline-custom btn-sm mr-2">
+                                                    <i class="fas fa-glasses-alt"></i> Đọc
+                                                </a>
 <?php else: ?>
                                                 <a href="#" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php endif ?>
@@ -53,15 +55,6 @@
                                                 <?php endif ?>
                                             <?php endif ?>
                                             </div>
-
-                                            <!-- <div class="col-auto">
-                                                <div class="btn-group">
-                                                    <span class="btn btn-custom">
-                                                        <i class="fas fa-bookmark"></i>
-                                                    </span>
-                                                    <a href="/story/<?= $data['slug'] ?>/bookmark/" class="btn btn-outline-custom btn-sm">Đánh dấu truyện</a>
-                                                </div>
-                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +121,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                         <?php if (!get_nomination($data['id'], $user_id)): ?>
-                            <?php if ($user['vip'] == 0): ?>
+                            <?php if ($user['role'] < 3): ?>
                                 <span class="btn btn-custom btn-sm">
                                     <i class="fal fa-ticket-alt"></i> Bạn phải là VIP
                                 </span>
@@ -206,8 +199,8 @@
                                     </h3>
                                     <div class="info mt-2 small-text">
                                         <span class="author">
-                                            <a href="/profile/<?= get_info_id($story_recomment['user_id'])['username'] ?>">
-                                            	<?= get_info_id($story_recomment['user_id'])['fullname'] ?>
+                                            <a href="/<?= get_info_id($story_recomment['user_id'])['username'] ?>">
+                                            	<?= display_name(get_info_id($story_recomment['user_id'])['role'], get_info_id($story_recomment['user_id'])['fullname']) ?>
                                             </a>
                                         </span>
                                         <br/>

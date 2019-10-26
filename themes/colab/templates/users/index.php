@@ -16,7 +16,7 @@
             <div class="profile-avatar">
                 <img class="lazy image" data-original="<?= get_avatar($data['id']) ?>" />
             </div>
-            <div class="name"><?= $data['fullname'] ?></div>
+            <div class="name"><?= display_name($data['role'], $data['fullname']) ?></div>
             <p align="center" style="font-size: 20px; color: #fff">@<?= $data['username'] ?></p>
             <div class="stats">
                 <div class="row mx-0 mx-md-3">
@@ -79,7 +79,7 @@
                     <div class="media-body pl-3">
                         <div class="top-line">
                             <div class="name">
-                                <a href="#" class="text-dark font-weight-bolder"><?= $data['fullname'] ?></a>
+                                <a href="#" class="text-dark font-weight-bolder"><?= display_name($data['role'], $data['fullname']) ?></a>
                             </div>
                             <div class="time small-text font-italic">
                                 <?= date('d-m-Y', $data_stt['created_at']) ?> <i class="fal fa-globe-asia mx-2"></i>

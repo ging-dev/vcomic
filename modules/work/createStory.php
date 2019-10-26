@@ -14,7 +14,7 @@ require_model('tag');
 
 $title = 'Quản Lý Truyện';
 
-if (!$user_id || $user['role'] = 0) {
+if (!$user_id || $user['role'] != 4) {
     abort(404);
 }
 

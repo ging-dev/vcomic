@@ -16,7 +16,7 @@
                     </div>
                 </a>
             </div>
-            <div class="name"><?= $user['fullname'] ?></div>
+            <div class="name"><?= display_name($user['role'], $user['fullname']) ?></div>
             <p align="center" style="font-size: 20px; color: #fff">@<?= $user['username'] ?></p>
             <div class="stats">
                 <div class="row mx-0 mx-md-3">
@@ -50,7 +50,7 @@
         <a class="item" href="/profile/settings">
             Cài đặt
         </a>
-<?php if ($user['role'] > 1): ?>
+<?php if ($user['role'] == 4): ?>
         <a class="item" href="/works">
             Quản Lý Truyện
         </a>
@@ -109,7 +109,7 @@
                     <div class="media-body pl-3">
                         <div class="top-line">
                             <div class="name">
-                                <a href="#" class="text-dark font-weight-bolder"><?= $user['fullname'] ?></a>
+                                <a href="#" class="text-dark font-weight-bolder"><?= display_name($user['role'], $user['fullname']) ?></a>
                             </div>
                             <div class="time small-text font-italic">
                                 <?= date('d-m-Y', $data['created_at']) ?>

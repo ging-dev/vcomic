@@ -46,8 +46,25 @@ function cut_string($string = '', $size = 100, $link = ' [...]')
         }
     }
     $sub = substr($string, 0, $size+$a);
-    if($strlen-$size > 0){ $sub .= $link; }
+    if ($strlen-$size > 0) { $sub .= $link; }
     return $sub;
+}
+
+function display_name($role, $name)
+{
+    if ($role == 3) {
+        return '<font color="#B8007F" title="VIP Member">' . $name . ' <i class="fas fa-gem"></i></font>'; // VIP member
+    } else if ($role == 4) {
+        return '<font color="#10EDF5" title="Tác Giả">' . $name . ' <i class="fal fa-pen-fancy"></i></font>'; // author
+    } else if ($role == 7) {
+        return '<font color="#7343A9" title="Mod">' . $name . ' <i class="fal fa-badge-check"></i></font>'; // Mod
+    } else if ($role == 8) {
+        return '<font color="#8FC1A9" title="Super Admin">' . $name . ' <i class="fal fa-badge-check"></i></font>'; // super admin
+    } else if ($role == 9) {
+        return '<font color="#C33C23" title="Người Quản Trị">' . $name . ' <i class="fas fa-badge-check"></i></font>'; // Administrator
+    } else {
+        return $name;
+    }
 }
 
 function set_avatar($username)

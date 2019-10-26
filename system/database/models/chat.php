@@ -19,7 +19,7 @@ function get_chat($total)
 
 function get_user_chat($data_id)
 {
-	return vco_fetch('SELECT `id`, `username`, `fullname`, `avatar` FROM `users` WHERE `id` = ' . $data_id);
+	return vco_fetch('SELECT `id`, `username`, `fullname`, `avatar`, `role` FROM `users` WHERE `id` = ' . $data_id);
 }
 
 function insert_chat($msg, $user_id, $created_at)

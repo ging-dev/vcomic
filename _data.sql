@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 26, 2019 lúc 07:38 AM
+-- Thời gian đã tạo: Th10 26, 2019 lúc 04:53 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.3.9
 
@@ -94,6 +94,14 @@ CREATE TABLE `chats` (
   `created_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `chats`
+--
+
+INSERT INTO `chats` (`id`, `msg`, `user_id`, `created_at`) VALUES
+(1, 'tớ lên tiếng rồi nà', 1, 1572096556),
+(2, 'hihi', 2, 1572097753);
+
 -- --------------------------------------------------------
 
 --
@@ -174,6 +182,14 @@ CREATE TABLE `nominations` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `nominations`
+--
+
+INSERT INTO `nominations` (`story_id`, `user_id`) VALUES
+(2, 1),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -239,8 +255,8 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`id`, `title`, `slug`, `summary`, `thumbnail`, `author`, `is_published`, `is_completed`, `views`, `user_id`, `category_id`, `created_at`) VALUES
-(1, 'THÍ THIÊN ĐAO', 'thi-thien-dao', 'THÍ THIÊN ĐAO', '1571924808-thi-thien-dao.jpg', 'THÍ THIÊN ĐAO', 1, 0, 11, 1, 1, 1571924808),
-(2, 'ĐẤU PHÁ THƯƠNG KHUNG', 'dau-pha-thuong-khung', 'ĐẤU PHÁ THƯƠNG KHUNG', '1571924824-dau-pha-thuong-khung.jpg', 'ĐẤU PHÁ THƯƠNG KHUNG', 1, 0, 8, 1, 1, 1571924824);
+(1, 'THÍ THIÊN ĐAO', 'thi-thien-dao', 'THÍ THIÊN ĐAO', '1571924808-thi-thien-dao.jpg', 'THÍ THIÊN ĐAO', 1, 0, 12, 1, 1, 1571924808),
+(2, 'ĐẤU PHÁ THƯƠNG KHUNG', 'dau-pha-thuong-khung', 'ĐẤU PHÁ THƯƠNG KHUNG', '1571924824-dau-pha-thuong-khung.jpg', 'ĐẤU PHÁ THƯƠNG KHUNG', 1, 0, 125, 1, 1, 1571924824);
 
 -- --------------------------------------------------------
 
@@ -260,7 +276,8 @@ CREATE TABLE `stories_read` (
 INSERT INTO `stories_read` (`user_id`, `story_id`) VALUES
 (1, 1),
 (1, 2),
-(2, 2);
+(2, 2),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -319,7 +336,6 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 0,
-  `vip` tinyint(4) NOT NULL DEFAULT 0,
   `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gold` int(11) NOT NULL DEFAULT 0,
@@ -337,9 +353,9 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `vip`, `fullname`, `gender`, `gold`, `coin`, `birthday`, `cover`, `avatar`, `recover_code`, `recover_time`, `login_at`, `created_at`) VALUES
-(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 2, 0, 'Nguyễn Thành Nhân', '', 0, 0, 0, '', 'tnit2510.jpg', '', 0, 1572065969, 1571920693),
-(2, 'doanh111', 'doanhduong111@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 0, 0, '•ɗøαŋɦ ɗøαŋɦ⁀ᶜᵘᵗᵉ', '', 0, 0, 0, '', 'doanh111.jpg', '', 0, 0, 1572068229);
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `fullname`, `gender`, `gold`, `coin`, `birthday`, `cover`, `avatar`, `recover_code`, `recover_time`, `login_at`, `created_at`) VALUES
+(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 9, '•๖ۣۜTɦàηɦ ๖ۣۜNɦâη⁀ᶦᵈᵒᶫ', '', 0, 10450, 0, '', 'tnit2510.jpg', '', 0, 1572097388, 1571920693),
+(2, 'doanh111', 'doanhduong111@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 4, '•ɗøαŋɦ ɗøαŋɦ⁀ᶜᵘᵗᵉ', '', 0, 0, 0, '', 'doanh111.jpg', '', 0, 1572097745, 1572068229);
 
 -- --------------------------------------------------------
 
@@ -354,6 +370,13 @@ CREATE TABLE `user_status` (
   `private` tinyint(4) DEFAULT NULL COMMENT 'null-công khai, 1-chỉ mình tôi',
   `created_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user_status`
+--
+
+INSERT INTO `user_status` (`id`, `user_id`, `msg`, `private`, `created_at`) VALUES
+(1, 1, 'Xin chào các bạn', 0, 1572097422);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -509,7 +532,7 @@ ALTER TABLE `chapters`
 -- AUTO_INCREMENT cho bảng `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -557,7 +580,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `user_status`
 --
 ALTER TABLE `user_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

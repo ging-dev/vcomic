@@ -103,7 +103,7 @@
                         <div class="top-line">
                             <div class="name">
                                 <a href="/<?= get_info_id($data_comment['user_id'])['username'] ?>" class="text-dark font-weight-bolder">
-                                    <?= get_info_id($data_comment['user_id'])['fullname'] ?>
+                                    <?= display_name(get_info_id($data_comment['user_id'])['role'], get_info_id($data_comment['user_id'])['fullname']) ?>
                                 </a>
                             </div>
                             <div class="time small-text font-italic">
