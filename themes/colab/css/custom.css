@@ -1147,10 +1147,11 @@ footer .footer-title:before{
     color:#fff
 }
 .btn-outline-custom{
+    min-width: 100px;
     color:var(--default-color);
     background-color:transparent;
     border-color:var(--default-color);
-    font-size:15px
+    font-size:15px;
 }
 .btn-outline-custom:focus,.btn-outline-custom:hover{
     color:#fff;

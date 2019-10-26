@@ -73,6 +73,12 @@ function update_cover($cover, $user_id) {
     return vco_execute('UPDATE `' . VCO_USERS . '` SET `cover` = "' . $cover . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
 }
 
+function transfer_coin($coin, $user_id, $receiver_id)
+{
+    vco_execute('UPDATE `' . VCO_USERS . '` SET `coin` = `coin` - ' . $coin . ' WHERE `id` = ' . $user_id . ' LIMIT 1');
+    vco_execute('UPDATE `' . VCO_USERS . '` SET `coin` = `coin` + ' . ($coin - ($coin * 0.05)) . ' WHERE `id` = ' . $receiver_id . ' LIMIT 1');
+}
+
 function login_at($time, $user_id)
 {
     return vco_execute('UPDATE `' . VCO_USERS . '` SET `login_at` = ' . $time . ' WHERE `id` = ' . $user_id . ' LIMIT 1');

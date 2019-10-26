@@ -29,6 +29,7 @@ foreach ($routes as $key => $value) {
 		$mod  = isset($_GET['mod']) ? $_GET['mod'] : '';
 		$act  = isset($_GET['act']) ? $_GET['act'] : '';
 		$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+		$coin = isset($_GET['coin']) ? $_GET['coin'] : '';
 		$search = isset($_POST['search']) ? $_POST['search'] : '';
 		$username = isset($_GET['username']) ? _e(trim($_GET['username'])) : '';
 		$recover_code = isset($_GET['recover_code']) ? _e(trim($_GET['recover_code'])) : '';

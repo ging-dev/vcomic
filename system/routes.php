@@ -29,6 +29,7 @@ $routes = [
 	'/story/(.*)/like' => 'story/story.php?slug=$1&act=like',
 	'/story/(.*)/unlike' => 'story/story.php?slug=$1&act=unlike',
 	'/story/(.*)/nomination' => 'story/story.php?slug=$1&act=nomination',
+	'/story/(.*)/donate/(.*)' => 'story/story.php?slug=$1&act=donate&coin=$2',
 	'/story/(.*)/(.*)' => 'chapter/chapter.php?slug=$2',
 	'/story/(.*)' => 'story/story.php?slug=$1',
 

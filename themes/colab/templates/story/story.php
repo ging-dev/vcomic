@@ -37,17 +37,17 @@
                                         <div class="row px-3 p-md-0 justify-content-center justify-content-lg-start">
                                             <div class="col-auto pr-3 pr-md-0">
 <?php if ($data_chapter): ?>
-                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" style="min-width: 100px" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
+                                                <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php else: ?>
-                                                <a href="#" style="min-width: 100px" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
+                                                <a href="#" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
 <?php endif ?>
                                             <?php if ($user_id): ?>
                                                 <?php if (!get_story_like($user_id, $data['id'])): ?>
-                                                    <a href="/story/<?= $data['slug'] ?>/like" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                    <a href="/story/<?= $data['slug'] ?>/like" class="btn btn-outline-custom btn-sm">
                                                         <i class="far fa-heart-circle"></i> Yêu Thích
                                                     </a>
                                                 <?php else: ?>
-                                                    <a href="/story/<?= $data['slug'] ?>/unlike" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                                    <a href="/story/<?= $data['slug'] ?>/unlike" class="btn btn-outline-custom btn-sm">
                                                         <i class="far fa-heart-broken"></i> Bỏ Thích
                                                     </a>
                                                 <?php endif ?>
@@ -129,16 +129,16 @@
                         <div class="d-flex justify-content-center">
                         <?php if (!get_nomination($data['id'], $user_id)): ?>
                             <?php if ($user['vip'] == 0): ?>
-                                <span style="min-width: 100px" class="btn btn-custom btn-sm">
+                                <span class="btn btn-custom btn-sm">
                                     <i class="fal fa-ticket-alt"></i> Bạn phải là VIP
                                 </span>
                             <?php else: ?>
-                                <a href="/story/<?= $data['slug'] ?>/nomination" style="min-width: 100px" class="btn btn-outline-custom btn-sm">
+                                <a href="/story/<?= $data['slug'] ?>/nomination" class="btn btn-outline-custom btn-sm">
                                     <i class="fal fa-ticket-alt"></i> Đề cử <?= $count_nomination ?> lượt
                                 </a>
                             <?php endif ?>
                         <?php else: ?>
-                            <span style="min-width: 100px" class="btn btn-custom btn-sm">
+                            <span class="btn btn-custom btn-sm">
                                 <i class="fal fa-ticket-alt"></i> Bạn đã đề cử
                             </span>
                         <?php endif ?>
@@ -148,6 +148,41 @@
                         <div class="free-title mb-0">
                             <div class="content">
                                 Donate cho tác giả
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="mx-5 my-5">
+                                <?php
+                                    if (isset($error) == true) {
+                                        echo '<div>' . $error . '</div>';
+                                    }
+                                    if ($user_id != $data['user_id']): 
+                                ?>
+                                <a href="/story/<?= $data['slug'] ?>/donate/1000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fal fa-star-christmas"></i> 1.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/5000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fas fa-star-christmas"></i> 5.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/10000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fal fa-stars"></i> 10.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/20000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fas fa-stars"></i> 20.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/50000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="far fa-moon-stars"></i> 50.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/100000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fas fa-moon-stars"></i> 100.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/200000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fal fa-sun"></i> 200.000
+                                </a>
+                                <a href="/story/<?= $data['slug'] ?>/donate/200000" class="btn btn-outline-custom btn-sm my-2">
+                                    <i class="fas fa-sun"></i> 200.000
+                                </a>
+                            <?php endif ?>
                             </div>
                         </div>
                     </div>

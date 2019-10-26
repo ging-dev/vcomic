@@ -57,6 +57,21 @@ if ($user_id) {
 				redirect('/story/' . $slug);
 			}
 			break;
+
+		case 'donate':
+			$error = false;
+
+			if ($user_id == $data['user_id']) {
+				abort(404);
+			}
+
+			if ($user['coin'] < $coin) {
+				$error = 'Bạn không đủ tiền!';
+			} else {
+				$error = 'Bạn đã donate cho tác giả ' . $coin;
+				transfer_coin($coin, $user_id, $data['user_id']);
+			}
+			break;
 	}
 }
 
