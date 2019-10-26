@@ -33,6 +33,7 @@ $routes = [
 	'/story/(.*)' => 'story/story.php?slug=$1',
 
 	'/works/story/new' => 'work/createStory.php',
+	'/works/(.*)/new' => 'work/createChapter.php?slug=$1',
 
 	'/profile' => 'users/profile.php',
 	'/profile/page/(.*)' => 'users/profile.php?page=$1',

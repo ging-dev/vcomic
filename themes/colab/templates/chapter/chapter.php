@@ -98,12 +98,12 @@
     ?>
             <div class="comment-list my-4">
                 <div class="p-3 rounded border media mb-3 shadow-sm">
-                    <img class="lazy avatar" data-original="<?= get_avatar($data_chapter['user_id']) ?>" />
+                    <img class="lazy avatar" data-original="<?= get_avatar($data_comment['user_id']) ?>" />
                     <div class="media-body ml-3">
                         <div class="top-line">
                             <div class="name">
-                                <a href="/<?= get_info_id($data_chapter['user_id'])['username'] ?>" class="text-dark font-weight-bolder">
-                                    <?= get_info_id($data_chapter['user_id'])['fullname'] ?>
+                                <a href="/<?= get_info_id($data_comment['user_id'])['username'] ?>" class="text-dark font-weight-bolder">
+                                    <?= get_info_id($data_comment['user_id'])['fullname'] ?>
                                 </a>
                             </div>
                             <div class="time small-text font-italic">

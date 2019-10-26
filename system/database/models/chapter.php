@@ -21,3 +21,9 @@ function get_next_chapter($chapter_id, $story_id)
 {
 	return vco_fetch('SELECT * FROM `' . VCO_CHAPTERS . '` WHERE `id` > ' . $chapter_id . ' AND `story_id` = ' . $story_id . ' ORDER BY `id` LIMIT 1');
 }
+
+function insert_chapter($title, $slug, $content, $is_published, $story_id, $created_at)
+{
+	return vco_execute('INSERT INTO `' . VCO_CHAPTERS . '` (title, slug, content, is_published, story_id, created_at) VALUES 
+		("' . $title . '", "' . $slug . '", "' . $content . '", ' . $is_published . ', ' . $story_id . ', ' . $created_at . ')');
+}

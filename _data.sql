@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2019 lúc 04:52 PM
+-- Thời gian đã tạo: Th10 26, 2019 lúc 07:38 AM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.3.9
 
@@ -71,9 +71,15 @@ CREATE TABLE `chapters` (
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_published` tinyint(4) NOT NULL,
   `story_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chapters`
+--
+
+INSERT INTO `chapters` (`id`, `title`, `slug`, `content`, `is_published`, `story_id`, `created_at`) VALUES
+(1, 'chương 1 đấu phá thương khung', 'dau-pha-thuong-khung', 'nội dung chương 1 đấu phá thương khung', 1, 2, 1572067935);
 
 -- --------------------------------------------------------
 
@@ -102,6 +108,14 @@ CREATE TABLE `comments` (
   `created_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `user_id`, `chapter_id`, `created_at`) VALUES
+(1, 'hihi, truyên hay, tớ thích tớ thích', 1, 1, 1572067966),
+(2, 'kệ cậu chớ :v', 2, 1, 1572068255);
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +140,13 @@ CREATE TABLE `likes` (
   `user_id` int(11) NOT NULL,
   `story_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `likes`
+--
+
+INSERT INTO `likes` (`user_id`, `story_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -218,8 +239,8 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`id`, `title`, `slug`, `summary`, `thumbnail`, `author`, `is_published`, `is_completed`, `views`, `user_id`, `category_id`, `created_at`) VALUES
-(1, 'THÍ THIÊN ĐAO', 'thi-thien-dao', 'THÍ THIÊN ĐAO', '1571924808-thi-thien-dao.jpg', 'THÍ THIÊN ĐAO', 1, 0, 7, 1, 1, 1571924808),
-(2, 'ĐẤU PHÁ THƯƠNG KHUNG', 'dau-pha-thuong-khung', 'ĐẤU PHÁ THƯƠNG KHUNG', '1571924824-dau-pha-thuong-khung.jpg', 'ĐẤU PHÁ THƯƠNG KHUNG', 1, 0, 2, 1, 1, 1571924824);
+(1, 'THÍ THIÊN ĐAO', 'thi-thien-dao', 'THÍ THIÊN ĐAO', '1571924808-thi-thien-dao.jpg', 'THÍ THIÊN ĐAO', 1, 0, 11, 1, 1, 1571924808),
+(2, 'ĐẤU PHÁ THƯƠNG KHUNG', 'dau-pha-thuong-khung', 'ĐẤU PHÁ THƯƠNG KHUNG', '1571924824-dau-pha-thuong-khung.jpg', 'ĐẤU PHÁ THƯƠNG KHUNG', 1, 0, 8, 1, 1, 1571924824);
 
 -- --------------------------------------------------------
 
@@ -238,7 +259,8 @@ CREATE TABLE `stories_read` (
 
 INSERT INTO `stories_read` (`user_id`, `story_id`) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -316,7 +338,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `vip`, `fullname`, `gender`, `gold`, `coin`, `birthday`, `cover`, `avatar`, `recover_code`, `recover_time`, `login_at`, `created_at`) VALUES
-(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 2, 0, 'Nguyễn Thành Nhân', '', 0, 0, 0, '', 'tnit2510.jpg', '', 0, 0, 1571920693);
+(1, 'tnit2510', 'tnit2510@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 2, 0, 'Nguyễn Thành Nhân', '', 0, 0, 0, '', 'tnit2510.jpg', '', 0, 1572065969, 1571920693),
+(2, 'doanh111', 'doanhduong111@gmail.com', 'e8ad3782d98d9658e8d833d9c72cbd22', 0, 0, '•ɗøαŋɦ ɗøαŋɦ⁀ᶜᵘᵗᵉ', '', 0, 0, 0, '', 'doanh111.jpg', '', 0, 0, 1572068229);
 
 -- --------------------------------------------------------
 
@@ -353,8 +376,7 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `chapters`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_chapter_story` (`story_id`),
-  ADD KEY `FK_chapter_user` (`user_id`);
+  ADD KEY `FK_chapter_story` (`story_id`);
 
 --
 -- Chỉ mục cho bảng `chats`
@@ -481,7 +503,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `chats`
@@ -493,7 +515,7 @@ ALTER TABLE `chats`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `giftcodes`
@@ -529,7 +551,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `user_status`
@@ -545,8 +567,7 @@ ALTER TABLE `user_status`
 -- Các ràng buộc cho bảng `chapters`
 --
 ALTER TABLE `chapters`
-  ADD CONSTRAINT `FK_chapter_story` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_chapter_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_chapter_story` FOREIGN KEY (`story_id`) REFERENCES `stories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Các ràng buộc cho bảng `chats`

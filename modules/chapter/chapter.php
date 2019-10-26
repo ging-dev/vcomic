@@ -31,6 +31,7 @@ if ($request_method == 'POST') {
 if (count_comment($data_chapter['id'])) {
 	$list_comment = get_list_comment($data_chapter['id'], count_comment($data_chapter['id']));
 }
+
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/chapter/chapter.php');
 require_once('themes/' . THEME . '/layout/end.php');

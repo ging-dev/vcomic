@@ -8,6 +8,7 @@ Chức năng
  ✔ Theo dõi tác giả, ... @done (19-10-19 22:49)
  ✔ Đăng status @done (19-10-18 21:51)
  ✔ Chat room @done (19-10-20 16:54)
+ ☐ Chat group
  ✔ Tags seo @done (19-10-20 22:00)
  ✔ Truyện đã đọc @done (19-10-20 23:15)
  ☐ Nạp tiền (đổi gold -> xu)
@@ -16,7 +17,6 @@ Chức năng
  ☐ Donate cho tác giả
  ✔ Bình luận truyện @done (19-10-21 12:11)
  ✔ Avatar theo tên @done (19-10-15 20:27)
- ☐ Chúc mừng sinh nhật tác giả
  ✔ Thích truyện @done (19-10-21 12:34)
  ✔ Gợi ý truyện @done (19-10-20 22:45)
  ✔ Đăng status @done (19-10-18 19:33)
@@ -24,7 +24,7 @@ Chức năng
 Tác giả
  ☐ Tạo tin (24h)
  ☐ Tạo series
- ☐ Tạo truyện
+ ✔ Tạo truyện @done (19-10-26 12:00)
  ☐ Truyện đang ra
  ☐ Truyện đã xong
 

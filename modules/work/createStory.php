@@ -44,7 +44,7 @@ if ($request_method == 'POST'):
 		$tag_id= 0;
 		$count_tag = count($tag);
         for ($i = 0; $i < $count_tag; $i++) {
-        	if (!get_tag(str_slug($tag[$i]))):
+        	if (! get_tag(str_slug($tag[$i]))):
 	    		$tag_id = insert_tag($tag[$i], str_slug($tag[$i]));
 	        endif;
 
