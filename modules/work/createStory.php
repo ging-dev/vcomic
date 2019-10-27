@@ -27,7 +27,7 @@ $tag        = isset($_POST['tag']) ? explode(",", _e(trim($_POST['tag']))) : '';
 $category_id = isset($_POST['category']) ? _e($_POST['category']) : '';
 $publish    = (isset($_POST['is_published']) == true) ? 1 : 0;
 
-$data_list_cate = get_list_category();
+$data_list_cate = get_list_categories();
 $data_story = get_stories($slug_story);
 
 if ($request_method == 'POST'):

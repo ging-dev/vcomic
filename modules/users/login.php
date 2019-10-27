@@ -22,7 +22,7 @@ if ($request_method == 'POST') {
 	if (!$username || !$password) {
 		show_alert('Không được bỏ trống thông tin!', 'error');
 	} else {
-		if (mb_strlen($username) < 6 || mb_strlen($username) > 60) {
+		if (mb_strlen($username) < 4 || mb_strlen($username) > 60) {
 			show_alert('Tài khoản chứa từ 6-60 ký tự!', 'error');
 		}
 

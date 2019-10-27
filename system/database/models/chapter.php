@@ -7,6 +7,11 @@
  * @version     0.0.1
  */
 
+function count_chapters()
+{
+	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_CHAPTERS . '`');
+}
+
 function get_chapter($story_id)
 {
 	return vco_fetchAll('SELECT * FROM `' . VCO_CHAPTERS . '` WHERE `story_id` = ' . $story_id . ' AND `is_published` = 1 ORDER BY `id`');

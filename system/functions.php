@@ -52,16 +52,19 @@ function cut_string($string = '', $size = 100, $link = ' [...]')
 
 function display_name($role, $name)
 {
+    if ($role == 0) {
+        return '<font color="#AAA9AD" title="Ban Member"><b>' . $name . ' <i class="far fa-ban"></i></b></font>'; // Ban member
+    }
     if ($role == 3) {
-        return '<font color="#B8007F" title="VIP Member">' . $name . ' <i class="fas fa-gem"></i></font>'; // VIP member
+        return '<font color="#B8007F" title="VIP Member"><b>' . $name . ' <i class="fas fa-gem"></i></b></font>'; // VIP member
     } else if ($role == 4) {
-        return '<font color="#10EDF5" title="Tác Giả">' . $name . ' <i class="fal fa-pen-fancy"></i></font>'; // author
+        return '<font color="#10EDF5" title="Tác Giả"><b>' . $name . ' <i class="fal fa-pen-fancy"></i></b></font>'; // author
     } else if ($role == 7) {
-        return '<font color="#7343A9" title="Mod">' . $name . ' <i class="fal fa-badge-check"></i></font>'; // Mod
+        return '<font color="#7343A9" title="Mod"><b>' . $name . ' <i class="fal fa-badge-check"></i></b></font>'; // Mod
     } else if ($role == 8) {
-        return '<font color="#8FC1A9" title="Super Admin">' . $name . ' <i class="fal fa-badge-check"></i></font>'; // super admin
+        return '<font color="#52AC00" title="Super Admin"><b>' . $name . ' <i class="fal fa-badge-check"></i></b></font>'; // super admin
     } else if ($role == 9) {
-        return '<font color="#C33C23" title="Người Quản Trị">' . $name . ' <i class="fas fa-badge-check"></i></font>'; // Administrator
+        return '<font color="#C33C23" title="Người Quản Trị"><b>' . $name . ' <i class="fas fa-badge-check"></i></b></font>'; // Administrator
     } else {
         return $name;
     }
@@ -122,8 +125,6 @@ function str_slug($str){
 	return $str;
 }
 
-$per_page = 20;
-
 function get_page($total, $return = 0)
 {
     global $per_page;
@@ -147,22 +148,23 @@ function pagination($link, $total)
     if ($total <= $per_page) {
         return false;
     }
+
     $max_page = ceil($total / $per_page);
     $current_page = get_page($total, 1);
     $return = '';
     if ($current_page > 1) {
-        $return .= '<li class="previous"><a href="' . $link . '/page/' . ($current_page - 1) . '">Trang trước</a></li>';
+        $return .= '<li><a href="' . $link . '/page/' . ($current_page - 1) . '">Trang trước</a></li>';
     } else {
         $return .= '<li class="previous disabled"><a href="#">Trang trước</a></li>';
     }
 
     if ($current_page < $max_page) {
-        $return .= '<li class="next"><a href="' . $link . '/page/' . ($current_page + 1) . '">Trang sau</a></li>';
+        $return .= '<li><a href="' . $link . '/page/' . ($current_page + 1) . '">Trang sau</a></li>';
     } else {
-        $return .= '<li class="next disabled"><a href="#">Trang sau</a></li>';
+        $return .= '<li><a href="#">Trang sau</a></li>';
     }
 
-    return '<nav><ul class="pager">' . $return . '</ul></nav>';
+    return '<nav><ul>' . $return . '</ul></nav>';
 }
 
 function abort($code)

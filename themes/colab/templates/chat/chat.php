@@ -33,7 +33,7 @@
             </div>
 <?php endforeach;
 else: ?>
-                    <p>Chưa có ai lên tiếng!!!</p>
+        <p>Chưa có ai lên tiếng!!!</p>
 <?php endif ?>
         </div>
         <?= pagination('/chat', count_chat()); ?>

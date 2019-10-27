@@ -45,7 +45,14 @@ if (isset($_SESSION['username'])) {
     unset($_user);
 }
 
+if ($user_id) {
+    if ($user['role'] == 0) {
+        abort(404);
+    }
+}
+
 $request_method = isset($_SERVER['REQUEST_METHOD']) ? trim($_SERVER['REQUEST_METHOD']) : '';
+$per_page = 20;
 $env = array(
     'title' => 'vComic.',
     'keywords' => 'doc truyen, web truyen, vcomic, truyen vcomic, doc truyen chu',

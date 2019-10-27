@@ -21,7 +21,7 @@ if (count_chat()) {
 
 	switch ($act) {
 		case 'clear':
-			if ($user['role'] < 9) {
+			if ($user['role'] < 7) {
 				abort(404);
 			} else {
 				truncate_chat();
@@ -29,7 +29,7 @@ if (count_chat()) {
 			}
 			break;
 		case 'del':
-			if ($user['role'] < 8) {
+			if ($user['role'] < 7) {
 				abort(404);
 			} else {
 				del_chat($id);
@@ -52,5 +52,5 @@ if ($request_method == 'POST') {
 }
 
 require_once('themes/' . THEME . '/layout/head.php');
-require_once('themes/' . THEME . '/templates/chat.php');
+require_once('themes/' . THEME . '/templates/chat/chat.php');
 require_once('themes/' . THEME . '/layout/end.php');
