@@ -22,8 +22,12 @@
                     	<tr>
                     		<td><?= $data['title'] ?></td>
                     		<td><img width="50px" src="/uploads/thumbnail/<?= $data['thumbnail'] ?>"></td>
-                    		<td><?= ($data['is_completed'] == 0) ? 'Đang Ra' : 'Hoàn Thành' ?></td>
-                    		<td><?= ($data['is_published'] == 0) ? 'Riêng Tư' : 'Công Khai' ?></td>
+                    		<td>
+                    			<?= ($data['is_completed'] == 0) ? '<span class="badge badge-danger">Đang Ra</span>' : '<span class="badge badge-success">Hoàn Thành</span>' ?>
+                    		</td>
+                    		<td>
+                    			<?= ($data['is_published'] == 0) ? '<span class="badge badge-danger">Riêng Tư</span>' : '<span class="badge badge-success">Công Khai</span>' ?>
+                    		</td>
                     		<td><?= $data['views'] ?></td>
                     		<td><?= display_name(get_info_id($data['user_id'])['role'], get_info_id($data['user_id'])['fullname']) ?></td>
                     		<td><?= get_category_id($data['category_id'])['name'] ?></td>
@@ -36,7 +40,7 @@
 									<a href="/admin/story/del/<?= $data['id'] ?>" class="text-danger"><i class="fas fa-trash-alt"></i></a>
 								</button>
 								<button class="btn btn-sm btn-outline-primary btn-round btn-icon">
-									<a href="/<?= $data['username'] ?>" target="_blank" class="text-primary" title="Đi tới..."><i class="fas fa-external-link-alt"></i></a>
+									<a href="/story/<?= $data['slug'] ?>" target="_blank" class="text-primary" title="Đi tới..."><i class="fas fa-external-link-alt"></i></a>
 								</button>
                     		</td>
                     	</tr>
