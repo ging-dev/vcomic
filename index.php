@@ -8,7 +8,6 @@
  */
 
 require_once('system/bootstrap.php');
-require_once('vendor/autoload.php');
 
 $uri = $_SERVER['REQUEST_URI'];
 

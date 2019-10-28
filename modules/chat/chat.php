@@ -41,7 +41,15 @@ if (count_chat()) {
 
 $msg = isset($_POST['msg']) ? _e(trim($_POST['msg'])) : '';
 
+if ($request_method == 'POST') {
+	if (!$msg) {
+		$error = 'Không được bỏ trống tin nhắn!';
+	} else {
+		insert_chat($msg, $user_id, time());
 
+		redirect('/chat');
+	}
+}
 
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/chat/chat.php');
