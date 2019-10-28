@@ -20,24 +20,24 @@ $password   = isset($_POST['password']) ? _e(trim($_POST['password'])) : '';
 
 if ($request_method == 'POST') {
 	if (!$username || !$password) {
-		show_alert('Không được bỏ trống thông tin!', 'error');
+		exit('Không được bỏ trống thông tin!');
 	} else {
 		if (mb_strlen($username) < 4 || mb_strlen($username) > 60) {
-			show_alert('Tài khoản chứa từ 6-60 ký tự!', 'error');
+			exit('Tài khoản chứa từ 6-60 ký tự!');
 		}
 
 		if (mb_strlen($password) < 8) {
-			show_alert('Mật khẩu phải từ 8 ký tự trở lên!', 'error');
+			exit('Mật khẩu phải từ 8 ký tự trở lên!');
 		}
 
 		$checkUser = get_info($username);
 
 		if (!$checkUser) {
-			show_alert('Không tồn tại tài khoản này!', 'error');
+			exit('Không tồn tại tài khoản này!');
 
 		} else {
 			if (md5(md5($password)) != $checkUser['password']) {
-				show_alert('Mật khẩu không chính xác. Vui lòng nhập lại!', 'error');
+				exit('Mật khẩu không chính xác. Vui lòng nhập lại!');
 			} else {
 				$_SESSION['username'] = $checkUser['username'];
 				login_at(time(), $checkUser['id']);

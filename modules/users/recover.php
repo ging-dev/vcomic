@@ -60,21 +60,21 @@ switch ($act) {
         $recover_code    = md5(rand(1000, 9999));
 
         if (!$usernameRecover || !$emailRecover) {
-        	show_alert('Không được bỏ trống thông tin', 'error');
+        	exit('Không được bỏ trống thông tin');
         }
 
         $checkUser = get_info($usernameRecover);
         
         if ($checkUser['recover_time'] > (time() - 86400)) {
-            show_alert('Chỉ được yêu cầu cấp lại mật khẩu sau 24h', 'error');
+            exit('Chỉ được yêu cầu cấp lại mật khẩu sau 24h');
         }
 
         if ($checkUser) {
         	if ($emailRecover != $checkUser['email']) {
-        		show_alert('Email không đúng với tài khoản <b>' . $usernameRecover . '</b>', 'error');
+        		exit('Email không đúng với tài khoản <b>' . $usernameRecover . '</b>');
         	}
         } else {
-        	show_alert('Tài khoản này không tồn tại', 'error');
+        	exit('Tài khoản này không tồn tại');
         }
 
         $subject = 'vComic | Xác nhận đặt lại mật khẩu: ' . $usernameRecover;
@@ -85,9 +85,9 @@ switch ($act) {
 
         if (mail($checkUser['email'], $subject, $mail)) {
             update_recover_code($recover_code, time(), $checkUser['id']);
-            show_alert('Link cấp lại đã được gửi tới email của bạn', 'success');
+            exit('Link cấp lại đã được gửi tới email của bạn');
         } else {
-            show_alert('Lỗi gửi email', 'error');
+            exit('Lỗi gửi email');
         }
 	    break;
 }
