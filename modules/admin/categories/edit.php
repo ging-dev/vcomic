@@ -35,6 +35,6 @@ if ($request_method == 'POST') {
 	}
 }
 
-require_once('themes/' . THEME . '/layout/admin/head.php');
-require_once('themes/' . THEME . '/templates/admin/categories/edit.php');
-require_once('themes/' . THEME . '/layout/admin/end.php');
+require_once('themes/' . THEME_ADMIN . '/layout/head.php');
+require_once('themes/' . THEME_ADMIN . '/templates/categories/edit.php');
+require_once('themes/' . THEME_ADMIN . '/layout/end.php');

@@ -8,7 +8,7 @@
  */
 
 function pdo_get_connection() {
-    $dburl = 'mysql:host=localhost;dbname=colab;charset=utf8';
+    $dburl = 'mysql:host=localhost;dbname=colab;charset=utf8mb4';
     $username = 'root';
     $password = '';
 

@@ -47,6 +47,6 @@ switch ($act) {
 		break;
 }
 
-require_once('themes/' . THEME . '/layout/admin/head.php');
-require_once('themes/' . THEME . '/templates/admin/users/list.php');
-require_once('themes/' . THEME . '/layout/admin/end.php');
+require_once('themes/' . THEME_ADMIN . '/layout/head.php');
+require_once('themes/' . THEME_ADMIN . '/templates/users/list.php');
+require_once('themes/' . THEME_ADMIN . '/layout/end.php');

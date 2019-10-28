@@ -26,7 +26,7 @@
 	<!--   Core JS Files   -->
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
-	<script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	<script src="/themes/admin/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 </body>
 
 </html>

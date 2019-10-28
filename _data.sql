@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `banners` (
   `id` int(11) NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `expiry_at` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,10 +43,10 @@ CREATE TABLE `banners` (
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `categories`
@@ -66,13 +66,13 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`) VALUES
 
 CREATE TABLE `chapters` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `is_published` tinyint(4) NOT NULL,
   `story_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `chapters`
@@ -89,10 +89,10 @@ INSERT INTO `chapters` (`id`, `title`, `slug`, `content`, `is_published`, `story
 
 CREATE TABLE `chats` (
   `id` int(11) NOT NULL,
-  `msg` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `msg` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `chats`
@@ -110,11 +110,11 @@ INSERT INTO `chats` (`id`, `msg`, `user_id`, `created_at`) VALUES
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `chapter_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `comments`
@@ -132,11 +132,11 @@ INSERT INTO `comments` (`id`, `content`, `user_id`, `chapter_id`, `created_at`) 
 
 CREATE TABLE `giftcodes` (
   `id` int(11) NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `coin` int(11) NOT NULL,
   `expiry_at` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ CREATE TABLE `giftcodes` (
 CREATE TABLE `likes` (
   `user_id` int(11) NOT NULL,
   `story_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `likes`
@@ -164,12 +164,12 @@ INSERT INTO `likes` (`user_id`, `story_id`) VALUES
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `sender_id` int(11) NOT NULL,
   `receiver_id` int(11) NOT NULL,
   `read_at` int(11) NOT NULL,
   `sent_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ CREATE TABLE `messages` (
 CREATE TABLE `nominations` (
   `story_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nominations`
@@ -198,9 +198,9 @@ INSERT INTO `nominations` (`story_id`, `user_id`) VALUES
 
 CREATE TABLE `profile_users` (
   `user_id` int(11) NOT NULL,
-  `about` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `about` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -212,7 +212,7 @@ CREATE TABLE `relationships` (
   `user_id` int(11) NOT NULL,
   `relation_user_id` int(11) NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '1-follow, 2-friend, 3block'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -222,12 +222,12 @@ CREATE TABLE `relationships` (
 
 CREATE TABLE `series` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `story_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -237,18 +237,18 @@ CREATE TABLE `series` (
 
 CREATE TABLE `stories` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `summary` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `summary` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `author` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `is_published` tinyint(4) NOT NULL DEFAULT 0,
   `is_completed` tinyint(4) NOT NULL DEFAULT 0,
   `views` int(11) NOT NULL DEFAULT 0,
   `user_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `stories`
@@ -267,7 +267,7 @@ INSERT INTO `stories` (`id`, `title`, `slug`, `summary`, `thumbnail`, `author`, 
 CREATE TABLE `stories_read` (
   `user_id` int(11) NOT NULL,
   `story_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `stories_read`
@@ -287,9 +287,9 @@ INSERT INTO `stories_read` (`user_id`, `story_id`) VALUES
 
 CREATE TABLE `tags` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tags`
@@ -310,7 +310,7 @@ INSERT INTO `tags` (`id`, `name`, `slug`) VALUES
 CREATE TABLE `tag_story` (
   `story_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tag_story`
@@ -332,22 +332,22 @@ INSERT INTO `tag_story` (`story_id`, `tag_id`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 0,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `gender` varchar(2) COLLATE utf8mb4_general_ci NOT NULL,
   `gold` int(11) NOT NULL DEFAULT 0,
   `coin` int(11) NOT NULL DEFAULT 0,
   `birthday` int(11) NOT NULL,
-  `cover` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `recover_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cover` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `recover_code` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `recover_time` int(11) NOT NULL,
   `login_at` int(11) NOT NULL,
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
@@ -366,10 +366,10 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `fullname`, 
 CREATE TABLE `user_status` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `msg` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `msg` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `private` tinyint(4) DEFAULT NULL COMMENT 'null-công khai, 1-chỉ mình tôi',
   `created_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user_status`

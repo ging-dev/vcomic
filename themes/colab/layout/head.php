@@ -13,8 +13,8 @@
 	<title><?= isset($title) ? $title : $env['title'] ?></title>
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/<?= THEME ?>/css/swiper.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/<?= THEME ?>/css/custom.css?ver=<?= VERSION ?>" />
+	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
+	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/custom.css?ver=<?= VERSION ?>" />
 </head>
 <body>
     <section class="loading">

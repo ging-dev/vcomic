@@ -15,6 +15,7 @@ require_once('routes.php');
 define('SITE_URL', 'http://vcomic.net');
 define('ROOT', dirname(dirname(__FILE__)));
 define('THEME', 'colab');
+define('THEME_ADMIN', 'admin');
 define('VERSION', '0.0.1');
 define('ENV', 'development');
 

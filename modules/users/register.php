@@ -49,7 +49,7 @@ if ($request_method == 'POST') {
 
         $password = md5(md5($passwordReg));
         set_avatar($usernameReg);
-        insert_user($usernameReg, $email, $password, $fullname, $usernameReg . '.jpg', time());
+        insert_user($usernameReg, $email, $password, 1, $fullname, $usernameReg . '.jpg', time());
 
         $_SESSION['username'] = $usernameReg;
         exit('Đăng ký thành công. Chờ chuyển hướng!!!');
