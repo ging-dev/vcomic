@@ -176,5 +176,17 @@
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
+    <script>
+        var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
+            cluster: 'ap1',
+            forceTLS: true
+        });
+
+        var channel = pusher.subscribe('chat');
+        channel.bind('chat-room', function(data) {
+            $('div#chat-room').prepend(data.msg);
+        });
+    </script>
 </body>
 </html>
