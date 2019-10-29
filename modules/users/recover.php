@@ -23,7 +23,7 @@ switch ($act) {
             exit('Không được bỏ trống thông tin!');
         }
 
-        $data_user = get_info($username);
+        $data_user = get_info('username', $username);
 
         if ($data_user) {
             if (!$data_user['recover_code'] || !$data_user['recover_time']) {
@@ -63,7 +63,7 @@ switch ($act) {
         	exit('Không được bỏ trống thông tin');
         }
 
-        $checkUser = get_info($usernameRecover);
+        $checkUser = get_info('username', $usernameRecover);
         
         if ($checkUser['recover_time'] > (time() - 86400)) {
             exit('Chỉ được yêu cầu cấp lại mật khẩu sau 24h');

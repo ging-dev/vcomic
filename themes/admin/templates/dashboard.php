@@ -10,7 +10,7 @@
 				<div class="col-7 col-md-8">
 					<div class="numbers">
 						<p class="card-category">Users</p>
-						<p class="card-title"><?= count_users() ?></p>
+						<p class="card-title"><?= count_users('>=', 0) ?></p>
 					</div>
 				</div>
 			</div>
@@ -118,7 +118,7 @@
 						<th class="text-right">Hành Động</th>
                     </thead>
                     <tbody>
-                    <?php foreach (get_list_mods(count_mods()) as $data): ?>
+                    <?php foreach (get_list_users('>=', 4, count_users('>=', 4)) as $data): ?>
                     	<tr>
                     		<td><?= $data['username'] ?></td>
                     		<td><?= display_name($data['role'], $data['fullname']) ?></td>
@@ -149,7 +149,7 @@
                     <?php endforeach ?>
                     </tbody>
                 </table>
-                <?= pagination('/admin/users', count_mods()) ?>
+                <?= pagination('/admin/users', count_users('>=', 4)) ?>
             </div>
         </div>
     </div>

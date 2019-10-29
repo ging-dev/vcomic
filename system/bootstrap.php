@@ -34,9 +34,10 @@ require_model('user');
 
 $user_id = 0;
 $user = [];
-if (isset($_SESSION['username'])) {
-    $username = trim($_SESSION['username']);
-    $_user = get_info($username);
+
+if (isset($_SESSION['id'])) {
+    $id = trim($_SESSION['id']);
+    $_user = get_info_id($id);
 
     if ($_user) {
         $user = $_user;

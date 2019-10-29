@@ -30,7 +30,7 @@ if ($request_method == 'POST') {
 			$error = 'Tài khoản mem từ 6-60, quản trị từ 4-60';
 		}
 
-		if (get_info($username)) {
+		if (get_info('username', $username)) {
 			$error = 'Tài khoản này đã tồn tại';
 		}
 		

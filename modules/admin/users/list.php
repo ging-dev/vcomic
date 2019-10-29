@@ -15,6 +15,9 @@ if (!$user_id || ($user['role'] < 9)) {
 	abort(404);
 }
 
+$total = count_users('>=', 0);
+$list_users = get_list_users('>=', 0, $total);
+
 switch ($act) {
 	case 'del':
 		if (!$id) {

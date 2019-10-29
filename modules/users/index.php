@@ -14,7 +14,7 @@ require_model('story');
 require_model('user');
 require_model('user_status');
 
-$data = get_info($username);
+$data = get_info('username', $username);
 
 if (!$data) {
 	abort(404);

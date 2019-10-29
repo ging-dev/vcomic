@@ -30,7 +30,7 @@ if ($request_method == 'POST') {
 			exit('Mật khẩu phải từ 8 ký tự trở lên!');
 		}
 
-		$checkUser = get_info($username);
+		$checkUser = get_info('username', $username);
 
 		if (!$checkUser) {
 			exit('Không tồn tại tài khoản này!');
@@ -39,8 +39,8 @@ if ($request_method == 'POST') {
 			if (md5(md5($password)) != $checkUser['password']) {
 				exit('Mật khẩu không chính xác. Vui lòng nhập lại!');
 			} else {
-				$_SESSION['username'] = $checkUser['username'];
-				login_at(time(), $checkUser['id']);
+				$_SESSION['id'] = $checkUser['id'];
+				update_one_col('login_at', time(), $checkUser['id']);
 				exit('Đăng nhập thành công. Chờ chuyển hướng!!!');
 			}
 		}

@@ -19,7 +19,7 @@
 						<th class="text-right">Hành Động</th>
                     </thead>
                     <tbody>
-                    <?php foreach (get_list_users(count_users()) as $data): ?>
+                    <?php foreach ($list_users as $data): ?>
                     	<tr>
                     		<td><?= $data['username'] ?></td>
                     		<td><?= display_name($data['role'], $data['fullname']) ?></td>
@@ -51,7 +51,7 @@
                     <?php endforeach ?>
                     </tbody>
                 </table>
-                <?= pagination('/admin/users', count_users()) ?>
+                <?= pagination('/admin/users', $total) ?>
             </div>
         </div>
     </div>

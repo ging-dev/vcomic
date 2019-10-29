@@ -12,11 +12,6 @@ function _e($str)
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
-function show_alert($msg, $type)
-{
-    exit('<script>$.notify("' . $msg . '", "' . $type . '");</script>');
-}
-
 function redirect($url)
 {
     header('location: ' . $url);

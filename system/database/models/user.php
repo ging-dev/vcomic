@@ -7,22 +7,18 @@
  * @version     0.0.1
  */
 
-function count_users()
+function count_users($ope, $role)
 {
-    return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_USERS . '`');
+    return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_USERS . '` WHERE `role` ' . $ope . ' ' . $role);
 }
 
-function count_mods()
-{
-    return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_USERS . '` WHERE `role` >= 4');
-}
-
-function check_info($col, $val)
+function get_info($col, $val)
 {
     return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `' . $col . '` = "' . $val . '" LIMIT 1');
 }
 
-function get_avatar($user_id) {
+function get_avatar($user_id)
+{
     $data = vco_fetch('SELECT `avatar` FROM `' . VCO_USERS . '` WHERE `id` = ' . $user_id . ' LIMIT 1');
 
     if ($data['avatar'] == null) {
@@ -32,7 +28,8 @@ function get_avatar($user_id) {
     }
 }
 
-function get_cover($user_id) {
+function get_cover($user_id)
+{
     $data = vco_fetch('SELECT `cover` FROM `' . VCO_USERS . '` WHERE `id` = ' . $user_id . ' LIMIT 1');
 
     if ($data['cover'] == null) {
@@ -42,24 +39,14 @@ function get_cover($user_id) {
     }
 }
 
-function get_list_users($total)
+function get_list_users($ope, $role, $total)
 {
-    return vco_fetchAll('SELECT * FROM `' . VCO_USERS . '` ORDER BY `id` DESC' . get_page($total));
-}
-
-function get_list_mods($total)
-{
-    return vco_fetchAll('SELECT * FROM `' . VCO_USERS . '` WHERE `role` >= 4 ORDER BY `role` DESC' . get_page($total));
+    return vco_fetchAll('SELECT * FROM `' . VCO_USERS . '` WHERE `role` ' . $ope . ' ' . $role . ' ORDER BY `id` DESC' . get_page($total));
 }
 
 function get_info_id($user_id)
 {
     return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `id` = "' . $user_id . '" LIMIT 1');
-}
-
-function get_info($username)
-{
-	return vco_fetch('SELECT * FROM `' . VCO_USERS . '` WHERE `username` = "' . $username . '" LIMIT 1');
 }
 
 
@@ -98,11 +85,6 @@ function transfer_coin($coin, $user_id, $receiver_id)
 {
     vco_execute('UPDATE `' . VCO_USERS . '` SET `coin` = `coin` - ' . $coin . ' WHERE `id` = ' . $user_id . ' LIMIT 1');
     vco_execute('UPDATE `' . VCO_USERS . '` SET `coin` = `coin` + ' . ($coin - ($coin * 0.05)) . ' WHERE `id` = ' . $receiver_id . ' LIMIT 1');
-}
-
-function login_at($time, $user_id)
-{
-    return vco_execute('UPDATE `' . VCO_USERS . '` SET `login_at` = ' . $time . ' WHERE `id` = ' . $user_id . ' LIMIT 1');
 }
 
 function del_user($id)
