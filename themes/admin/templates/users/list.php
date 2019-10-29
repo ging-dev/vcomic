@@ -30,18 +30,18 @@
                     		<td class="text-right">
                     		<?php if ($data['role'] != 0): ?>
                     			<button class="btn btn-sm btn-outline-primary btn-round btn-icon mr-4">
-									<a href="/admin/user/ban/<?= $data['username'] ?>" class="text-warning"><i class="far fa-ban"></i></a>
+									<a href="/admin/user/ban/<?= $data['id'] ?>" class="text-warning"><i class="far fa-ban"></i></a>
 								</button>
 							<?php else: ?>
 								<button class="btn btn-sm btn-outline-primary btn-round btn-icon mr-4">
-									<a href="/admin/user/remove-ban/<?= $data['username'] ?>" class="text-success"><i class="fal fa-check-circle"></i></a>
+									<a href="/admin/user/remove-ban/<?= $data['id'] ?>" class="text-success"><i class="fal fa-check-circle"></i></a>
 								</button>
 							<?php endif ?>
                     			<button class="btn btn-sm btn-outline-success btn-round btn-icon mr-4">
 									<a href="/admin/user/edit/<?= $data['id'] ?>" class="text-success"><i class="fas fa-pencil-alt"></i></a>
 								</button>
 								<button class="btn btn-sm btn-outline-danger btn-round btn-icon mr-4">
-									<a href="/admin/user/del/<?= $data['username'] ?>" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+									<a href="/admin/user/del/<?= $data['id'] ?>" class="text-danger"><i class="fas fa-trash-alt"></i></a>
 								</button>
 								<button class="btn btn-sm btn-outline-primary btn-round btn-icon">
 									<a href="/<?= $data['username'] ?>" target="_blank" class="text-primary" title="Đi tới..."><i class="fas fa-external-link-alt"></i></a>

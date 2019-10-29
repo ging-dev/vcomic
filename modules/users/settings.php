@@ -23,7 +23,7 @@ $facebook = isset($_POST['facebook']) ? _e($_POST['facebook']) : $data_profile['
 $about    = isset($_POST['about']) ? _e($_POST['about']) : $data_profile['about'];
 
 if ($request_method == 'POST') {
-	update_fullname($fullname, $user_id);
+	update_one_col('fullname', $fullname, $user_id);
 
 	if ($data_profile) {
 		update_profile($facebook, $about, $user_id);

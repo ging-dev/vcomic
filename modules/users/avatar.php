@@ -20,7 +20,7 @@ if ($request_method == 'POST') {
     $avatar      = $user['username'] . '.jpg';
     $target_file = ROOT . '/uploads/avatar/' . $user['username'] . '.jpg';
 
-    update_avatar($avatar, $user_id);
+    update_one_col('avatar', $avatar, $user_id);
 
     move_uploaded_file($tmp_name, $target_file);
     redirect('/profile');

@@ -17,30 +17,30 @@ if (!$user_id || ($user['role'] < 9)) {
 
 switch ($act) {
 	case 'del':
-		if (!$username) {
+		if (!$id) {
 			abort(404);
 		} else {
-			del_user($username);
+			del_user($id);
 		}
 
 		redirect('/admin/users');
 		break;
 
 	case 'ban':
-		if (!$username) {
+		if (!$id) {
 			abort(404);
 		} else {
-			update_role(0, $username);
+			update_one_col('role', 0, $id);
 		}
 
 		redirect('/admin/users');
 		break;
 
 	case 'remove_ban':
-		if (!$username) {
+		if (!$id) {
 			abort(404);
 		} else {
-			update_role(1, $username);
+			update_one_col('role', 1, $id);
 		}
 
 		redirect('/admin/users');

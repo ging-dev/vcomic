@@ -20,7 +20,7 @@ if ($request_method == 'POST') {
     $cover      = $user['username'] . '.jpg';
     $target_file = ROOT . '/uploads/cover/' . $user['username'] . '.jpg';
 
-    update_cover($cover, $user_id);
+    update_one_col('cover', $cover, $user_id);
 
     move_uploaded_file($tmp_name, $target_file);
     redirect('/profile');

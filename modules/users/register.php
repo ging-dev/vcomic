@@ -22,29 +22,29 @@ $email       = isset($_POST['email']) ? _e(trim($_POST['email'])) : '';
 
 if ($request_method == 'POST') {
     if (!$usernameReg || !$passwordReg || !$fullname || !$email) {
-		show_alert('Không được bỏ trống thông tin!', 'error');
+		exit('Không được bỏ trống thông tin!');
 	} else {
 		if (mb_strlen($usernameReg) < 6 || mb_strlen($usernameReg) > 60) {
-    		show_alert('Tài khoản chứa từ 6-60 ký tự!', 'error');
+    		exit('Tài khoản chứa từ 6-60 ký tự!');
     	}
 
         if (mb_strlen($passwordReg) < 8) {
-    		show_alert('Mật khẩu phải từ 8 ký tự trở lên!', 'error');
+    		exit('Mật khẩu phải từ 8 ký tự trở lên!');
     	}
 
         if (preg_match('/[^\da-z\(.)]+/', $usernameReg)) {
-            show_alert('Tên người dùng không chứa các ký tự đặc biệt', 'error');
+            exit('Tên người dùng không chứa các ký tự đặc biệt');
         }
 
         $checkUser  = check_info('username', $usernameReg);
         $checkEmail = check_info('email', $email);
 
     	if ($checkUser) {
-    		show_alert('Tài khoản này đã tồn tại!', 'error');
+    		exit('Tài khoản này đã tồn tại!');
     	}
 
         if ($checkEmail) {
-            show_alert('Email này đã tồn tại!', 'error');
+            exit('Email này đã tồn tại!');
         }
 
         $password = md5(md5($passwordReg));

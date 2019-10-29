@@ -89,22 +89,9 @@ function update_password($password, $user_id)
     return vco_execute('UPDATE `' . VCO_USERS . '` SET `recover_code` = "", `password` = "' . $password . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
 }
 
-function update_fullname($fullname, $user_id)
+function update_one_col($col, $val, $id)
 {
-    return vco_execute('UPDATE `' . VCO_USERS . '` SET `fullname` = "' . $fullname . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
-}
-
-function update_role($role, $username)
-{
-    return vco_execute('UPDATE `' . VCO_USERS . '` SET `role` = ' . $role . ' WHERE `username` = "' . $username . '" LIMIT 1');
-}
-
-function update_avatar($avatar, $user_id) {
-    return vco_execute('UPDATE `' . VCO_USERS . '` SET `avatar` = "' . $avatar . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
-}
-
-function update_cover($cover, $user_id) {
-    return vco_execute('UPDATE `' . VCO_USERS . '` SET `cover` = "' . $cover . '" WHERE `id` = ' . $user_id . ' LIMIT 1');
+    return vco_execute('UPDATE `' . VCO_USERS . '` SET `' . $col . '` = "' . $val . '" WHERE `id` = ' . $id . ' LIMIT 1');
 }
 
 function transfer_coin($coin, $user_id, $receiver_id)
@@ -118,7 +105,7 @@ function login_at($time, $user_id)
     return vco_execute('UPDATE `' . VCO_USERS . '` SET `login_at` = ' . $time . ' WHERE `id` = ' . $user_id . ' LIMIT 1');
 }
 
-function del_user($username)
+function del_user($id)
 {
-    return vco_execute('DELETE FROM `' . VCO_USERS . '` WHERE `username` = "' . $username . '" LIMIT 1');
+    return vco_execute('DELETE FROM `' . VCO_USERS . '` WHERE `id` = "' . $id . '" LIMIT 1');
 }
