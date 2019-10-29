@@ -24,9 +24,48 @@ if ($request_method == 'POST') {
 		$error = 'Không được bỏ trống tin nhắn!';
 	} else {
 		insert_chat($msg, $user_id, time());
+		require_once('vendor/autoload.php');
 
-		redirect('/chat');
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS'  => true
+        );
+        
+        $pusher = new Pusher\Pusher(
+            '4b3ff0efa1aa3ccadbc3',
+            '5a7b664d09043f69b544',
+            '888903',
+            $options
+        );
+        
+        $html = '<div class="text-left">
+                <div class="media" title="' . date('H:i | d-m-Y', time()) . '">
+                    <div class="media-body mr-3">
+                        <div class="chat-content">
+                            <img class="lazy avatar-sm" data-original="' . get_avatar($user_id) . '" />
+                            <a href="/' . $user['username'] . '"><b>' . display_name($user['role'], $user['fullname']) . '</b></a>:
+                            ' . $msg . '
+                        </div>
+                    </div>
+                </div>
+            </div>';
+             
+        $data['message'] = $html;
+        $data['user_id'] = $user_id;
+        
+        $pusher->trigger('chat', 'chat-room', $data);
+        
+        echo '<div class="text-right">
+                <div class="media" title="' . date('H:i | d-m-Y', time()) . '">
+                    <div class="media-body mr-3">
+                        <div class="chat-content">
+                            ' . $msg . '
+                        </div>
+                    </div>
+                </div>
+            </div>';        
 	}
+	exit;
 }
 
 if ($total) {
@@ -34,7 +73,7 @@ if ($total) {
 
 	switch ($act) {
 		case 'clear':
-			if ($user['role'] < 7) {
+			if ($user['role'] < 5) {
 				abort(404);
 			} else {
 				truncate_chat();
@@ -42,7 +81,7 @@ if ($total) {
 			}
 			break;
 		case 'del':
-			if ($user['role'] < 7) {
+			if ($user['role'] < 5) {
 				abort(404);
 			} else {
 				del_chat($id);

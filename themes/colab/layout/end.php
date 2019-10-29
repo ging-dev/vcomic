@@ -174,7 +174,42 @@
 	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function () {
+		    $('#submit-chat').on('click', function () {
+                var message = $('#message').val(); 
+           
+                $.ajax({
+                    type: "POST",
+                    url:  "/chat",
+                    data: {
+                        msg : message
+                    },
+                    cache: false,
+                    success: function (data){
+                        $('#message').val('');
+                        $('#chat-room').prepend(data);
+                    }
+                });
+            });    
+        });
+    
+        var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
+          cluster: 'ap1',
+          forceTLS: true
+        });
+    
+        var channel = pusher.subscribe('chat');
+        var user_id = <?= $user_id ?>;
+        channel.bind('chat-room', function(data) {
+            if (data.user_id != user_id) {
+                $('#chat-room').prepend(data.message);
+            }
+        });        
+    </script>
 </body>
 </html>
