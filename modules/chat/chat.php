@@ -16,8 +16,21 @@ if (!$user_id) {
 	abort(404);
 }
 
-if (count_chat()) {
-	$data_chat = get_chat(count_chat());
+$total = count_chat();
+$msg = isset($_POST['msg']) ? _e(trim($_POST['msg'])) : '';
+
+if ($request_method == 'POST') {
+	if (!$msg) {
+		$error = 'Không được bỏ trống tin nhắn!';
+	} else {
+		insert_chat($msg, $user_id, time());
+
+		redirect('/chat');
+	}
+}
+
+if ($total) {
+	$data_chat = get_chat($total);
 
 	switch ($act) {
 		case 'clear':
@@ -36,18 +49,6 @@ if (count_chat()) {
 				redirect('/chat');
 			}
 			break;
-	}
-}
-
-$msg = isset($_POST['msg']) ? _e(trim($_POST['msg'])) : '';
-
-if ($request_method == 'POST') {
-	if (!$msg) {
-		$error = 'Không được bỏ trống tin nhắn!';
-	} else {
-		insert_chat($msg, $user_id, time());
-
-		redirect('/chat');
 	}
 }
 

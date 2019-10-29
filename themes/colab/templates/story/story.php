@@ -14,8 +14,8 @@
                                     <div class="author mb-3">
                                         <span class="pr-4">Người Đăng:</span>
                                         <b>
-                                        	<a href="/<?= get_info_id($data['user_id'])['username'] ?>">
-                                        		<?= display_name(get_info_id($data['user_id'])['role'], get_info_id($data['user_id'])['fullname']) ?>
+                                        	<a href="/<?= $data_user['username'] ?>">
+                                        		<?= display_name($data_user['role'], $data_user['fullname']) ?>
                                         	</a>
                                         </b>
                                     </div>
@@ -25,9 +25,9 @@
                                     <div class="tag mb-3">
                                         <span class="pr-4">Tags:</span>
                                         <span class="temp-tag">
-<?php foreach (get_list_tag($data['id']) as $tag): ?>
+                                        <?php foreach ($list_tags as $tag): ?>
                                             <a href="/tag/<?= $tag['slug'] ?>" class="item"><?= $tag['name'] ?></a>
-<?php endforeach ?>
+                                        <?php endforeach ?>
                                         </span>
                                     </div>
                                     <div class="progressing mb-3">
@@ -36,13 +36,13 @@
                                     <div class="controller">
                                         <div class="row px-3 p-md-0 justify-content-center justify-content-lg-start">
                                             <div class="col-auto pr-3 pr-md-0">
-<?php if ($data_chapter): ?>
+                                            <?php if ($data_chapter): ?>
                                                 <a href="/story/<?= $data['slug'] ?>/<?= $data_chapter[0]['slug'] ?>" class="btn btn-outline-custom btn-sm mr-2">
                                                     <i class="fas fa-glasses-alt"></i> Đọc
                                                 </a>
-<?php else: ?>
+                                            <?php else: ?>
                                                 <a href="#" class="btn btn-outline-custom btn-sm mr-2"><i class="fas fa-glasses-alt"></i> Đọc</a>
-<?php endif ?>
+                                            <?php endif ?>
                                             <?php if ($user_id): ?>
                                                 <?php if (!get_story_like($user_id, $data['id'])): ?>
                                                     <a href="/story/<?= $data['slug'] ?>/like" class="btn btn-outline-custom btn-sm">
@@ -91,21 +91,21 @@
                     </div>
                 </div>
                 <div class="custom-list-group row mx-1 mx-md-0" style="height: 500px; overflow-y: scroll">
-<?php if ($data_chapter): ?>
-    <?php foreach ($data_chapter as $chapter): ?>
-                    <div class="col-md-6 p-0">
-                        <div class="col-item">
-                            <a href="/story/<?= $data['slug'] . '/' . $chapter['slug'] ?>"><?= $chapter['title'] ?></a>
+                <?php if ($data_chapter): ?>
+                    <?php foreach ($data_chapter as $chapter): ?>
+                        <div class="col-md-6 p-0">
+                            <div class="col-item">
+                                <a href="/story/<?= $data['slug'] . '/' . $chapter['slug'] ?>"><?= $chapter['title'] ?></a>
+                            </div>
                         </div>
-                    </div>
-    <?php endforeach ?>
-<?php else: ?>
+                    <?php endforeach ?>
+                <?php else: ?>
                     <div class="col-md-6 p-0">
                         <div class="col-item">
                             <p>Chưa có chương nào!</p>
                         </div>
                     </div>
-<?php endif ?>
+                <?php endif ?>
                 </div>
             </div>
             <div class="col-lg-12 mb-3">
@@ -188,19 +188,21 @@
                     </div>
                 </div>
                 <div class="row custom-list-group mx-1 mx-md-0">
-<?php foreach ($data_same_stories as $story_recomment): ?>
+                <?php foreach ($data_same_stories as $story_recommend):
+                    $data_user_recommend = get_info_id($story_recommend['user_id']);
+                ?>
                     <div class="col-md-6 px-0">
                         <div class="col-item">
                             <div class=" story-sm">
-                                <img class="lazy sm-story-cover float-left shadow-sm" data-original="/uploads/thumbnail/<?= $story_recomment['thumbnail'] ?>" style="margin-top: -1px" />
+                                <img class="lazy sm-story-cover float-left shadow-sm" data-original="/uploads/thumbnail/<?= $story_recommend['thumbnail'] ?>" style="margin-top: -1px" />
                                 <div class="content px-2 pt-2" style="overflow: hidden;">
                                     <h3 href="title" class="title" style="font-size:18px; line-height: 1.2">
-                                        <a href="/story/<?= $story_recomment['slug'] ?>"><?= $story_recomment['title'] ?></a>
+                                        <a href="/story/<?= $story_recommend['slug'] ?>"><?= $story_recommend['title'] ?></a>
                                     </h3>
                                     <div class="info mt-2 small-text">
                                         <span class="author">
-                                            <a href="/<?= get_info_id($story_recomment['user_id'])['username'] ?>">
-                                            	<?= display_name(get_info_id($story_recomment['user_id'])['role'], get_info_id($story_recomment['user_id'])['fullname']) ?>
+                                            <a href="/<?= $data_user_recommend['username'] ?>">
+                                            	<?= display_name($data_user_recommend['role'], $data_user_recommend['fullname']) ?>
                                             </a>
                                         </span>
                                         <br/>
@@ -213,20 +215,20 @@
                                                 <i class="far fa-star"></i>
                                             </span><br />
                                             <span class="view">
-                                                <i class="far fa-eye"></i> <?= $story_recomment['views'] ?>
+                                                <i class="far fa-eye"></i> <?= $story_recommend['views'] ?>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="story-tags mt-2 d-md-none d-lg-block">
-									<?php foreach(get_list_tag($story_recomment['id']) as $tag_recomment): ?>
-                                        <a href="/tag/<?= $tag_recomment['slug'] ?>" class="item"><?= $tag_recomment['name'] ?></a>
+									<?php foreach(get_list_tag($story_recommend['id']) as $tag_recommend): ?>
+                                        <a href="/tag/<?= $tag_recommend['slug'] ?>" class="item"><?= $tag_recommend['name'] ?></a>
 									<?php endforeach ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-<?php endforeach ?>
+                <?php endforeach ?>
                 </div>
             </div>
         </div>

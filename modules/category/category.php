@@ -19,8 +19,10 @@ if (!$data) {
 }
 $title = $data['name'];
 
-if (count_stories_category($data['id'])) {
-	$list_stories = get_stories_category($data['id'], count_stories_category($data['id']));
+$total = count_stories_category($data['id']);
+
+if ($total) {
+	$list_stories = get_stories_category($data['id'], $total);
 }
 
 require_once('themes/' . THEME . '/layout/head.php');

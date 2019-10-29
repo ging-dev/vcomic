@@ -15,7 +15,7 @@
             </div>
         </form>
         <div class="chat-mess-list my-3">
-<?php if (count_chat()):
+<?php if ($total):
     foreach ($data_chat as $data):
         $data_user_chat = get_user_chat($data['user_id']);
 ?>
@@ -36,6 +36,6 @@ else: ?>
         <p>Chưa có ai lên tiếng!!!</p>
 <?php endif ?>
         </div>
-        <?= pagination('/chat', count_chat()); ?>
+        <?= pagination('/chat', $total); ?>
     </div>
 </section>

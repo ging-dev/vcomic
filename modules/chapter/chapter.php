@@ -19,6 +19,7 @@ if (!$data_chapter) {
 	abort(404);
 }
 
+$total = count_comment($data_chapter['id']); 
 $msg = isset($_POST['msg']) ? _e(trim($_POST['msg'])) : '';
 $data_story = get_stories('id', $data_chapter['story_id']);
 $data_next_chapter = get_next_chapter($data_chapter['id'], $data_chapter['story_id']);
@@ -28,8 +29,8 @@ if ($request_method == 'POST') {
 	redirect('/story/' . $data_story['slug'] . '/' . $data_chapter['slug']);
 }
 
-if (count_comment($data_chapter['id'])) {
-	$list_comment = get_list_comment($data_chapter['id'], count_comment($data_chapter['id']));
+if ($total) {
+	$list_comment = get_list_comment($data_chapter['id'], $total);
 }
 
 require_once('themes/' . THEME . '/layout/head.php');

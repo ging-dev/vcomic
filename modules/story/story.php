@@ -85,6 +85,8 @@ $count_nomination = count_nomination($data['id']);
 $data_cate = get_category('id', $data['category_id']);
 $data_chapter = get_chapter($data['id']);
 $data_same_stories = get_same_stories($data['category_id'], $data['id']);
+$data_user = get_info_id($data['user_id']);
+$list_tags = get_list_tag($data['id']);
 
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/story/story.php');

@@ -29,8 +29,10 @@
             </div>
         </div>
         <div class="custom-list-group">
-<?php if (count_stories_category($data['id'])): ?>
-    <?php foreach ($list_stories as $data_story): ?>
+<?php if ($total): ?>
+    <?php foreach ($list_stories as $data_story):
+        $data_user = get_info_id($data_story['user_id']);
+    ?>
             <div class="item">
                 <div class="story-sm">
                     <img class="lazy md-story-cover float-left shadow-sm d-none d-md-block" data-original="/uploads/thumbnail/<?= $data_story['thumbnail'] ?>" />
@@ -40,8 +42,8 @@
                         </a>
                         <div class="info mt-2 small-text">
                             <div class="author">
-                                <a href="/<?= get_info_id($data_story['user_id'])['username'] ?>">
-                                    <?= display_name(get_info_id($data_story['user_id'])['role'], get_info_id($data_story['user_id'])['fullname']) ?>
+                                <a href="/<?= $data_user['username'] ?>">
+                                    <?= display_name($data_user['role'], $data_user['fullname']) ?>
                                 </a>
                             </div>
                             <div class="vote">
@@ -60,7 +62,7 @@
                 </div>
             </div>
     <?php endforeach ?>
-    <?= pagination('/category/' . $slug, count_stories_category($data['id'])) ?>
+    <?= pagination('/category/' . $slug, $total) ?>
 <?php else: ?>
             <div class="item">
                 Không có truyện nào cho thể loại <b><?= $data['name'] ?></b>

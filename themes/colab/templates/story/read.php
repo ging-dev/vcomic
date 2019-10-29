@@ -7,7 +7,7 @@
         </div>
         <div class="row my-3 free-list">
 <?php if ($total): ?>
-    <?php foreach (get_stories_read($user_id, $total) as $data): ?>
+    <?php foreach ($list_stories_read as $data): ?>
         <div class="col-md-12 px-3 free-list-item">
             <div class="p-3 border">
                 <div class="row mx-0 px-0">
@@ -19,11 +19,6 @@
                             </h5>
                         </div>
                     </div>
-                    <!-- <div class="col-md-4 px-0">
-                        <div class="controller mt-1 text-center">
-                            <a class="btn btn-custom btn-sm d-inline-block" href="/work/<?= $story['slug'] ?>/">Quản lí chương</a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -35,5 +30,5 @@
 <?php endif ?>
         </div>
     </div>
-<?php echo pagination('/story/read', count_story_read($user_id)); ?>
+<?php echo pagination('/story/read', $total); ?>
 </section>

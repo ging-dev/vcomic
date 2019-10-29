@@ -93,8 +93,9 @@
             </form>
 <?php endif ?>
         </div>
-<?php if (count_comment($data_chapter['id'])):
+<?php if ($total):
     foreach ($list_comment as $data_comment):
+        $data_user = get_info_id($data_comment['user_id']);
     ?>
             <div class="comment-list my-4">
                 <div class="p-3 rounded border media mb-3 shadow-sm">
@@ -102,8 +103,8 @@
                     <div class="media-body ml-3">
                         <div class="top-line">
                             <div class="name">
-                                <a href="/<?= get_info_id($data_comment['user_id'])['username'] ?>" class="text-dark font-weight-bolder">
-                                    <?= display_name(get_info_id($data_comment['user_id'])['role'], get_info_id($data_comment['user_id'])['fullname']) ?>
+                                <a href="/<?= $data_user['username'] ?>" class="text-dark font-weight-bolder">
+                                    <?= display_name($data_user['role'], $data_user['fullname']) ?>
                                 </a>
                             </div>
                             <div class="time small-text font-italic">
@@ -117,7 +118,7 @@
                 </div>
             </div>
     <?php endforeach;
-    pagination('/story/' . $data_story['slug'] . '/' . $data_chapter['slug'], count_comment($data_chapter['id']));
+    pagination('/story/' . $data_story['slug'] . '/' . $data_chapter['slug'], $total);
     else: ?>
         <div class="comment-list my-4">
             Không có bình luận. Hãy đặt dấu chân đầu tiên nào ~~
