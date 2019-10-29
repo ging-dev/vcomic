@@ -18,7 +18,7 @@
 						<th class="text-right">Hành Động</th>
                     </thead>
                     <tbody>
-                    <?php foreach (get_all_stories(count_all_stories()) as $data): ?>
+                    <?php foreach (get_all_stories($total) as $data): ?>
                     	<tr>
                     		<td><?= $data['title'] ?></td>
                     		<td><img width="50px" src="/uploads/thumbnail/<?= $data['thumbnail'] ?>"></td>
@@ -30,7 +30,7 @@
                     		</td>
                     		<td><?= $data['views'] ?></td>
                     		<td><?= display_name(get_info_id($data['user_id'])['role'], get_info_id($data['user_id'])['fullname']) ?></td>
-                    		<td><?= get_category_id($data['category_id'])['name'] ?></td>
+                    		<td><?= get_category('id', $data['category_id'])['name'] ?></td>
                     		<td><?= date('d-m-Y', $data['created_at']) ?></td>
                     		<td class="text-right">
                     			<button class="btn btn-sm btn-outline-success btn-round btn-icon mr-4">
@@ -47,7 +47,7 @@
                     <?php endforeach ?>
                     </tbody>
                 </table>
-                <?= pagination('/admin/stories', count_all_stories()) ?>
+                <?= pagination('/admin/stories', $total) ?>
             </div>
         </div>
     </div>

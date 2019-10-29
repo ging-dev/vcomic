@@ -28,7 +28,7 @@ $category_id = isset($_POST['category']) ? _e($_POST['category']) : '';
 $publish    = (isset($_POST['is_published']) == true) ? 1 : 0;
 
 $data_list_cate = get_list_categories();
-$data_story = get_stories($slug_story);
+$data_story = get_stories('slug', $slug_story);
 
 if ($request_method == 'POST'):
 	$tmp_name    = $_FILES['thumbnail']['tmp_name'];

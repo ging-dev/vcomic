@@ -28,7 +28,7 @@ if ($request_method == 'POST') {
 			$error = 'Tên thư mục từ 6-60 ký tự';
 		}
 
-		if (get_category($slug)) {
+		if (get_category('slug', $slug)) {
 			$error = 'Tên thư mục này đã tồn tại';
 		}
 	}

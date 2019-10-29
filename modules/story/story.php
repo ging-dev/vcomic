@@ -16,7 +16,7 @@ require_model('story');
 require_model('story_read');
 require_model('tag');
 
-$data = get_stories($slug);
+$data = get_stories('slug', $slug);
 
 if (!$data) {
 	abort(404);
@@ -82,7 +82,7 @@ if ($user_id) {
 $title = $data['title'];
 
 $count_nomination = count_nomination($data['id']);
-$data_cate = get_category_id($data['category_id']);
+$data_cate = get_category('id', $data['category_id']);
 $data_chapter = get_chapter($data['id']);
 $data_same_stories = get_same_stories($data['category_id'], $data['id']);
 

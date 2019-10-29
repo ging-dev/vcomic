@@ -20,7 +20,7 @@ if (!$data_chapter) {
 }
 
 $msg = isset($_POST['msg']) ? _e(trim($_POST['msg'])) : '';
-$data_story = get_stories_id($data_chapter['story_id']);
+$data_story = get_stories('id', $data_chapter['story_id']);
 $data_next_chapter = get_next_chapter($data_chapter['id'], $data_chapter['story_id']);
 
 if ($request_method == 'POST') {

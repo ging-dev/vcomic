@@ -17,14 +17,9 @@ function get_list_categories($total)
 	return vco_fetchAll('SELECT * FROM `' . VCO_CATEGORIES . '` ORDER BY `id` DESC' . get_page($total));
 }
 
-function get_category($slug)
+function get_category($col, $val)
 {
-	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `slug` = "' . $slug . '"');
-}
-
-function get_category_id($category_id)
-{
-	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `id` = ' . $category_id);
+	return vco_fetch('SELECT * FROM `' . VCO_CATEGORIES . '` WHERE `' . $col . '` = "' . $val . '" LIMIT 1');
 }
 
 function update_category($name, $slug, $id)

@@ -20,11 +20,6 @@ function get_tag($slug)
 	return vco_fetch('SELECT * FROM `' . VCO_TAGS . '` WHERE `slug` = "' . $slug . '"');
 }
 
-function get_tag_id($data_id)
-{
-	return vco_fetch('SELECT * FROM `' . VCO_TAGS . '` WHERE `id` = ' . $data_id);
-}
-
 function count_story_tags($tag_id)
 {
 	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_TAG_STORY . '` 

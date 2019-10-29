@@ -19,7 +19,7 @@ if (!$user_id || ($user['role'] < 9)) {
 	abort(404);
 }
 
-$data = get_category_id($id);
+$data = get_category_id('id', $id);
 
 $error = false;
 $name = isset($_POST['name']) ? _e(trim($_POST['name'])) : $data['name'];

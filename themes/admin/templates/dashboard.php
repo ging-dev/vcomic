@@ -118,7 +118,7 @@
 						<th class="text-right">Hành Động</th>
                     </thead>
                     <tbody>
-                    <?php foreach (get_list_users('>=', 4, count_users('>=', 4)) as $data): ?>
+                    <?php foreach ($list_mods as $data): ?>
                     	<tr>
                     		<td><?= $data['username'] ?></td>
                     		<td><?= display_name($data['role'], $data['fullname']) ?></td>
@@ -149,7 +149,7 @@
                     <?php endforeach ?>
                     </tbody>
                 </table>
-                <?= pagination('/admin/users', count_users('>=', 4)) ?>
+                <?= pagination('/admin/users', $total) ?>
             </div>
         </div>
     </div>

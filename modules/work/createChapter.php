@@ -22,7 +22,7 @@ $get_title    = isset($_POST['title_chapter']) ? _e($_POST['title_chapter']) : '
 $get_content  = isset($_POST['content']) ? _e($_POST['content']) : '';
 $status       = (isset($_POST['status']) == true) ? 1 : 0;
 
-$data_story = get_stories($slug);
+$data_story = get_stories('slug', $slug);
 
 if (! $data_story) {
 	abort(404);

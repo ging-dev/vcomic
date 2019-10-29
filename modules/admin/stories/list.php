@@ -17,6 +17,8 @@ if (!$user_id || ($user['role'] < 9)) {
 	abort(404);
 }
 
+$total = count_all_stories();
+
 switch ($act) {
 	case 'del':
 		del_story($id);

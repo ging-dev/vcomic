@@ -50,14 +50,9 @@ function get_stories_tag($tag_id, $total)
 		WHERE `' . VCO_TAG_STORY . '`.tag_id = ' . $tag_id);
 }
 
-function get_stories($slug)
+function get_stories($col, $val)
 {
-	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `slug` = "' . $slug . '" AND `is_published` = 1');
-}
-
-function get_stories_id($data_id)
-{
-	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `id` = "' . $data_id . '" AND `is_published` = 1');
+	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `' . $col . '` = "' . $val . '" AND `is_published` = 1');
 }
 
 function get_story_id($data_id)

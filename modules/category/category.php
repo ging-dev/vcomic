@@ -12,7 +12,7 @@ require_once('system/bootstrap.php');
 require_model('category');
 require_model('story');
 
-$data = get_category($slug);
+$data = get_category('slug', $slug);
 
 if (!$data) {
 	abort(404);

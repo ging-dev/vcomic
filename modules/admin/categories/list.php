@@ -19,6 +19,9 @@ if (!$user_id || ($user['role'] < 9)) {
 	abort(404);
 }
 
+$total = count_categories();
+$list_categories = get_list_categories($total);
+
 switch ($act) {
 	case 'del':
 		del_category($id);

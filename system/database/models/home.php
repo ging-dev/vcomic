@@ -11,8 +11,3 @@ function get_categories()
 {
 	return vco_fetchAll('SELECT `name`, `slug` FROM `' . VCO_CATEGORIES . '`');
 }
-
-function get_notif($user_id)
-{
-	return vco_fetchAll('SELECT * FROM `' . VCO_NOTIFICATIONS . '` WHERE `receiver_id` = ' . $user_id . ' AND `is_read` = 0');
-}

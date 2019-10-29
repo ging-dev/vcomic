@@ -108,7 +108,7 @@ input::placeholder,textarea::placeholder{
     box-shadow:0 3px 4px rgba(0,0,0,.06);
     position:fixed;
     top:0;
-    padding: 5px 10px;
+    padding:10px;
     width:100%;
     z-index:1000
 }
@@ -1062,7 +1062,7 @@ footer .footer-title:before{
     z-index:2;
     text-shadow:0 0 3px rgba(0,0,0,.5);
     position:relative;
-    margin-top:20px
+    margin-top:-20px
 }
 .modal .modal-content,.modal .modal-header{
     border-radius:0!important

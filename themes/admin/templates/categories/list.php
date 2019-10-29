@@ -15,7 +15,7 @@
 						<th class="text-right">Hành Động</th>
                     </thead>
                     <tbody>
-                    <?php foreach (get_list_categories(count_categories()) as $data): ?>
+                    <?php foreach ($list_categories as $data): ?>
                     	<tr>
                     		<td><?= $data['name'] ?></td>
                     		<td><?= date('d-m-Y', $data['created_at']) ?></td>
@@ -34,7 +34,7 @@
                     <?php endforeach ?>
                     </tbody>
                 </table>
-                    <?= pagination('/admin', count_categories()) ?>
+                <?= pagination('/admin', $total) ?>
             </div>
         </div>
     </div>
