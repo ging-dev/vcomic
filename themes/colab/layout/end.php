@@ -40,9 +40,6 @@
                 </div>
             </div>
         </div>
-        <div class="border-top pt-3">
-            <i>Tất cả các truyện được sưu tầm trên web đều đã được sự cho phép của các Tác Giả / Editor. Chúng tôi tôn trọng quyền của tác giả nên sẽ không chứa chấp các truyện không rõ nguồn gốc / các truyện chưa được tác giả cho phép đăng tại đây.</i>
-        </div>
     </div>
 </footer>
 
@@ -66,8 +63,8 @@
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="remember" class="custom-control-input" id="remember" />
-                            <label for="remember" class="custom-control-label">Giữ tôi luôn đăng nhập</label>
+                            <input type="checkbox" name="remember" value="1" checked="checked" />
+                            <label for="">Giữ tôi luôn đăng nhập</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -179,10 +176,10 @@
 	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
 	
 	<script type="text/javascript">
-		$(document).ready(function () {
-		    $('#submit-chat').on('click', function () {
-                var message = $('#message').val();
-
+        $(document).ready(function () {
+            $('#submit-chat').on('click', function () {
+                var message = $('#message').val(); 
+           
                 $.ajax({
                     type: "POST",
                     url:  "/chat",
@@ -191,28 +188,30 @@
                     },
                     cache: false,
                     success: function (data){
-                        $('#message').val('');
-                        $('#chat-room').prepend(data);
+                        $('#message').val('');          
                     }
                 });
             });    
         });
     
         var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
-          cluster: 'ap1',
-          forceTLS: true
+            cluster: 'ap1',
+            forceTLS: true
         });
-    
+        
         var channel = pusher.subscribe('chat');
         var user_id = <?= $user_id ?>;
         var audio = new Audio('/assets/alert.mp3');
 
         channel.bind('chat-room', function(data) {
+            var html = '<div class="text-' + (data.user_id != user_id ? 'left' : 'right') + '"><div class="media"><div class="media-body mr-3"><div class="chat-content">' + (data.user_id != user_id ? '<img class="lazy avatar-sm" src="' + data.avatar +'"/><a href="/' + data.username + '"><b>' + data.display_name + '</b></a>: ' : '') + data.message + '</div></div></div></div>';            
+            $('#chat-room').prepend(html);
+            
             if (data.user_id != user_id) {
-                $('#chat-room').prepend(data.message);
                 audio.play();
             }
-        });        
+        }); 
+        
     </script>
 </body>
 </html>

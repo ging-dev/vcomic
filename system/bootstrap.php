@@ -45,6 +45,16 @@ if (isset($_SESSION['id'])) {
     }
     $stmt = null;
     unset($_user);
+} else if (isset($_COOKIE['cuid'])) {
+    $id = trim(base64_decode($_COOKIE['cuid']));
+    $_user = get_info_id($id);
+
+    if ($_user) {
+        $user = $_user;
+        $user_id = $user['id'];
+    }
+    $stmt = null;
+    unset($_user);
 }
 
 if ($user_id) {
