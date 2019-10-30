@@ -42,7 +42,7 @@ if ($request_method == 'POST') {
                 <div class="media" title="' . date('H:i | d-m-Y', time()) . '">
                     <div class="media-body mr-3">
                         <div class="chat-content">
-                            <img class="lazy avatar-sm" data-original="' . get_avatar($user_id) . '" />
+                            <img class="lazy avatar-sm" src="' . SITE_URL . get_avatar($user_id) . '" />
                             <a href="/' . $user['username'] . '"><b>' . display_name($user['role'], $user['fullname']) . '</b></a>:
                             ' . $msg . '
                         </div>
