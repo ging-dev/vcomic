@@ -20,7 +20,10 @@ if (!$user_id || ($user['role'] < 9)) {
 }
 
 $total = count_users('>=', 4);
-$list_mods = get_list_users('>=', 4, $total);
+
+if ($total) {
+	$list_mods = get_list_users('>=', 4, $total);
+}
 
 require_once('themes/' . THEME_ADMIN . '/layout/head.php');
 require_once('themes/' . THEME_ADMIN . '/templates/dashboard.php');

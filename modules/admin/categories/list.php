@@ -20,7 +20,10 @@ if (!$user_id || ($user['role'] < 9)) {
 }
 
 $total = count_categories();
-$list_categories = get_list_categories($total);
+
+if ($total) {
+	$list_categories = get_list_categories($total);
+}
 
 switch ($act) {
 	case 'del':

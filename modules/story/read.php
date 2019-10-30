@@ -18,7 +18,10 @@ if (!$user_id) {
 $title = 'Truyện đã đọc';
 
 $total = count_story_read($user_id);
-$list_stories_read = get_stories_read($user_id, $total);
+
+if ($total) {
+	$list_stories_read = get_stories_read($user_id, $total);
+}
 
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/story/read.php');

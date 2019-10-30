@@ -24,7 +24,7 @@ $status       = (isset($_POST['status']) == true) ? 1 : 0;
 
 $data_story = get_stories('slug', $slug);
 
-if (! $data_story) {
+if (!$data_story) {
 	abort(404);
 }
 

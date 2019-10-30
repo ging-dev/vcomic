@@ -24,7 +24,6 @@ if ($request_method == 'POST') {
 		$error = 'Không được bỏ trống tin nhắn!';
 	} else {
 		insert_chat($msg, $user_id, time());
-		require_once('vendor/autoload.php');
 
         $options = array(
             'cluster' => 'ap1',

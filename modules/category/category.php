@@ -17,6 +17,7 @@ $data = get_category('slug', $slug);
 if (!$data) {
 	abort(404);
 }
+
 $title = $data['name'];
 
 $total = count_stories_category($data['id']);

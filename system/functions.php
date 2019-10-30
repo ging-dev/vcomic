@@ -120,6 +120,10 @@ function str_slug($str){
 	return $str;
 }
 
+function is_email($str) {
+    return (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@gmail\.com$/ix", $str)) ? true : false;
+}
+
 function get_page($total, $return = 0)
 {
     global $per_page;

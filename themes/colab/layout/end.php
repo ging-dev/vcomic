@@ -181,8 +181,8 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 		    $('#submit-chat').on('click', function () {
-                var message = $('#message').val(); 
-           
+                var message = $('#message').val();
+
                 $.ajax({
                     type: "POST",
                     url:  "/chat",
@@ -205,9 +205,12 @@
     
         var channel = pusher.subscribe('chat');
         var user_id = <?= $user_id ?>;
+        var audio = new Audio('/assets/alert.mp3');
+
         channel.bind('chat-room', function(data) {
             if (data.user_id != user_id) {
                 $('#chat-room').prepend(data.message);
+                audio.play();
             }
         });        
     </script>

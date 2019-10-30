@@ -18,6 +18,10 @@ if (!$user_id || ($user['role'] < 9)) {
 $error    = false;
 $data = get_info_id($id);
 
+if (!$data) {
+	abort(404);
+}
+
 $fullname = isset($_POST['fullname']) ? _e(trim($_POST['fullname'])) : $data['fullname'];
 $email = isset($_POST['email']) ? _e(trim($_POST['email'])) : $data['email'];
 $role = isset($_POST['role']) ? _e(trim($_POST['role'])) : $data['role'];

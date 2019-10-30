@@ -20,6 +20,7 @@ $error		  = false;
 $password_old = isset($_POST['password_old']) ? _e(trim($_POST['password_old'])) : '';
 $password_new = isset($_POST['password_new']) ? _e(trim($_POST['password_new'])) : '';
 $re_password  = isset($_POST['re_password']) ? _e(trim($_POST['re_password'])) : '';
+$password_hash = password_hash($password_new, PASSWORD_DEFAULT);
 
 if ($request_method == 'POST') {
 	if (!$password_old || !$password_new || !$re_password) {
@@ -43,7 +44,7 @@ if ($request_method == 'POST') {
 	}
 
 	if (!$error) {
-		update_password(md5(md5($password_new)), $user_id);
+		update_password($password_hash, $user_id);
 		redirect('/profile');
 	}
 }

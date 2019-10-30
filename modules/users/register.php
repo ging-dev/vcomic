@@ -36,6 +36,10 @@ if ($request_method == 'POST') {
             exit('Tên người dùng không chứa các ký tự đặc biệt');
         }
 
+        if (!is_email($email)) {
+            exit('Email không đúng định dạng');
+        }
+
         $checkUser  = get_info('username', $usernameReg);
         $checkEmail = get_info('email', $email);
 
@@ -47,7 +51,7 @@ if ($request_method == 'POST') {
             exit('Email này đã tồn tại!');
         }
 
-        $password = md5(md5($passwordReg));
+        $password = password_hash($passwordReg, PASSWORD_DEFAULT);
         set_avatar($usernameReg);
         
         $uid = insert_user($usernameReg, $email, $password, 1, $fullname, $usernameReg . '.jpg', time());

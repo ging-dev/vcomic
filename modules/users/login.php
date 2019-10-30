@@ -36,7 +36,7 @@ if ($request_method == 'POST') {
 			exit('Không tồn tại tài khoản này!');
 
 		} else {
-			if (md5(md5($password)) != $checkUser['password']) {
+			if (!password_verify($password, $checkUser['password'])) {
 				exit('Mật khẩu không chính xác. Vui lòng nhập lại!');
 			} else {
 				$_SESSION['id'] = $checkUser['id'];

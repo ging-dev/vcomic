@@ -19,6 +19,10 @@ if (!$user_id || ($user['role'] < 9)) {
 
 $total = count_all_stories();
 
+if ($total) {
+	$list_stories = get_all_stories($total);
+}
+
 switch ($act) {
 	case 'del':
 		del_story($id);

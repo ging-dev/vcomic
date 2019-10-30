@@ -19,6 +19,10 @@ if (!$user_id || ($user['role'] < 9)) {
 
 $data = get_story_id($id);
 
+if (!$data) {
+	abort(404);
+}
+
 $error = false;
 $name = isset($_POST['name']) ? _e(trim($_POST['name'])) : $data['title'];
 $slug = str_slug($name);

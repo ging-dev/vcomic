@@ -7,6 +7,7 @@
  * @version     0.0.1
  */
 
+require_once('vendor/autoload.php');
 require_once('system/bootstrap.php');
 
 $uri = $_SERVER['REQUEST_URI'];

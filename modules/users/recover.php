@@ -17,7 +17,7 @@ if ($user_id) {
 switch ($act) {
 	case 'set':
 	    $password = mt_rand(11111111, 99999999);
-        $password_hash = md5(md5($password));
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
         if (!$username || !$recover_code) {
             exit('Không được bỏ trống thông tin!');
