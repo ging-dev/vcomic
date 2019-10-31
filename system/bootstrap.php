@@ -30,6 +30,7 @@ session_start();
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 require_model('home');
+require_model('notification');
 require_model('user');
 
 $user_id = 0;

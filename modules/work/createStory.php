@@ -9,6 +9,7 @@
 
 require_once('system/bootstrap.php');
 require_model('category');
+require_model('relationship');
 require_model('story');
 require_model('tag');
 
@@ -27,8 +28,9 @@ $tag        = isset($_POST['tag']) ? explode(",", _e(trim($_POST['tag']))) : '';
 $category_id = isset($_POST['category']) ? _e($_POST['category']) : '';
 $publish    = (isset($_POST['is_published']) == true) ? 1 : 0;
 
-$data_list_cate = get_list_categories();
+$data_list_cate = get_list_categories(count_categories());
 $data_story = get_stories('slug', $slug_story);
+$data_user_follow = get_user_rela($user_id, 1);
 
 if ($request_method == 'POST'):
 	$tmp_name    = $_FILES['thumbnail']['tmp_name'];
@@ -36,7 +38,7 @@ if ($request_method == 'POST'):
     $target_file = ROOT . '/uploads/thumbnail/' . time() . '-' . $slug_story . '.jpg';
 
     if ($data_story):
-    	$error = 'Tên chuyện này đã tồn tại!';
+    	$error = 'Tên truyện này đã tồn tại!';
 	else:
 		$story_id = insert_story($_title, $slug_story, $summary, $thumbnail, $author, $publish, $user_id, $category_id, time());
 
@@ -44,11 +46,21 @@ if ($request_method == 'POST'):
 		$tag_id= 0;
 		$count_tag = count($tag);
         for ($i = 0; $i < $count_tag; $i++) {
-        	if (! get_tag(str_slug($tag[$i]))):
+        	if (!get_tag(str_slug($tag[$i]))):
 	    		$tag_id = insert_tag($tag[$i], str_slug($tag[$i]));
 	        endif;
 
             insert_tag_story($story_id, get_tag(str_slug($tag[$i]))['id']);
+        }
+
+        if ($publish == 1) {
+        	foreach ($data_user_follow as $data_user) {
+        		insert_notif(
+        			'<a href=\"/story/' . $slug_story . '\">' . $user['fullname'] . ' vừa đăng truyện mới.</a>', 
+        			$data_user['relation_user_id'], 
+        			time()
+        		);
+        	}
         }
 	endif;
 endif;

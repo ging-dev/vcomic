@@ -54,7 +54,7 @@ $(document).ready(function() {
     }),$("#login").on("click", function(e) {
         var n = $("#username").val(),
             a = $("#password").val(),
-            r = $("#remember").is(':checked')? 1: 0;
+            r = $("#remember").is(':checked') ? 1 : 0;
         $.ajax({
             url: "/login",
             method: "POST",

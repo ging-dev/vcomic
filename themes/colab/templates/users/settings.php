@@ -23,6 +23,10 @@
             <div class="col-md-8 pl-md-4">
                 <form class="form-horizontal" method="POST">
                     <div class="form-group">
+                        <label for="UserName" class="font-weight-bold">Email của bạn</label>
+                        <input type="text" class="form-control" name="email" value="<?= $user['email'] ?>" disabled />
+                    </div>
+                    <div class="form-group">
                         <label for="UserName" class="font-weight-bold">Tên của bạn</label>
                         <input type="text" class="form-control" name="fullname" value="<?= $user['fullname'] ?>" />
                     </div>

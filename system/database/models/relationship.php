@@ -7,6 +7,10 @@
  * @version     0.0.1
  */
 
+function get_user_rela($user_id, $type)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_RELATIONSHIPS . '` WHERE `user_id` = ' . $user_id . ' AND `type` = ' . $type);
+}
 
 function check_rela($user_id, $relation_user_id, $type)
 {

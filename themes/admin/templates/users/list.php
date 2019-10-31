@@ -26,8 +26,8 @@
 	                    		<td><?= display_name($data['role'], $data['fullname']) ?></td>
 	                    		<td><?= $data['coin'] ?></td>
 	                    		<td><?= $data['email'] ?></td>
-	                    		<td><?= date('d-m-Y', $data['login_at']) ?></td>
-	                    		<td><?= date('d-m-Y', $data['created_at']) ?></td>
+	                    		<td><?= date('H:i | d-m-Y', $data['login_at']) ?></td>
+	                    		<td><?= date('H:i | d-m-Y', $data['created_at']) ?></td>
 	                    		<td class="text-right">
 	                    		<?php if ($data['role'] != 0): ?>
 	                    			<button class="btn btn-sm btn-outline-primary btn-round btn-icon mr-4">

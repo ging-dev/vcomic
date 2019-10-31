@@ -126,9 +126,15 @@
                                     <i class="fal fa-ticket-alt"></i> Bạn phải là VIP
                                 </span>
                             <?php else: ?>
-                                <a href="/story/<?= $data['slug'] ?>/nomination" class="btn btn-outline-custom btn-sm">
-                                    <i class="fal fa-ticket-alt"></i> Đề cử <?= $count_nomination ?> lượt
-                                </a>
+                                <?php if ($user_id == $data['user_id']): ?>
+                                    <span class="btn btn-custom btn-sm">
+                                        <i class="fal fa-ticket-alt"></i> Truyện của bạn được đề cử <?= $count_nomination ?> lượt
+                                    </span>
+                                <?php else: ?>
+                                    <a href="/story/<?= $data['slug'] ?>/nomination" class="btn btn-outline-custom btn-sm">
+                                        <i class="fal fa-ticket-alt"></i> Đề cử <?= $count_nomination ?> lượt
+                                    </a>
+                                <?php endif ?>
                             <?php endif ?>
                         <?php else: ?>
                             <span class="btn btn-custom btn-sm">

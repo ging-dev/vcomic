@@ -14,7 +14,7 @@ function count_all_stories()
 
 function count_stories($user_id)
 {
-	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_STORIES . '` WHERE `user_id` = ' . $user_id . ' AND `is_published` = 1');
+	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_STORIES . '` WHERE `user_id` = ' . $user_id);
 }
 
 function count_stories_category($category_id)
@@ -37,6 +37,11 @@ function get_all_stories($total)
 	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` ORDER BY `id` DESC' . get_page($total));
 }
 
+function get_user_stories($user_id, $total)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` WHERE `user_id` = ' . $user_id . ' ORDER BY `id` DESC' . get_page($total));
+}
+
 function get_stories_category($category_id, $total)
 {
 	return vco_fetchAll('SELECT * FROM `' . VCO_STORIES . '` WHERE `category_id` = ' . $category_id . ' AND `is_published` = 1 ORDER BY `id` DESC' . get_page($total));
@@ -55,9 +60,9 @@ function get_stories($col, $val)
 	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `' . $col . '` = "' . $val . '" AND `is_published` = 1');
 }
 
-function get_story_id($data_id)
+function get_story_id($story_id)
 {
-	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `id` = ' . $data_id . ' LIMIT 1');
+	return vco_fetch('SELECT * FROM `' . VCO_STORIES . '` WHERE `id` = ' . $story_id . ' LIMIT 1');
 }
 
 function get_same_stories($category_id, $story_id)
@@ -68,6 +73,11 @@ function get_same_stories($category_id, $story_id)
 function update_view($story_id)
 {
 	return vco_execute('UPDATE `' . VCO_STORIES . '` SET `views` = `views` + 1 WHERE `id` = ' . $story_id . ' LIMIT 1');
+}
+
+function update_story_one_col($col, $val, $id)
+{
+	return vco_execute('UPDATE `' . VCO_STORIES . '` SET `' . $col . '` = "' . $val . '" WHERE `id` = ' . $id . ' LIMIT 1');
 }
 
 function update_story($name, $slug, $summary, $author, $is_published, $is_completed, $id)

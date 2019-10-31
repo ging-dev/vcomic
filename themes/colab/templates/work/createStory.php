@@ -71,11 +71,7 @@
 							</label>
 							<div class="d-inline-block float-left">
 								<div class="onoffswitch">
-									<input type="checkbox" name="is_published" class="onoffswitch-checkbox">
-									<label class="onoffswitch-label mb-0" for="is_published">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
+									<input type="checkbox" name="is_published">
 								</div>
 							</div>
 						</div>

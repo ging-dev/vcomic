@@ -8,6 +8,7 @@
  */
 
 require_once('system/bootstrap.php');
+require_model('notification');
 require_model('profile');
 require_model('relationship');
 require_model('story');
@@ -41,6 +42,11 @@ if ($user_id) {
 			case 'follow':
 				if (check_rela($data['id'], $user_id, 1) == 0) {
 					insert_rela($data['id'], $user_id, 1);
+					insert_notif(
+						'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa theo dõi bạn!</a>', 
+						$data['id'], 
+						time()
+					);
 				}
 
 				redirect('/' . $data['username']);

@@ -16,6 +16,7 @@ define('VCO_GIFTCODES', 'giftcodes');
 define('VCO_LIKES', 'likes');
 define('VCO_MESSAGES', 'messages');
 define('VCO_NOMINATIONS', 'nominations');
+define('VCO_NOTIFICATIONS', 'notifications');
 define('VCO_PROFILE_USERS', 'profile_users');
 define('VCO_RELATIONSHIPS', 'relationships');
 define('VCO_SERIES', 'series');

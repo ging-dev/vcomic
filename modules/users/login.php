@@ -17,7 +17,7 @@ if ($user_id) {
 
 $username   = isset($_POST['username']) ? _e(trim($_POST['username'])) : '';
 $password   = isset($_POST['password']) ? _e(trim($_POST['password'])) : '';
-$remember   = intval($_POST["remember"]);
+$remember   = isset($_POST['remember']) ? 1 : 0;
 
 if ($request_method == 'POST') {
 	if (!$username || !$password) {

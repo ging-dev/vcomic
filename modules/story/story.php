@@ -12,6 +12,7 @@ require_model('category');
 require_model('chapter');
 require_model('like');
 require_model('nomination');
+require_model('notification');
 require_model('story');
 require_model('story_read');
 require_model('tag');
@@ -33,6 +34,11 @@ if ($user_id) {
 		case 'like':
 			if (!get_story_like($user_id, $data['id'])) {
 				insert_story_like($user_id, $data['id']);
+				insert_notif(
+					'<a href=\"/story/' . $data['slug'] . '\">' . $user['fullname'] . ' vừa yêu thích truyện của bạn!</a>', 
+					$data['user_id'], 
+					time()
+				);
 				redirect('/story/' . $slug);
 			} else {
 				redirect('/story/' . $slug);
@@ -56,6 +62,12 @@ if ($user_id) {
 			
 			if (!get_nomination($data['id'], $user_id)) {
 				insert_nomination($data['id'], $user_id);
+				insert_notif(
+					'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa đề cử truyện của bạn!</a>', 
+					$data['user_id'], 
+					time()
+				);
+
 				redirect('/story/' . $slug);
 			} else {
 				redirect('/story/' . $slug);
@@ -74,6 +86,11 @@ if ($user_id) {
 			} else {
 				$error = 'Bạn đã donate cho tác giả ' . $coin;
 				transfer_coin($coin, $user_id, $data['user_id']);
+				insert_notif(
+					'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa donate ' . $coin . ' xu bạn!</a>', 
+					$data['user_id'], 
+					time()
+				);
 			}
 			break;
 	}

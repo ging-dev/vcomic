@@ -17,8 +17,8 @@ if (! $user_id || $user['role'] != 4) {
 
 $title        = 'Đăng chương mới';
 $error        = false;
-$slug         = isset($_REQUEST['slug']) ? _e(trim($_REQUEST['slug'])) : '';
 $get_title    = isset($_POST['title_chapter']) ? _e($_POST['title_chapter']) : '';
+$get_slug     = str_slug($get_title);
 $get_content  = isset($_POST['content']) ? _e($_POST['content']) : '';
 $status       = (isset($_POST['status']) == true) ? 1 : 0;
 
@@ -33,9 +33,9 @@ if ($data_story['user_id'] != $user_id) {
 }
 
 if ($request_method == 'POST'):
-	insert_chapter($get_title, $slug, $get_content, $status, $data_story['id'], time());	
+	insert_chapter($get_title, $get_slug, $get_content, $status, $data_story['id'], time());	
 
-	redirect('/works/' . $data_story['slug']);
+	redirect('/work/' . $data_story['id']);
 endif;
 
 require_once('themes/' . THEME . '/layout/head.php');
