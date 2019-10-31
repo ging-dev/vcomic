@@ -14,6 +14,8 @@ if (!$user_id) {
 }
 
 if ($user_id) {
+	setcookie('cuid', '');
+    setcookie('cups', '');
 	session_destroy();
 	redirect('/');
 } else {

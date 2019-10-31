@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/custom.css?ver=<?= VERSION ?>" />
 </head>
 <body>
-    <section class="loading">
+    <!-- section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
@@ -95,13 +95,13 @@
                     <a href="/chat"><i class="fal fa-comment-alt-lines fa-lg"></i></a>
                 </div>
                 <div class="item">
-                    <a href="/notifications"><i class="fal fa-bell fa-lg"></i></a>
+                    <a href="#"><i class="fal fa-bell fa-lg"></i></a>
                 </div>
                 <div class="item active">
-                    <a href=""><i class="far fa-home fa-lg"></i></a>
+                    <a href="/"><i class="far fa-home fa-lg"></i></a>
                 </div>
                 <div class="item">
-                    <a href="/user/profile"><i class="fal fa-user-circle fa-lg"></i></a>
+                    <a href="/profile"><i class="fal fa-user-circle fa-lg"></i></a>
                 </div>
                 <div class="item">
                     <a href="/logout"><i class="fal fa-sign-out-alt fa-lg"></i></a>

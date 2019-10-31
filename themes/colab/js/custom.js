@@ -53,13 +53,15 @@ $(document).ready(function() {
         $(".background-custom").removeClass("medium"), $(".background-custom").removeClass("white"), $(".background-custom").removeClass("dark"), $(".background-custom").addClass($(".background-chooser").val())
     }),$("#login").on("click", function(e) {
         var n = $("#username").val(),
-            a = $("#password").val();
+            a = $("#password").val(),
+            r = $("#remember").is(':checked')? 1: 0;
         $.ajax({
             url: "/login",
             method: "POST",
             data: {
                 username: n,
-                password: a
+                password: a,
+                remember: r
             },
             success: function(e) {
                 $("#errorLogin").html(e), "Đăng nhập thành công. Chờ chuyển hướng!!!" === e && setTimeout("location.reload();", 1000)

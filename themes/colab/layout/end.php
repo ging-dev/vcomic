@@ -63,7 +63,7 @@
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="remember" value="1" checked="checked" />
+                            <input type="checkbox" id="remember" name="remember" checked="checked" />
                             <label for="">Giữ tôi luôn đăng nhập</label>
                         </div>
                     </div>

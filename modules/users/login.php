@@ -17,7 +17,7 @@ if ($user_id) {
 
 $username   = isset($_POST['username']) ? _e(trim($_POST['username'])) : '';
 $password   = isset($_POST['password']) ? _e(trim($_POST['password'])) : '';
-$remember   = isset($_POST['remember']) ? 1 : 0;
+$remember   = intval($_POST["remember"]);
 
 if ($request_method == 'POST') {
 	if (!$username || !$password) {
@@ -32,19 +32,24 @@ if ($request_method == 'POST') {
 		}
 
 		$checkUser = get_info('username', $username);
+
 		if (!$checkUser) {
 			exit('Không tồn tại tài khoản này!');
-
 		} else {
 			if (!password_verify($password, $checkUser['password'])) {
 				exit('Mật khẩu không chính xác. Vui lòng nhập lại!');
 			} else {
-				if ($remember) {
-					$cuid = base64_encode($checkUser['id']);
+				if ($remember == 1) {
+					$cuid = $checkUser['id'];
+					$cups = $checkUser['password'];
+
 					setcookie('cuid', $cuid, time() + 3600 * 24 * 365);
-			    }
+					setcookie('cups', $cups, time() + 3600 * 24 * 365);
+				}
 
 				$_SESSION['id'] = $checkUser['id'];
+				$_SESSION['password'] = $checkUser['password'];
+
 				update_one_col('login_at', time(), $checkUser['id']);
 				exit('Đăng nhập thành công. Chờ chuyển hướng!!!');
 			}

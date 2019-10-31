@@ -57,6 +57,7 @@ if ($request_method == 'POST') {
         $uid = insert_user($usernameReg, $email, $password, 1, $fullname, $usernameReg . '.jpg', time());
 
         $_SESSION['id'] = $uid;
+        $_SESSION['password'] = $password;
         exit('Đăng ký thành công. Chờ chuyển hướng!!!');
     }
 }

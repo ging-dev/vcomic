@@ -34,27 +34,30 @@ require_model('user');
 
 $user_id = 0;
 $user = [];
+$cuid = '';
+$cups = '';
 
-if (isset($_SESSION['id'])) {
-    $id = trim($_SESSION['id']);
-    $_user = get_info_id($id);
+if (isset($_SESSION['id'], $_SESSION['password'])) {
+    $cuid = $_SESSION['id'];
+    $cups = _e($_SESSION['password']);
+} else if (isset($_COOKIE['cuid'], $_COOKIE['cups'])) {
+    $cuid = $_COOKIE['cuid'];
+    $cups = $_COOKIE['cups'];
+}
+
+if ($cuid && $cups) {
+    $_user = get_info_id($cuid);
 
     if ($_user) {
-        $user = $_user;
-        $user_id = $user['id'];
+        if ($cups === $_user['password']) {
+            $user = $_user;
+            $user_id = $user['id'];
+        } else {
+            setcookie('cuid', '');
+            setcookie('cups', '');
+            session_destroy();
+        }
     }
-    $stmt = null;
-    unset($_user);
-} else if (isset($_COOKIE['cuid'])) {
-    $id = trim(base64_decode($_COOKIE['cuid']));
-    $_user = get_info_id($id);
-
-    if ($_user) {
-        $user = $_user;
-        $user_id = $user['id'];
-    }
-    $stmt = null;
-    unset($_user);
 }
 
 if ($user_id) {
