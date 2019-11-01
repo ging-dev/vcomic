@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="UserName" class="font-weight-bold">Tên của bạn</label>
-                        <input type="text" class="form-control" name="fullname" value="<?= $user['fullname'] ?>" />
+                        <input type="text" class="form-control" name="fullname" value="<?= $user['fullname'] ?>" disabled />
                     </div>
                     <div class="form-group">
                         <label for="FBName" class="font-weight-bold">Facebook</label>

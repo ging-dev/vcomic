@@ -24,7 +24,7 @@
                                         <a href="<?= $data['url_post'] ?>/notif/<?= $data['id'] ?>"><?= $data['msg'] ?></a>
                                     </h5>
                                     <div class="update-time text-muted mt-2 font-italic">
-                                        Vào lúc: <?= date('H:i d-m-Y', $data['created_at']) ?> 
+                                        Vào lúc: <?= date('H:i d-m-Y', $data['created_at']) ?> | 
                                         <?= ($data['checked'] == 1) ? 'Đã Xem' : 'Chưa Xem' ?>
                                     </div>
                                 </div>

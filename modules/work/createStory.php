@@ -31,7 +31,7 @@ $publish    = (isset($_POST['is_published']) == true) ? 1 : 0;
 $total = count_categories();
 
 if ($total) {
-    $data_list_cate = get_list_categories($total);
+    $data_list_cate = get_all_categories($total);
     $data_story = get_stories('slug', $slug_story);
     $data_user_follow = get_user_rela($user_id, 1);
 }
@@ -67,6 +67,8 @@ if ($request_method == 'POST'):
         		);
         	}
         }
+
+        redirect('/works');
 	endif;
 endif;
 

@@ -10,6 +10,7 @@
 require_once('system/bootstrap.php');
 require_model('chapter');
 require_model('comment');
+require_model('notification');
 require_model('story');
 
 $data_chapter = get_data_chapter($slug);
@@ -26,6 +27,13 @@ $data_next_chapter = get_next_chapter($data_chapter['id'], $data_chapter['story_
 
 if ($request_method == 'POST') {
 	insert_comment($msg, $user_id, $data_chapter['id'], time());
+	insert_notif(
+		$user['fullname'] . ' vừa bình luận trong truyện của bạn!',
+		'/story/' . $data_story['slug'] . '/' . $data_chapter['slug'],
+		$data_story['user_id'],
+		time()
+	);
+
 	redirect('/story/' . $data_story['slug'] . '/' . $data_chapter['slug']);
 }
 
