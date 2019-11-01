@@ -46,9 +46,11 @@ $routes = [
 	'/tag/(.*)' => 'tag/tag.php?slug=$1',
 
 	'/notifications' => 'notification/notification.php',
+	'/notifications/check' => 'notification/notification.php?act=check',
 	'/notifications/page/(.*)' => 'notification/notification.php?page=$1',
 
 	'/story/read' => 'story/read.php',
+	'/story/(.*)/(.*)/notif/(.*)' => 'chapter/chapter.php?act=check_notif&slug=$2&id=$3',
 	'/story/read/page/(.*)' => 'story/read.php?page=$1',
 	'/story/(.*)/like' => 'story/story.php?slug=$1&act=like',
 	'/story/(.*)/unlike' => 'story/story.php?slug=$1&act=unlike',

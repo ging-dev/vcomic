@@ -37,6 +37,14 @@ if ($request_method == 'POST') {
 	redirect('/story/' . $data_story['slug'] . '/' . $data_chapter['slug']);
 }
 
+switch ($act) {
+	case 'check_notif':
+		if ($id) {
+			update_checked($id);
+		}
+		break;
+}
+
 if ($total) {
 	$list_comment = get_list_comment($data_chapter['id'], $total);
 }

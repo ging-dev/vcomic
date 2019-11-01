@@ -22,6 +22,14 @@ if ($total) {
 	$list_notifs = get_notif($user_id, $total);
 }
 
+switch ($act) {
+	case 'check':
+		update_check_all();
+
+		redirect('/notifications');
+		break;
+}
+
 require_once('themes/' . THEME . '/layout/head.php');
 require_once('themes/' . THEME . '/templates/notification/notification.php');
 require_once('themes/' . THEME . '/layout/end.php');

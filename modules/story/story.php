@@ -64,8 +64,9 @@ if ($user_id) {
 			if (!get_nomination($data['id'], $user_id)) {
 				insert_nomination($data['id'], $user_id);
 				insert_notif(
-					'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa đề cử truyện của bạn!</a>', 
-					$data['user_id'], 
+					$user['fullname'] . ' vừa đề cử truyện của bạn!',
+					'/story/' . $slug,
+					$data['user_id'],
 					time()
 				);
 

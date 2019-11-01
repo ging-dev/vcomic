@@ -11,6 +11,11 @@
             <div class="col-8 pl-3">
                 <h3 class="font-weight-bold">Thông Báo</h3>
             </div>
+            <div class="col-4 text-right pr-3">
+                <a href="/notifications/check" class="btn btn-custom btn-sm">
+                    <i class="fal fa-check"></i> <span class="d-none d-md-inline-block">Đánh dấu đã xem</span>
+                </a>
+            </div>
         </div>
         <div class="row my-3 free-list">
         <?php if ($total): ?>

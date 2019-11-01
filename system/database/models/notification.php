@@ -27,6 +27,11 @@ function update_seen($user_id)
 	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `seen` = 1 WHERE `receiver_id` = ' . $user_id);
 }
 
+function update_check_all()
+{
+	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `checked` = 1');
+}
+
 function update_checked($notif_id)
 {
 	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `checked` = 1 WHERE `id` = ' . $notif_id . ' LIMIT 1');
