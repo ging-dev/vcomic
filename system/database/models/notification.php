@@ -27,12 +27,13 @@ function update_seen($user_id)
 	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `seen` = 1 WHERE `receiver_id` = ' . $user_id);
 }
 
-function update_checked($receiver_id, $notif_id)
+function update_checked($notif_id)
 {
-	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `checked` = 1 WHERE `receiver_id` = ' . $user_id . ' AND `id` = ' . $notif_id . ' LIMIT 1');
+	return vco_execute('UPDATE `' . VCO_NOTIFICATIONS . '` SET `checked` = 1 WHERE `id` = ' . $notif_id . ' LIMIT 1');
 }
 
-function insert_notif($msg, $receiver_id, $created_at)
+function insert_notif($msg, $url, $receiver_id, $created_at)
 {
-	return vco_execute('INSERT INTO `' . VCO_NOTIFICATIONS . '` (msg, receiver_id, created_at) VALUES ("' . $msg . '", ' . $receiver_id . ', ' . $created_at . ')');
+	return vco_execute('INSERT INTO `' . VCO_NOTIFICATIONS . '` 
+		(msg, url_post, receiver_id, created_at) VALUES ("' . $msg . '", "' . $url . '", ' . $receiver_id . ', ' . $created_at . ')');
 }

@@ -65,7 +65,7 @@ $routes = [
 	'/work/(.*)/draft' => 'work/editStory.php?act=draft&id=$1',
 	'/work/(.*)/writing' => 'work/editStory.php?act=writing&id=$1',
 	'/work/(.*)/complete' => 'work/editStory.php?act=complete&id=$1',
-	'/work/(.*)/del' => 'work/editStory.php?act=del&id=$1',
+	'/work/(.*)/del' => 'work/editStory.php?act=delete&id=$1',
 	'/work/(.*)' => 'work/postedChapter.php?id=$1',
 	'/work/(.*)/page/(.*)' => 'work/postedChapter.php?id=$1&page=$2',
 	'/works' => 'work/postedStory.php',

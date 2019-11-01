@@ -20,10 +20,12 @@
                         <div class="row mx-0 px-0">
                             <div class="col-md-12 pl-0">
                                 <div class="pl-3" style="overflow: hidden;">
-                                    <h5 class=""><?= $data['msg'] ?></h5>
+                                    <h5>
+                                        <a href="<?= $data['url_post'] ?>/notif/<?= $data['id'] ?>"><?= $data['msg'] ?></a>
+                                    </h5>
                                     <div class="update-time text-muted mt-2 font-italic">
                                         Vào lúc: <?= date('H:i d-m-Y', $data['created_at']) ?> 
-                                        <!-- <?= ($data['checked'] == 1) ? 'Đã Xem' : 'Chưa Xem' ?> -->
+                                        <?= ($data['checked'] == 1) ? 'Đã Xem' : 'Chưa Xem' ?>
                                     </div>
                                 </div>
                             </div>

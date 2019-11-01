@@ -43,8 +43,9 @@ if ($user_id) {
 				if (check_rela($data['id'], $user_id, 1) == 0) {
 					insert_rela($data['id'], $user_id, 1);
 					insert_notif(
-						'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa theo dõi bạn!</a>', 
-						$data['id'], 
+						$user['fullname'] . ' vừa theo dõi bạn!',
+						'/' . $user['username'],
+						$data['id'],
 						time()
 					);
 				}
@@ -58,6 +59,12 @@ if ($user_id) {
 				}
 
 				redirect('/' . $data['username']);
+				break;
+
+			case 'check_notif':
+				if ($id) {
+					update_checked($id);
+				}
 				break;
 		}
 	}

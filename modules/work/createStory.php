@@ -28,9 +28,13 @@ $tag        = isset($_POST['tag']) ? explode(",", _e(trim($_POST['tag']))) : '';
 $category_id = isset($_POST['category']) ? _e($_POST['category']) : '';
 $publish    = (isset($_POST['is_published']) == true) ? 1 : 0;
 
-$data_list_cate = get_list_categories(count_categories());
-$data_story = get_stories('slug', $slug_story);
-$data_user_follow = get_user_rela($user_id, 1);
+$total = count_categories();
+
+if ($total) {
+    $data_list_cate = get_list_categories($total);
+    $data_story = get_stories('slug', $slug_story);
+    $data_user_follow = get_user_rela($user_id, 1);
+}
 
 if ($request_method == 'POST'):
 	$tmp_name    = $_FILES['thumbnail']['tmp_name'];
@@ -56,8 +60,9 @@ if ($request_method == 'POST'):
         if ($publish == 1) {
         	foreach ($data_user_follow as $data_user) {
         		insert_notif(
-        			'<a href=\"/story/' . $slug_story . '\">' . $user['fullname'] . ' vừa đăng truyện mới.</a>', 
-        			$data_user['relation_user_id'], 
+        			$user['fullname'] . ' vừa đăng truyện mới!',
+                    '/story/' . $slug_story,
+        			$data_user['relation_user_id'],
         			time()
         		);
         	}

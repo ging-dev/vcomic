@@ -35,8 +35,9 @@ if ($user_id) {
 			if (!get_story_like($user_id, $data['id'])) {
 				insert_story_like($user_id, $data['id']);
 				insert_notif(
-					'<a href=\"/story/' . $data['slug'] . '\">' . $user['fullname'] . ' vừa yêu thích truyện của bạn!</a>', 
-					$data['user_id'], 
+					$user['fullname'] . ' vừa yêu thích truyện của bạn!',
+					'/story/' . $slug,
+					$data['user_id'],
 					time()
 				);
 				redirect('/story/' . $slug);
@@ -87,10 +88,17 @@ if ($user_id) {
 				$error = 'Bạn đã donate cho tác giả ' . $coin;
 				transfer_coin($coin, $user_id, $data['user_id']);
 				insert_notif(
-					'<a href=\"/' . $user['username'] . '\">' . $user['fullname'] . ' vừa donate ' . $coin . ' xu bạn!</a>', 
-					$data['user_id'], 
+					$user['fullname'] . ' vừa donate ' . $coin . ' xu bạn!',
+					'/' . $user['username'],
+					$data['user_id'],
 					time()
 				);
+			}
+			break;
+
+		case 'check_notif':
+			if ($id) {
+				update_checked($id);
 			}
 			break;
 	}

@@ -40,7 +40,8 @@ switch ($act):
 
 		foreach ($data_user_follow as $data_user) {
     		insert_notif(
-    			'<a href=\"/story/' . $slug_story . '\">' . $user['fullname'] . ' vừa đăng truyện mới.</a>', 
+    			$user['fullname'] . ' vừa đăng truyện mới!',
+                '/story/' . $data['slug'], 
     			$data_user['relation_user_id'], 
     			time()
     		);
@@ -68,8 +69,5 @@ switch ($act):
             redirect('/works');
         }
         break;
-
-    case 'info':
-    	break;
 
 endswitch;
