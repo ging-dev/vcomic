@@ -10,6 +10,7 @@
     <meta name="keywords" content="<?= $env['keywords'] ?>" />
     <meta name="description" content="<?= $env['description'] ?>" />
     <meta property="fb:app_id" content="" />
+    <link rel="canonical" href="<?= SITE_URL ?>" />
 	<title><?= isset($title) ? $title : $env['title'] ?></title>
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
@@ -17,7 +18,7 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/custom.css?ver=<?= VERSION ?>" />
 </head>
 <body>
-    <!-- section class="loading">
+    <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -28,7 +29,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
@@ -55,7 +56,7 @@
                         <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>?t=<?= time() ?>"> <?= $user['fullname'] ?>
                     </a>
                     <a class="item" href="/notifications">
-                        <?= count_notif_not_seen($user_id) ? '<i class="fas fa-bell"></i>' : '<i class="far fa-bell"></i>' ?>
+                        <?= count_notif_not_seen($user_id) ? '<i class="fas fa-bell"></i>' : '<i class="fal fa-bell"></i>' ?>
                     </a>
                     <a class="item" href="/logout"><i class="fal fa-door-open"></i></a>
     <?php else: ?>
@@ -99,7 +100,7 @@
                 </div>
                 <div class="item">
                     <a href="/notifications">
-                        <?= count_notif_not_seen($user_id) ? '<i class="fas fa-bell fa-lg"></i>' : '<i class="far fa-bell fa-lg"></i>' ?>
+                        <?= count_notif_not_seen($user_id) ? '<i class="fas fa-bell fa-lg"></i>' : '<i class="fal fa-bell fa-lg"></i>' ?>
                     </a>
                 </div>
                 <div class="item active">

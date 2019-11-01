@@ -196,10 +196,11 @@
     
         var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
             cluster: 'ap1',
-            forceTLS: true
+            forceTLS: true,
+            authEndpoint: '/modules/auth'
         });
         
-        var channel = pusher.subscribe('chat');
+        var channel = pusher.subscribe('private-chat');
         var user_id = <?= $user_id ?>;
         var audio = new Audio('/assets/alert.mp3');
 
