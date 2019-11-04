@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/custom.css?ver=<?= VERSION ?>" />
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 </head>
 <body>
     <section class="loading">
@@ -42,9 +43,6 @@
             </div>
             <div class="custom-nav-item">
                 <div class="custom-nav-list">
-                    <!-- <a class="item" href="/top">
-                        <i class="far fa-hashtag"></i> TOP
-                    </a> -->
     <?php if ($user_id): ?>
                     <a class="item" href="/chat">
                         <i class="fal fa-comment-alt-lines"></i> Chat
@@ -70,24 +68,12 @@
                         <i class="fab fa-facebook-f"></i> Facebook
                     </a>
     <?php endif ?>
-                    <div class="item cursor">
-                        <i class="fal fa-list"></i> <span class="list-title">Thể loại</span>
-                        <div class="more-item category">
-                            <div class="row text-center">
-    <?php if (get_categories()): ?>
-    <?php foreach (get_categories() as $list_cate): ?>
-                                <div class="col-6 sub px-2">
-                                    <a href="/category/<?= $list_cate['slug'] ?>" class="text-white"><?= $list_cate['name'] ?></a>
-                                </div>
-    <?php endforeach ?>
-    <?php else: ?>
-                                <div class="col-12 sub px-2">
-                                    <a href="#" class="text-white">Chưa có danh mục nào!</a>
-                                </div>
+    <?php if ($user_id): ?>
+                    <a href="/messages" class="item cursor">
+                        <?= (count_new_msg($user_id) != 0) ? '<i class="fas fa-paper-plane"></i>' : '<i class="fal fa-paper-plane"></i>' ?>
+                        <span class="d-none d-md-inline-block">Tin Nhắn</span>
+                    </a>
     <?php endif ?>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </nav>

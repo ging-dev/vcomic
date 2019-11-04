@@ -39,6 +39,11 @@ $routes = [
 
 	'/modules/auth' => 'auth.php',
 
+	'/messages' => 'message/list.php',
+	'/messages/page/(.*)' => 'message/list.php?page=$1',
+	'/message/(.*)/page/(.*)' => 'message/write.php?username=$1&page=$2',
+	'/message/(.*)' => 'message/write.php?username=$1',
+
 	'/category/(.*)/page/(.*)' => 'category/category.php?slug=$1&page=$2',
 	'/category/(.*)' => 'category/category.php?slug=$1',
 
@@ -68,8 +73,8 @@ $routes = [
 	'/work/(.*)/writing' => 'work/editStory.php?act=writing&id=$1',
 	'/work/(.*)/complete' => 'work/editStory.php?act=complete&id=$1',
 	'/work/(.*)/del' => 'work/editStory.php?act=delete&id=$1',
-	'/work/(.*)' => 'work/postedChapter.php?id=$1',
 	'/work/(.*)/page/(.*)' => 'work/postedChapter.php?id=$1&page=$2',
+	'/work/(.*)' => 'work/postedChapter.php?id=$1',
 	'/works' => 'work/postedStory.php',
 
 	'/chapter/(.*)/(.*)/draft' => 'work/editChapter.php?act=draft&id=$1&slug=$2',

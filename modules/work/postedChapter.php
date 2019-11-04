@@ -23,7 +23,7 @@ if (!$data_story) {
 $total = count_chapters($data_story['id']);
 
 if ($total) {
-	$list_chapts = get_all_chapter($data_story['id']);
+	$list_chapts = get_list_chapters($data_story['id'], $total);
 }
 
 require_once('themes/' . THEME . '/layout/head.php');

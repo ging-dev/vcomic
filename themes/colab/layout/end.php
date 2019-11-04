@@ -166,19 +166,18 @@
         </div>
     </div>
 </div>
-	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
-	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
-	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
-	<script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
-	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
-	<script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
-	
-	<script type="text/javascript">
+    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
+    
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#submit-chat').on('click', function () {
-                var message = $('#message').val(); 
+                var message = $('#chat_box').val(); 
            
                 $.ajax({
                     type: "POST",
@@ -188,10 +187,27 @@
                     },
                     cache: false,
                     success: function (data){
-                        $('#message').val('');          
+                        $('#chat_box').val('');
                     }
                 });
-            });    
+            });
+
+            $('#submit-message').on('click', function () {
+                var content = $('#message').val(); 
+           
+                $.ajax({
+                    type: "POST",
+                    url:  "/message/<?= $username ?>",
+                    data: {
+                        content : content
+                    },
+                    cache: false,
+                    success: function (data){
+                        $('#message-room').prepend(data);
+                        $('#message').val('');
+                    }
+                });
+            });
         });
     
         var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
@@ -201,9 +217,10 @@
         });
         
         var channel = pusher.subscribe('private-chat');
+
         var user_id = <?= $user_id ?>;
         var audio = new Audio('/assets/alert.mp3');
-
+        
         channel.bind('chat-room', function(data) {
             var html = '<div class="text-' + (data.user_id != user_id ? 'left' : 'right') + '"><div class="media"><div class="media-body mr-3"><div class="chat-content">' + (data.user_id != user_id ? '<img class="lazy avatar-sm" src="' + data.avatar +'"/><a href="/' + data.username + '"><b>' + data.display_name + '</b></a>: ' : '') + data.message + '</div></div></div></div>';            
             $('#chat-room').prepend(html);
@@ -211,8 +228,7 @@
             if (data.user_id != user_id) {
                 audio.play();
             }
-        }); 
-        
+        });
     </script>
 </body>
 </html>

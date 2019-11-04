@@ -9,7 +9,7 @@ require_model('story');
 $slug_stories = 'linh-vu-thien-ha';
 
 $data_story = get_stories('slug', $slug_stories);
-$data_chapters = get_all_chapter($data_story['id']);
+$data_chapters = get_all_chapters($data_story['id']);
 
 $url = 'https://truyenfull.vn/linh-vu-thien-ha/'; // Link truyện
 $start = '1';

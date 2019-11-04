@@ -2,7 +2,7 @@
     <div class="container pt-5">
         <h3>Chat Online</h3>
         <div class="chatbox my-3">
-            <textarea class="form-control" name="msg" placeholder="Nhập nội dung chat..." id="message" required></textarea>
+            <textarea class="form-control" id="chat_box" name="msg" placeholder="Nhập nội dung chat..." required></textarea>
             <div class="toolbar position-relative pt-2" style="min-height: 35px;">
                 <div class="float-left">
 <?php if ($user['role'] > 5): ?>

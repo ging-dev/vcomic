@@ -45,9 +45,10 @@ if ($request_method == 'POST') {
             'message'      => $msg
         ];
                    
-        $pusher->trigger('private-chat', 'chat-room', $data);   
+        $pusher->trigger('private-chat', 'chat-room', $data);
     }
-    exit;
+
+    exit();
 }
 
 if ($total) {

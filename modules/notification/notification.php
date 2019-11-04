@@ -19,7 +19,7 @@ $total = count_notif($user_id);
 $title = 'Bạn có ' . count_notif_not_seen($user_id) . ' thông báo mới!';
 
 if ($total) {
-	$list_notifs = get_notif($user_id, $total);
+	$list_notifs = get_list_notif($user_id, $total);
 }
 
 switch ($act) {

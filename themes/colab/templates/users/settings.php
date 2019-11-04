@@ -13,7 +13,7 @@
                     <a class="item d-block" href="/profile/password">
                         Đổi Mật Khẩu
                     </a>
-            <?php if ($user['role'] > 1): ?>
+            <?php if ($user['role'] == 4): ?>
                     <a class="item d-block" href="/works">
                         Quản Lý Truyện
                     </a>

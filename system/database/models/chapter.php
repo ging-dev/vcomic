@@ -22,9 +22,14 @@ function get_chapter($story_id)
 	return vco_fetchAll('SELECT * FROM `' . VCO_CHAPTERS . '` WHERE `story_id` = ' . $story_id . ' AND `is_published` = 1 ORDER BY `id`');
 }
 
-function get_all_chapter($story_id)
+function get_all_chapters($story_id)
 {
 	return vco_fetchAll('SELECT * FROM `' . VCO_CHAPTERS . '` WHERE `story_id` = ' . $story_id . ' ORDER BY `id` DESC');
+}
+
+function get_list_chapters($story_id, $total)
+{
+	return vco_fetchAll('SELECT * FROM `' . VCO_CHAPTERS . '` WHERE `story_id` = ' . $story_id . ' ORDER BY `id` DESC' . get_page($total));
 }
 
 function get_data_chapter($slug)

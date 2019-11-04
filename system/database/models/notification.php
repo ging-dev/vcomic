@@ -17,7 +17,7 @@ function count_notif($user_id)
 	return vco_fetchColumn('SELECT COUNT(*) FROM `' . VCO_NOTIFICATIONS . '` WHERE `receiver_id` = ' . $user_id);
 }
 
-function get_notif($user_id, $total)
+function get_list_notif($user_id, $total)
 {
 	return vco_fetchAll('SELECT * FROM `' . VCO_NOTIFICATIONS . '` WHERE `receiver_id` = ' . $user_id . ' ORDER BY `id` DESC' . get_page($total));
 }

@@ -58,7 +58,7 @@
                     Chưa có chương nào được đăng
                 </div>
             </div>
-        <?php echo pagination('/work/' . $id, $total); ?>
     <?php endif ?>
+    <?php echo pagination('/work/' . $id, $total); ?>
     </div>
 </section>
