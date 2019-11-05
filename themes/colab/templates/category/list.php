@@ -14,7 +14,7 @@
                             <div class="col-md-12 pl-0">
                                 <div class="pl-3" style="overflow: hidden;">
                                     <h5>
-                                        <a href="<?= $data['slug'] ?>"><?= $data['name'] ?></a>
+                                        <a href="/category/<?= $data['slug'] ?>"><?= $data['name'] ?></a>
                                     </h5>
                                     <div class="update-time text-muted mt-2 font-italic">
                                         Vào lúc: <?= date('H:i d-m-Y', $data['created_at']) ?>

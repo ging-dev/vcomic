@@ -12,14 +12,13 @@
     <meta property="fb:app_id" content="" />
     <link rel="canonical" href="<?= SITE_URL ?>" />
 	<title><?= isset($title) ? $title : $env['title'] ?></title>
-	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/style.min.css?ver=<?= VERSION ?>" />
+	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
+	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
+	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/style.min.css?ver=<?= VERSION ?>" />
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 </head>
 <body>
-    <section class="loading">
+    <!-- <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -30,7 +29,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
@@ -54,7 +53,7 @@
                         <i class="far fa-history"></i> Đã Đọc
                     </a>
                     <a class="item" href="/profile">
-                        <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>?t=<?= time() ?>"> <?= $user['fullname'] ?>
+                        <img class="lazy avatar-sm" data-original="/uploads/avatar/<?= $user['avatar'] ?>"> <?= $user['fullname'] ?>
                     </a>
                     <a class="item" href="/notifications">
                         <?= count_notif_not_seen($user_id) ? '<i class="fas fa-bell"></i>' : '<i class="fal fa-bell"></i>' ?>

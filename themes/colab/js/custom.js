@@ -29,22 +29,6 @@ $(document).ready(function() {
             $("header").addClass("hide")
         })
     });
-    new Swiper(".swiper-container", {
-        slidesPerView: "auto",
-        spaceBetween: 30,
-        freeMode: !0,
-        clickable: !0
-    }), new Swiper(".swiper-slider-index", {
-        effect: "fade",
-        fadeEffect: {
-            crossFade: !0
-        },
-        loop: !0,
-        autoplay: {
-            delay: 7500,
-            disableOnInteraction: !1
-        }
-    });
     $(".fontsize-chooser").change(function() {
         $(".chapter-content").css({
             "font-size": $(".fontsize-chooser").val() + "px"

@@ -1,5 +1,5 @@
 <section class="profile">
-    <div class="container-fluid profile-cover pt-2" style="background-image:url('<?= get_cover($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>');">
+    <div class="container-fluid profile-cover pt-2" style="background-image:url('<?= get_cover($user_id) ?>');">
         <div class="container fill">
             <div class="cover-change">
                 <a href="/profile/cover">
@@ -9,7 +9,7 @@
                 </a>
             </div>
             <div class="profile-avatar">
-                <img class="lazy image" data-original="<?= get_avatar($user_id) ?>?t=<?= mt_rand(10000, 99999) ?>" />
+                <img class="lazy image" data-original="<?= get_avatar($user_id) ?>" />
                 <a href="/profile/avatar">
                     <div class="change">
                         <i class="fal fa-camera-alt"></i>

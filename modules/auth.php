@@ -14,9 +14,9 @@ $options = array(
     'useTLS' => true
   );
 $pusher = new Pusher\Pusher(
-    '4b3ff0efa1aa3ccadbc3',
-    '5a7b664d09043f69b544',
-    '888903',
+    $env['api_pusher_key'],
+    $env['api_pusher_secret'],
+    $env['api_pusher_id'],
     $options
 );
 

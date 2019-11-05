@@ -39,3 +39,25 @@ else: ?>
         <?= pagination('/chat', $total); ?>
     </div>
 </section>
+
+<script>
+    var pusher = new Pusher('<?= $env['api_pusher_key'] ?>', {
+        cluster: 'ap1',
+        forceTLS: true,
+        authEndpoint: '/modules/auth'
+    });
+    
+    var channel = pusher.subscribe('private-chat');
+
+    var user_id = <?= $user_id ?>;
+    var audio = new Audio('/assets/alert.mp3');
+    
+    channel.bind('chat-room', function(data) {
+        var html = '<div class="text-' + (data.user_id != user_id ? 'left' : 'right') + '"><div class="media"><div class="media-body mr-3"><div class="chat-content">' + (data.user_id != user_id ? '<img class="lazy avatar-sm" src="' + data.avatar +'"/><a href="/' + data.username + '"><b>' + data.display_name + '</b></a>: ' : '') + data.message + '</div></div></div></div>';            
+        $('#chat-room').prepend(html);
+        
+        if (data.user_id != user_id) {
+            audio.play();
+        }
+    });
+</script>

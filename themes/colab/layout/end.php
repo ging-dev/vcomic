@@ -168,9 +168,7 @@
 </div>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
     
     <script type="text/javascript">
@@ -218,26 +216,6 @@
                     }
                 });
             }, 10000);
-        });
-    
-        var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
-            cluster: 'ap1',
-            forceTLS: true,
-            authEndpoint: '/modules/auth'
-        });
-        
-        var channel = pusher.subscribe('private-chat');
-
-        var user_id = <?= $user_id ?>;
-        var audio = new Audio('/assets/alert.mp3');
-        
-        channel.bind('chat-room', function(data) {
-            var html = '<div class="text-' + (data.user_id != user_id ? 'left' : 'right') + '"><div class="media"><div class="media-body mr-3"><div class="chat-content">' + (data.user_id != user_id ? '<img class="lazy avatar-sm" src="' + data.avatar +'"/><a href="/' + data.username + '"><b>' + data.display_name + '</b></a>: ' : '') + data.message + '</div></div></div></div>';            
-            $('#chat-room').prepend(html);
-            
-            if (data.user_id != user_id) {
-                audio.play();
-            }
         });
     </script>
 </body>
