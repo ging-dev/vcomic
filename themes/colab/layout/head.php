@@ -15,11 +15,11 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
-	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/custom.css?ver=<?= VERSION ?>" />
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
+	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/style.min.css?ver=<?= VERSION ?>" />
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 </head>
 <body>
-    <section class="loading">
+    <!-- <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
@@ -43,6 +43,9 @@
             </div>
             <div class="custom-nav-item">
                 <div class="custom-nav-list">
+                    <a class="item" href="/categories">
+                        <i class="fal fa-books"></i> Thư Mục
+                    </a>
     <?php if ($user_id): ?>
                     <a class="item" href="/chat">
                         <i class="fal fa-comment-alt-lines"></i> Chat

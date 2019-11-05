@@ -46,6 +46,8 @@ $routes = [
 
 	'/category/(.*)/page/(.*)' => 'category/category.php?slug=$1&page=$2',
 	'/category/(.*)' => 'category/category.php?slug=$1',
+	'/categories/page/(.*)' => 'category/list.php?page=$1',
+	'/categories' => 'category/list.php',
 
 	'/tag/(.*)/page/(.*)' => 'tag/tag.php?slug=$1&page=$2',
 	'/tag/(.*)' => 'tag/tag.php?slug=$1',

@@ -166,13 +166,13 @@
         </div>
     </div>
 </div>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
-    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
+    <script defer type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
     
     <script type="text/javascript">
         $(document).ready(function () {
@@ -186,8 +186,12 @@
                         msg : message
                     },
                     cache: false,
+                    beforeSend : function () {
+                        $('#submit-chat').attr('disabled', true);
+                    },
                     success: function (data){
                         $('#chat_box').val('');
+                        $('#submit-chat').removeAttr('disabled');
                     }
                 });
             });
