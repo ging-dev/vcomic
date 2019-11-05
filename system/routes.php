@@ -38,6 +38,8 @@ $routes = [
 	'/chat/page/(.*)' => 'chat/chat.php?page=$1',
 
 	'/modules/auth' => 'auth.php',
+	'/modules/ajax/new_msg' => 'ajax.php?act=message',
+	'/modules/ajax/new_notif' => 'ajax.php?act=notification',
 
 	'/messages' => 'message/list.php',
 	'/messages/page/(.*)' => 'message/list.php?page=$1',

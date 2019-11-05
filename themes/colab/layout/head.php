@@ -16,10 +16,10 @@
 	<link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
 	<link rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/style.min.css?ver=<?= VERSION ?>" />
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 </head>
 <body>
-    <!-- <section class="loading">
+    <section class="loading">
         <div class="loading-content">
             <div class="loader">
                 <div class="logo">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">
@@ -73,7 +73,8 @@
     <?php endif ?>
     <?php if ($user_id): ?>
                     <a href="/messages" class="item cursor">
-                        <?= (count_new_msg($user_id) != 0) ? '<i class="fas fa-paper-plane"></i>' : '<i class="fal fa-paper-plane"></i>' ?>
+                        <span id="new-msg"></span>
+                        <i class="fas fa-paper-plane"></i>
                         <span class="d-none d-md-inline-block">Tin Nhắn</span>
                     </a>
     <?php endif ?>

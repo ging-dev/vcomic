@@ -166,13 +166,12 @@
         </div>
     </div>
 </div>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/pace.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
-    <script defer type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
     
     <script type="text/javascript">
         $(document).ready(function () {
@@ -212,6 +211,13 @@
                     }
                 });
             });
+            setInterval(function(){
+                $.getJSON("/modules/ajax/new_msg", function(data) {
+                    if (data.new_msg > 0) {
+                        $('#new-msg').html('<span class="badge-notif"></span>');
+                    }
+                });
+            }, 10000);
         });
     
         var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {

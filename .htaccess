@@ -40,10 +40,6 @@
 	ErrorDocument 401 /themes/errors/404.html
 	ErrorDocument 500 /themes/errors/404.html
 
-    RewriteCond %{REQUEST_METHOD} ^TRACE
-    RewriteCond %{HTTP:range} !(^bytes=[^,]+(,[^,]+){0,4}$|^$)
-    RewriteRule .* - [F]
-
     RewriteCond %{REQUEST_URI} !^/(assets|uploads)/
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
