@@ -77,3 +77,5 @@ $env = array(
     'keywords' => 'doc truyen, web truyen, vcomic, truyen vcomic, doc truyen chu',
     'description' => 'vComic.'
 );
+
+ob_start();

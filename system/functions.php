@@ -186,5 +186,3 @@ function abort($code)
     require_once(ROOT . '/themes/errors/' . $code . '.html');
     exit();
 }
-
-ob_start();
