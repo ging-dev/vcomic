@@ -6,14 +6,14 @@ require_model('chapter');
 require_model('story');
 
 // >_ gingdev
-$slug_stories = 'linh-vu-thien-ha';
+$slug_stories = 'choc-tuc-vo-yeu-mua-mot-tang-mot';
 
 $data_story = get_stories('slug', $slug_stories);
 $data_chapters = get_all_chapters($data_story['id']);
 
-$url = 'https://truyenfull.vn/linh-vu-thien-ha/'; // Link truyện
+$url = 'https://truyenfull.vn/choc-tuc-vo-yeu-mua-mot-tang-mot-241019/'; // Link truyện
 $start = '1';
-$end = '40';
+$end = '100';
 
 for ($i = $start; $i <= $end; $i++) {
     $data = curl($url . 'chuong-' . $i . '/');

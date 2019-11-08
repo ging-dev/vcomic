@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="google-site-verification" content="" />
@@ -15,21 +15,22 @@
 	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/assets/css/all.min.css?ver=<?= VERSION ?>" />
 	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/assets/css/bootstrap.min.css?ver=<?= VERSION ?>" />
 	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/style.min.css?ver=<?= VERSION ?>" />
+	<link type="text/css" rel="stylesheet" href="<?= SITE_URL ?>/themes/colab/css/swiper.min.css?ver=<?= VERSION ?>" />
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/pusher.min.js?ver=<?= VERSION ?>"></script>
 </head>
 <body>
-    <!-- <section class="loading">
-        <div class="loading-content">
-            <div class="loader">
-                <div class="logo">
-                    vComic.
-                </div>
-                <div class="icon">
-                    <div class="sp sp-3balls"></div>
-                </div>
-            </div>
-        </div>
-    </section> -->
+    <!--<section class="loading">-->
+    <!--    <div class="loading-content">-->
+    <!--        <div class="loader">-->
+    <!--            <div class="logo">-->
+    <!--                vComic.-->
+    <!--            </div>-->
+    <!--            <div class="icon">-->
+    <!--                <div class="sp sp-3balls"></div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
     <header style="margin-bottom: 52px;">
         <nav class="custom-nav">
             <div class="custom-nav-brand">

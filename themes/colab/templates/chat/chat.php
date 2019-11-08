@@ -41,7 +41,7 @@ else: ?>
 </section>
 
 <script>
-    var pusher = new Pusher('<?= $env['api_pusher_key'] ?>', {
+    var pusher = new Pusher('4b3ff0efa1aa3ccadbc3', {
         cluster: 'ap1',
         forceTLS: true,
         authEndpoint: '/modules/auth'

@@ -32,6 +32,7 @@ if ($user_id) {
 
 	switch ($act) {
 		case 'like':
+		    $html = '';
 			if (!get_story_like($user_id, $data['id'])) {
 				insert_story_like($user_id, $data['id']);
 				insert_notif(
@@ -40,27 +41,25 @@ if ($user_id) {
 					$data['user_id'],
 					time()
 				);
-				redirect('/story/' . $slug);
-			} else {
-				redirect('/story/' . $slug);
+				$html .= '<i class="far fa-heart-broken"></i> Bỏ Thích';
+			} elseif (get_story_like($user_id, $data['id'])) {
+			    del_story_like($user_id, $data['id']);
+			    $html .= '<i class="far fa-heart-circle"></i> Yêu Thích';    
 			}
-			break;
-		
-		case 'unlike':
-			del_story_like($user_id, $data['id']);
-
-			redirect('/story/' . $slug);
-			break;
+			$response = [
+			    'html' => $html
+			];
+			echo json_encode($response);
+			exit();
 
 		case 'nomination':
-			if ($user['role'] < 3) {
+			if (!$user_id || $user['role'] < 3) {
 				abort(404);
 			}
 
 			if ($user_id == $data['user_id']) {
 				abort(404);
 			}
-			
 			if (!get_nomination($data['id'], $user_id)) {
 				insert_nomination($data['id'], $user_id);
 				insert_notif(
@@ -69,12 +68,12 @@ if ($user_id) {
 					$data['user_id'],
 					time()
 				);
-
-				redirect('/story/' . $slug);
+                $success = 1;
 			} else {
-				redirect('/story/' . $slug);
+			    $success = 0;
 			}
-			break;
+			echo json_encode(['success' => $success]);
+			exit();
 
 		case 'donate':
 			$error = false;

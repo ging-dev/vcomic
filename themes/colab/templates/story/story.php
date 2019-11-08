@@ -45,13 +45,13 @@
                                             <?php endif ?>
                                             <?php if ($user_id): ?>
                                                 <?php if (!get_story_like($user_id, $data['id'])): ?>
-                                                    <a href="/story/<?= $data['slug'] ?>/like" class="btn btn-outline-custom btn-sm">
-                                                        <i class="far fa-heart-circle"></i> Yêu Thích
-                                                    </a>
+                                                    <button id="submit-like" class="btn btn-outline-custom btn-sm">
+                                                        <i class="far fa-heart"></i> Yêu Thích
+                                                    </button>
                                                 <?php else: ?>
-                                                    <a href="/story/<?= $data['slug'] ?>/unlike" class="btn btn-outline-custom btn-sm">
+                                                    <button id="submit-like" class="btn btn-outline-custom btn-sm">
                                                         <i class="far fa-heart-broken"></i> Bỏ Thích
-                                                    </a>
+                                                    </button>
                                                 <?php endif ?>
                                             <?php endif ?>
                                             </div>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                         <?php if (!get_nomination($data['id'], $user_id)): ?>
-                            <?php if ($user['role'] < 3): ?>
+                            <?php if (!$user_id || $user['role'] < 3): ?>
                                 <span class="btn btn-custom btn-sm">
                                     <i class="fal fa-ticket-alt"></i> Bạn phải là VIP
                                 </span>
@@ -131,9 +131,9 @@
                                         <i class="fal fa-ticket-alt"></i> Truyện của bạn được đề cử <?= $count_nomination ?> lượt
                                     </span>
                                 <?php else: ?>
-                                    <a href="/story/<?= $data['slug'] ?>/nomination" class="btn btn-outline-custom btn-sm">
+                                    <button id="submit-nomination" class="btn btn-outline-custom btn-sm">
                                         <i class="fal fa-ticket-alt"></i> Đề cử <?= $count_nomination ?> lượt
-                                    </a>
+                                    </button>
                                 <?php endif ?>
                             <?php endif ?>
                         <?php else: ?>

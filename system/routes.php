@@ -62,7 +62,6 @@ $routes = [
 	'/story/(.*)/(.*)/notif/(.*)' => 'chapter/chapter.php?act=check_notif&slug=$2&id=$3',
 	'/story/read/page/(.*)' => 'story/read.php?page=$1',
 	'/story/(.*)/like' => 'story/story.php?slug=$1&act=like',
-	'/story/(.*)/unlike' => 'story/story.php?slug=$1&act=unlike',
 	'/story/(.*)/nomination' => 'story/story.php?slug=$1&act=nomination',
 	'/story/(.*)/donate/(.*)' => 'story/story.php?slug=$1&act=donate&coin=$2',
 	'/story/(.*)/notif/(.*)' => 'story/story.php?slug=$1&act=check_notif&id=$2',

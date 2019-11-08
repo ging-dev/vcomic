@@ -168,7 +168,9 @@
 </div>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/jquery.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/bootstrap.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/notify.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/assets/js/lazyload.min.js?ver=<?= VERSION ?>"></script>
+    <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/swiper.min.js?ver=<?= VERSION ?>"></script>
     <script type="text/javascript" src="<?= SITE_URL ?>/themes/<?= THEME ?>/js/custom.js?ver=<?= VERSION ?>"></script>
     
     <script type="text/javascript">
@@ -192,6 +194,17 @@
                     }
                 });
             });
+            
+            $('#submit-like').on('click', function () {
+                $.getJSON("/story/<?= $slug ?>/like", function(data) {
+                    $('#submit-like').html(data.html);
+                });
+            });
+            $('#submit-nomination').on('click', function () {
+                $.getJSON("/story/<?= $slug ?>/nomination", function(data) {
+                    if (data.success == 1) $('#submit-nomination').html('<i class="fal fa-ticket-alt"></i> Bạn đã đề cử');
+                });
+            });        
 
             $('#submit-message').on('click', function () {
                 var content = $('#message').val(); 

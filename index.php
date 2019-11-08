@@ -36,7 +36,7 @@ foreach ($routes as $key => $value) {
 		$recover_code = isset($_GET['recover_code']) ? _e(trim($_GET['recover_code'])) : '';
 
 		require_once('modules/' . $a[0]);
-		exit();
+		exit;
 	}
 }
 

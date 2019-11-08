@@ -12,7 +12,7 @@ require_once('database/configs.php');
 require_once('functions.php');
 require_once('routes.php');
 
-define('SITE_URL', 'http://vcomic.net');
+define('SITE_URL', 'https://devfun.xyz');
 define('ROOT', dirname(dirname(__FILE__)));
 define('THEME', 'colab');
 define('THEME_ADMIN', 'admin');
@@ -70,12 +70,7 @@ if ($user_id) {
 $request_method = isset($_SERVER['REQUEST_METHOD']) ? trim($_SERVER['REQUEST_METHOD']) : '';
 $per_page = 20;
 $env = array(
-    'api_pusher_id' => 888903,
-    'api_pusher_key' => '4b3ff0efa1aa3ccadbc3',
-    'api_pusher_secret' => '5a7b664d09043f69b544',
     'title' => 'vComic.',
     'keywords' => 'doc truyen, web truyen, vcomic, truyen vcomic, doc truyen chu',
     'description' => 'vComic.'
 );
-
-ob_start();

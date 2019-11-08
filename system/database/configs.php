@@ -8,9 +8,9 @@
  */
 
 function pdo_get_connection() {
-    $dburl = 'mysql:host=localhost;dbname=colab;charset=utf8mb4';
-    $username = 'root';
-    $password = '';
+    $dburl = 'mysql:host=localhost;dbname=vcomic;charset=utf8mb4';
+    $username = 'nhan';
+    $password = 'NhanDoanh2510@';
 
     $conn = new PDO($dburl, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
